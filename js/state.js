@@ -1,21 +1,21 @@
 /**
- * PASADO - State Management & Local Storage Persistence
+ * NURSPHERE - State Management & Local Storage Persistence
  * Tracks PNLE progress, practice results, weak area diagnostics,
  * spaced repetition flashcards, and unfolding clinical case studies.
  */
 
 const STORAGE_KEYS = {
-  ANSWERS: 'pasado_answers_v1',
-  BOOKMARKS: 'pasado_bookmarks_v1',
-  STATS: 'pasado_stats_v1',
-  THEME: 'pasado_theme_v1',
-  EXAM_HISTORY: 'pasado_exam_history_v1',
-  FLASHCARDS: 'pasado_flashcards_v1',
-  CASE_STUDIES: 'pasado_case_studies_v1',
-  NOTES: 'pasado_notes_v1'
+  ANSWERS: 'nursphere_answers_v1',
+  BOOKMARKS: 'nursphere_bookmarks_v1',
+  STATS: 'nursphere_stats_v1',
+  THEME: 'nursphere_theme_v1',
+  EXAM_HISTORY: 'nursphere_exam_history_v1',
+  FLASHCARDS: 'nursphere_flashcards_v1',
+  CASE_STUDIES: 'nursphere_case_studies_v1',
+  NOTES: 'nursphere_notes_v1'
 };
 
-class PasadoState {
+class NursphereState {
   constructor() {
     this.answers = this.load(STORAGE_KEYS.ANSWERS, {});
     this.bookmarks = new Set(this.load(STORAGE_KEYS.BOOKMARKS, []));
@@ -32,7 +32,11 @@ class PasadoState {
 
   load(key, defaultValue) {
     try {
-      const data = localStorage.getItem(key);
+      let data = localStorage.getItem(key);
+      if (!data && key.startsWith('nursphere_')) {
+        const legacyKey = key.replace('nursphere_', 'pasado_');
+        data = localStorage.getItem(legacyKey);
+      }
       return data ? JSON.parse(data) : defaultValue;
     } catch (e) {
       console.warn("Storage load error:", e);
@@ -42,7 +46,11 @@ class PasadoState {
 
   save(key, value) {
     try {
-      localStorage.setItem(key, JSON.stringify(value));
+      const serialized = JSON.stringify(value);
+      localStorage.setItem(key, serialized);
+      if (key.startsWith('nursphere_')) {
+        localStorage.setItem(key.replace('nursphere_', 'pasado_'), serialized);
+      }
     } catch (e) {
       console.warn("Storage save error:", e);
     }
@@ -383,7 +391,14 @@ class PasadoState {
     this.save(STORAGE_KEYS.EXAM_HISTORY, this.examHistory);
   }
 }
-const appState = new PasadoState();
 
-if (typeof window !== 'undefined') window.appState = appState;
-if (typeof globalThis !== 'undefined') globalThis.appState = appState;
+const appState = new NursphereState();
+
+if (typeof window !== 'undefined') {
+  window.appState = appState;
+  window.NursphereState = NursphereState;
+  window.PasadoState = NursphereState;
+}
+if (typeof globalThis !== 'undefined') {
+  globalThis.appState = appState;
+}

@@ -6,7 +6,8 @@
 class SoundEffects {
   constructor() {
     this.audioCtx = null;
-    this.soundEnabled = localStorage.getItem('pasado_sound_enabled') !== 'false';
+    const stored = localStorage.getItem('nursphere_sound_enabled');
+    this.soundEnabled = (stored !== null ? stored !== 'false' : localStorage.getItem('pasado_sound_enabled') !== 'false');
   }
 
   init() {
@@ -23,6 +24,7 @@ class SoundEffects {
 
   toggleSound() {
     this.soundEnabled = !this.soundEnabled;
+    localStorage.setItem('nursphere_sound_enabled', this.soundEnabled);
     localStorage.setItem('pasado_sound_enabled', this.soundEnabled);
     return this.soundEnabled;
   }

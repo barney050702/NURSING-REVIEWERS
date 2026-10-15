@@ -1,11 +1,11 @@
 {
-  "name": "Pasado - PNLE Review Companion",
-  "short_name": "Pasado",
+  "name": "Nursphere - Philippine Nursing Board Review",
+  "short_name": "Nursphere",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0f1d",
   "theme_color": "#0a0f1d",
-  "description": "Smartest Philippine Nurse Licensure Examination Board Companion",
+  "description": "Smartest Philippine Nurse Licensure Examination Board Review Companion",
   "icons": [
     {
       "src": "./icons/icon-192.png",

@@ -1,16 +1,18 @@
 /**
- * PASADO - Service Worker for Offline PWA Capabilities
+ * NURSPHERE - Service Worker for Offline PWA Capabilities
  * Caches application assets for offline studying in provincial/hospital settings.
  */
 
-const CACHE_VERSION = 'v3';
-const CACHE_NAME = `pasado-pnle-${CACHE_VERSION}`;
+const CACHE_VERSION = 'v4';
+const CACHE_NAME = `nursphere-pnle-${CACHE_VERSION}`;
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './manifest.json',
+  './assets/nursphere-icon-clean.png',
   './icons/icon-180.png',
   './icons/icon-192.png',
+  './icons/icon-512.png',
   './css/style.css',
   './css/components.css',
   './js/data/pnle_questions.js',

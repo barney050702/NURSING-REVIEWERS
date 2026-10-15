@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function initTheme() {
-    const savedTheme = localStorage.getItem('pasado_theme_v1') || localStorage.getItem('pasado_theme') || 'dark';
+    const savedTheme = localStorage.getItem('nursphere_theme_v1') || localStorage.getItem('pasado_theme_v1') || localStorage.getItem('pasado_theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
   }
@@ -103,8 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const current = document.documentElement.getAttribute('data-theme') || 'dark';
     const next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('nursphere_theme_v1', next);
     localStorage.setItem('pasado_theme_v1', next);
-    localStorage.setItem('pasado_theme', next);
     updateThemeIcon(next);
     soundManager.playClick();
   }

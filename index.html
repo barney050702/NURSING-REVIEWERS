@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pasado - Your Smartest Nursing Board Companion | PNLE Review</title>
+  <meta name="description" content="Pasado is a digital review application designed to help nursing students prepare for the Philippine Nurse Licensure Examination (PNLE) with structured roadmaps, clinical reasoning, and targeted review.">
+  <meta name="keywords" content="PNLE, Philippine Nurse Licensure Examination, Nursing Practice, PRC Board of Nursing, Table of Specifications, RA 9173, Nursing Review">
+
+  <!-- Manifest & Icons for PWA -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Top Announcement / Grounding Banner -->
+  <aside class="grounding-banner" aria-label="Official Compliance and Verification">
+    <div class="container">
+      <div class="grounding-content">
+        <div class="grounding-left">
+          <span>🛡️</span>
+          <span><strong>Human-Authored & Verified:</strong> Study questions, rationales, and case studies reviewed by Philippine nursing educators without generative AI hallucinations.</span>
+        </div>
+        <div class="grounding-tags">
+          <span class="grounding-tag">PRC 2025 Enhanced TOS</span>
+          <span class="grounding-tag">RA No. 9173</span>
+          <span class="grounding-tag">CJMM 6-Step Judgment</span>
+          <span class="grounding-tag">DOH Clinical Protocols</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Application Header -->
+  <header class="app-header">
+    <div class="container">
+      <div class="header-inner">
+        <!-- Brand Logo & Name -->
+        <a href="#roadmap" class="brand" aria-label="Pasado Home">
+          <div class="brand-logo">P</div>
+          <div class="brand-text">
+            <span class="brand-name">PASADO</span>
+            <span class="brand-tagline">Philippine Nursing Board Companion</span>
+          </div>
+        </a>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs" aria-label="Main Navigation">
+          <button class="nav-tab active" data-view="roadmap">
+            <span>🗺️</span>
+            <span>Roadmap</span>
+          </button>
+          <button class="nav-tab" data-view="practice">
+            <span>📝</span>
+            <span>Practice</span>
+          </button>
+          <button class="nav-tab" data-view="case-studies">
+            <span>🩺</span>
+            <span>Case Studies</span>
+          </button>
+          <button class="nav-tab" data-view="flashcards">
+            <span>🗂️</span>
+            <span>Flashcards</span>
+          </button>
+          <button class="nav-tab" data-view="weak-areas">
+            <span>🎯</span>
+            <span>Diagnostics</span>
+          </button>
+          <button class="nav-tab" data-view="exam">
+            <span>⏱️</span>
+            <span>Mock Exam</span>
+          </button>
+          <button class="nav-tab" data-view="pearls">
+            <span>📚</span>
+            <span>Pearls & Tools</span>
+          </button>
+        </nav>
+
+        <!-- Right Header Stats & Actions -->
+        <div class="header-actions">
+          <div class="streak-pill" title="Current Daily Study Streak">
+            <span>🔥</span>
+            <span id="streakCount">0d</span>
+          </div>
+
+          <button id="resetProgressBtn" class="btn-icon" title="Reset All Review Progress" aria-label="Reset All Progress">
+            🔄
+          </button>
+
+          <button id="soundToggleBtn" class="btn-icon" title="Toggle Sound Effects" aria-label="Toggle Sound">
+            🔊
+          </button>
+
+          <button id="themeToggleBtn" class="btn-icon" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+            ☀️
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Top-Level Error Boundary Banner -->
+      <div id="appErrorBanner" class="app-error-banner" role="alert"></div>
+
+      <!-- ==============================================================
+           VIEW 1: STRUCTURED REVIEW ROADMAP
+           ============================================================== -->
+      <section id="view-roadmap" class="view-section active">
+        <div class="section-header">
+          <div class="section-title">
+            <h2>Your Structured PNLE Review Roadmap</h2>
+            <span class="badge badge-cyan">2025 Enhanced TOS Aligned</span>
+          </div>
+          <p class="section-desc">
+            Follow an organized sequence of review topics guided by official Board of Nursing standards. Focus on clinical reasoning and prioritization rather than blind memorization.
+          </p>
+        </div>
+
+        <div class="roadmap-container">
+          <!-- Timeline / Learning Nodes -->
+          <div id="roadmapTimeline" class="roadmap-timeline">
+            <!-- Dynamically populated by app.js -->
+          </div>
+
+          <!-- Roadmap Sidebar Stats -->
+          <aside class="roadmap-sidebar">
+            <div class="sidebar-card">
+              <h4 class="sidebar-heading">PNLE Readiness Benchmark</h4>
+              <p class="sidebar-subtext">
+                Official PRC Standard: ≥75% General Average with no subject &lt;60%.
+              </p>
+
+              <div class="readiness-meter-wrap">
+                <div id="readinessGaugeCircle" class="readiness-gauge">
+                  <div class="gauge-inner-text">
+                    <span id="readinessGaugeScore" class="gauge-score">0%</span>
+                    <span class="gauge-label">Accuracy</span>
+                  </div>
+                </div>
+                <div id="readinessVerdict" class="badge badge-teal readiness-badge">
+                  Diagnostic Needed
+                </div>
+              </div>
+
+              <div class="stats-list">
+                <div class="stats-row">
+                  <span class="stats-label">Questions Completed:</span>
+                  <strong id="questionsSolvedCount">0</strong>
+                </div>
+                <div class="stats-row">
+                  <span class="stats-label">Overall Accuracy:</span>
+                  <strong id="overallAccuracy">0%</strong>
+                </div>
+                <div class="stats-row">
+                  <span class="stats-label">Current Streak:</span>
+                  <strong id="sidebarStreakCount" class="stats-value-gold">0 Days Active</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="sidebar-card">
+              <h4 class="sidebar-heading-teal">Pasado 3-Pillar Method</h4>
+              <ul class="pillar-list">
+                <li class="pillar-item">
+                  <span class="pillar-number">1.</span>
+                  <div><strong>Follow a Path:</strong> Step through an organized progression from fundamentals to high-risk nursing emergencies.</div>
+                </li>
+                <li class="pillar-item">
+                  <span class="pillar-number">2.</span>
+                  <div><strong>Understand Rationale:</strong> Master why an answer is right and why tempting distractors are clinically hazardous.</div>
+                </li>
+                <li class="pillar-item">
+                  <span class="pillar-number">3.</span>
+                  <div><strong>Work on Weak Areas:</strong> Utilize automated diagnostic telemetry to target concepts scoring below 75%.</div>
+                </li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           VIEW 2: PRACTICE QUESTION ENGINE (CLINICAL REASONING)
+           ============================================================== -->
+      <section id="view-practice" class="view-section">
+        <div class="practice-container">
+          <div class="practice-top-bar">
+            <div class="filter-pills">
+              <button class="filter-pill active" data-area="all">All Subjects</button>
+              <button class="filter-pill" data-area="NP I">NP I (Community)</button>
+              <button class="filter-pill" data-area="NP II">NP II (Maternal & Child)</button>
+              <button class="filter-pill" data-area="NP III">NP III (Med-Surg 1)</button>
+              <button class="filter-pill" data-area="NP IV">NP IV (Med-Surg 2)</button>
+              <button class="filter-pill" data-area="NP V">NP V (Psychiatric)</button>
+              <button class="filter-pill" data-area="Jurisprudence">Jurisprudence & Ethics</button>
+              <button class="filter-pill pill-weak" data-area="weak">⚠️ Weak Areas</button>
+              <button class="filter-pill pill-wrong" data-area="wrong">❌ Wrong (<span id="wrongCount">0</span>)</button>
+              <button class="filter-pill pill-bookmarked" data-area="bookmarked">⭐ Saved (<span id="bookmarkCount">0</span>)</button>
+            </div>
+
+            <div class="practice-top-actions">
+              <button id="qTimedModeBtn" class="btn btn-sm btn-outline" title="Toggle 72-second PNLE pacing countdown">⏱️ Timed: OFF</button>
+              <span id="qTimerBadge" class="timer-badge hidden">⏳ 01:12</span>
+              <button id="qAutoAdvanceBtn" class="btn btn-sm btn-outline" title="Toggle automatic jump to next unanswered question">⚡ Auto: OFF</button>
+              <button id="qToggleRationaleBtn" class="btn btn-sm btn-outline btn-toggle-rationale" title="Review rationale without resetting answer">📖 Rationale</button>
+              <button id="qResetQuestionBtn" class="btn btn-sm btn-outline btn-retry-q" title="Reset and retry this question">🔄 Retry</button>
+              <button id="qBookmarkBtn" class="btn btn-sm btn-outline">☆ Bookmark</button>
+            </div>
+          </div>
+
+          <article class="question-card" aria-label="Practice Question">
+            <!-- Empty State for Empty Wrong/Bookmarks Filters -->
+            <div id="practiceEmptyState" class="empty-practice-card hidden"></div>
+
+            <div id="practiceQuestionContent">
+              <div class="question-header">
+                <div class="question-tags">
+                  <span id="qAreaTag" class="badge badge-cyan">NP I • Community Health Nursing</span>
+                  <span id="qTopicTag" class="badge badge-teal">IMCI Triage</span>
+                  <span id="qTosTag" class="badge badge-purple badge-tos">TOS: Safe Care</span>
+                </div>
+                <span id="qCounterTag" class="q-counter">Question 1 of 18</span>
+              </div>
+
+              <div class="question-vignette">
+                <div class="clinical-scenario-label">Clinical Scenario</div>
+                <p id="qVignetteText"></p>
+              </div>
+
+              <h3 id="qStemText" class="question-stem"></h3>
+
+              <div id="qOptionsList" class="options-list"></div>
+
+              <div id="qRationaleCard" class="rationale-card">
+                <div class="rationale-header">
+                  <div id="rationaleVerdict" class="rationale-verdict"></div>
+                  <span class="badge badge-cyan">Clinical Reasoning Breakdown</span>
+                </div>
+
+                <div class="rationale-section">
+                  <div class="rationale-subtitle">
+                    <span>💡</span>
+                    <span>Why This Answer is Correct (Pathophysiology & Priority)</span>
+                  </div>
+                  <p id="rationaleWhyCorrect" class="rationale-body"></p>
+                </div>
+
+                <div class="rationale-section">
+                  <div class="rationale-subtitle rationale-subtitle-danger">
+                    <span>⚠️</span>
+                    <span>Distractor Analysis (Why Other Choices are Incorrect/Unsafe)</span>
+                  </div>
+                  <div id="rationaleDistractors" class="distractor-grid"></div>
+                </div>
+
+                <div class="pearl-box">
+                  <div class="pearl-title">
+                    <span>⭐</span>
+                    <span>PNLE Clinical Pearl & Priority Rule</span>
+                  </div>
+                  <p id="rationalePearlText" class="pearl-text"></p>
+                </div>
+
+                <div class="rationale-ref">
+                  <span id="rationaleReferenceTag"></span>
+                </div>
+              </div>
+
+              <!-- Question Quick Notes & Takeaways -->
+              <div class="question-notes-card">
+                <div class="notes-header">
+                  <span>📝</span>
+                  <span class="notes-title">Personal Study Notes & Key Takeaways</span>
+                </div>
+                <textarea id="qNoteInput" class="note-textarea" rows="2" placeholder="Write personal mnemonics, reminders, or rationale notes for this question (auto-saved)..."></textarea>
+              </div>
+
+              <div class="practice-actions-bar">
+                <button id="qPrevBtn" class="btn btn-secondary">← Previous</button>
+                <button id="qNextUnansweredBtn" class="btn btn-secondary" title="Jump straight to next unanswered question">⏩ Next Unanswered</button>
+                <button id="qNextBtn" class="btn btn-primary">Next Question →</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           VIEW: UNFOLDING CLINICAL CASE STUDIES (CJMM 6-STEP MODEL)
+           ============================================================== -->
+      <section id="view-case-studies" class="view-section">
+        <div class="section-header">
+          <div class="section-title">
+            <h2>Unfolding Clinical Case Studies</h2>
+            <span class="badge badge-purple">Next-Gen Clinical Judgment (CJMM)</span>
+          </div>
+          <p class="section-desc">
+            Simulate authentic multi-stage hospital scenarios. Watch the patient's condition unfold in real time through 6 steps: Recognize Cues, Analyze Cues, Prioritize, Generate Solutions, Take Action, and Evaluate Outcomes.
+          </p>
+        </div>
+
+        <div class="case-study-container">
+          <!-- Case Study Selector -->
+          <div class="case-selector-row">
+            <label for="caseStudySelect" class="case-selector-label">Select Clinical Case:</label>
+            <select id="caseStudySelect" class="calc-input case-select-input" title="Select Clinical Case"></select>
+          </div>
+
+          <!-- Electronic Health Record (EHR) Patient Chart -->
+          <div class="patient-ehr-card">
+            <div class="ehr-header-top">
+              <div class="ehr-header-left">
+                <span class="ehr-icon">📋</span>
+                <div>
+                  <h3 id="ehrPatientName" class="ehr-patient-name">Patient Chart</h3>
+                  <div id="ehrPatientObstetric" class="ehr-patient-obstetric">G1P0 at 35 weeks AOG</div>
+                </div>
+              </div>
+              <span class="badge badge-teal">Live Inpatient Chart</span>
+            </div>
+
+            <div class="ehr-details-grid">
+              <div><span class="ehr-label">Age: </span><span id="ehrPatientAge">29 yo</span></div>
+              <div><span class="ehr-label">Admission: </span><span id="ehrPatientReason">Transferred from RHU</span></div>
+              <div><span class="ehr-label">Allergies: </span><span id="ehrPatientAllergies" class="ehr-allergies-value">NKDA</span></div>
+            </div>
+          </div>
+
+          <!-- Stage Progress Tabs -->
+          <div class="stage-tracker-tabs" id="caseStageTabs"></div>
+
+          <!-- Active Stage Card -->
+          <div class="question-card">
+            <div class="case-step-header">
+              <h4 id="caseStepName" class="case-step-name">Step 1: Recognize Cues</h4>
+              <span class="badge badge-cyan">EHR Update</span>
+            </div>
+
+            <!-- Vitals & Notes Box -->
+            <div class="chart-vitals-box" id="caseChartVitals"></div>
+            <div class="question-vignette case-chart-assessment" id="caseChartAssessment"></div>
+
+            <!-- Prompt -->
+            <h3 id="caseQuestionPrompt" class="question-stem"></h3>
+
+            <!-- Options (Single or SATA) -->
+            <div id="caseOptionsContainer" class="options-list"></div>
+
+            <!-- Case Rationale Card -->
+            <div id="caseRationaleCard" class="rationale-card case-rationale-hidden">
+              <div class="rationale-header">
+                <div id="caseRationaleVerdict" class="rationale-verdict"></div>
+                <span class="badge badge-purple">Clinical Judgment Rationale</span>
+              </div>
+              <div class="rationale-section">
+                <div class="rationale-subtitle">Clinical Decision Justification</div>
+                <p id="caseRationaleWhy" class="rationale-body"></p>
+              </div>
+              <div class="rationale-section">
+                <div class="rationale-subtitle rationale-subtitle-danger">Clinical Hazards / Alternative Options</div>
+                <p id="caseRationaleDistractor" class="rationale-body"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           VIEW: SPACED REPETITION FLASHCARDS (LEITNER SYSTEM)
+           ============================================================== -->
+      <section id="view-flashcards" class="view-section">
+        <div class="section-header">
+          <div class="section-title">
+            <h2>Spaced Repetition Flashcards (SRS)</h2>
+            <span class="badge badge-teal">Leitner 5-Box Memory Engine</span>
+          </div>
+          <p class="section-desc">
+            Master high-yield pharmacology antidotes, vital laboratory cutoff values, RA 9173 provisions, and maternal formulas with adaptive repetition intervals.
+          </p>
+        </div>
+
+        <div class="flashcards-container">
+          <!-- Stats Banner -->
+          <div class="flashcard-stats-banner">
+            <div class="fc-filter-pills">
+              <button class="filter-pill fc-filter-pill active" data-cat="all">All Cards</button>
+              <button class="filter-pill fc-filter-pill pill-due" data-cat="due">📅 Due Today (<span id="fcDueCount">0</span>)</button>
+              <button class="filter-pill fc-filter-pill" data-cat="Pharmacology">Pharmacology</button>
+              <button class="filter-pill fc-filter-pill" data-cat="Jurisprudence">RA 9173 & Law</button>
+              <button class="filter-pill fc-filter-pill" data-cat="Maternal">Maternal & Child</button>
+              <button class="filter-pill fc-filter-pill" data-cat="Medical-Surgical">Med-Surg</button>
+            </div>
+            <div class="fc-stats-right">
+              <span id="fcMasteredCount" class="badge badge-teal">0 Mastered</span>
+              <span id="fcCounterText" class="fc-counter-text">Card 1 of 20</span>
+            </div>
+          </div>
+
+          <!-- 3D Flippable Flashcard -->
+          <div class="flashcard-scene">
+            <div class="flashcard-inner" id="flashcardInner">
+              <!-- Front Side -->
+              <div class="flashcard-face flashcard-front">
+                <span class="badge badge-cyan fc-category-badge" id="fcCategoryBadge">Pharmacology</span>
+                <span class="badge badge-gold fc-box-badge" id="fcBoxBadge">Box 1</span>
+                <p id="fcFrontText" class="fc-front-text"></p>
+                <span class="fc-hint-tap">👆 Click card to flip and reveal answer</span>
+              </div>
+
+              <!-- Back Side -->
+              <div class="flashcard-face flashcard-back">
+                <span class="badge badge-teal fc-category-badge">Correct Clinical Fact</span>
+                <div id="fcBackText" class="fc-back-text"></div>
+                <div id="fcBackMnemonic" class="fc-back-mnemonic"></div>
+                <span class="fc-hint-tap">Rate your recall below to adjust review schedule 👇</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leitner Box Ratings Bar -->
+          <div class="leitner-ratings-bar">
+            <button class="btn-leitner btn-again" data-rating="again">
+              <span>Again (Reset)</span>
+              <span class="leitner-sublabel">Box 1 • Review Today</span>
+            </button>
+            <button class="btn-leitner btn-hard" data-rating="hard">
+              <span>Hard</span>
+              <span class="leitner-sublabel">Keep in Current Box</span>
+            </button>
+            <button class="btn-leitner btn-good" data-rating="good">
+              <span>Good (+1)</span>
+              <span class="leitner-sublabel">Advance 1 Level</span>
+            </button>
+            <button class="btn-leitner btn-easy" data-rating="easy">
+              <span>Easy (+2)</span>
+              <span class="leitner-sublabel">Mastered • Box 4-5</span>
+            </button>
+          </div>
+
+          <!-- Card Nav Controls -->
+          <div class="fc-nav-controls">
+            <button id="fcPrevBtn" class="btn btn-secondary">← Previous Card</button>
+            <button id="fcNextBtn" class="btn btn-secondary">Next Card →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           VIEW 3: TARGETED WEAK AREA DIAGNOSTICS
+           ============================================================== -->
+      <section id="view-weak-areas" class="view-section">
+        <div class="section-header">
+          <div class="section-title">
+            <h2>Targeted Diagnostics & Weak-Area Remediation</h2>
+            <span class="badge badge-crimson">Precision Study</span>
+          </div>
+          <p class="section-desc">
+            Pasado monitors your practice telemetry across all Table of Specifications domains to detect specific subject areas requiring remediation.
+          </p>
+        </div>
+
+        <div id="weakReadinessBanner"></div>
+
+        <div class="rescue-drill-banner">
+          <div>
+            <h3 class="rescue-drill-heading">Generate Targeted Rescue Drill</h3>
+            <p class="rescue-drill-desc">Automatically builds a focused drill targeting your lowest-scoring clinical concepts.</p>
+          </div>
+          <button id="launchRescueDrillBtn" class="btn btn-primary">
+            🚀 Launch Rescue Drill Now
+          </button>
+        </div>
+
+        <div id="weakAreasGrid" class="weak-areas-grid"></div>
+
+        <!-- Data Management Section -->
+        <div class="data-management-card">
+          <div class="data-management-info">
+            <span class="data-management-icon">⚙️</span>
+            <div>
+              <h4 class="data-management-title">Review Data Management</h4>
+              <p class="data-management-desc">Reset your telemetry, mock exam results, flashcard review intervals, and answered questions to start fresh.</p>
+            </div>
+          </div>
+          <button id="resetProgressViewBtn" class="btn btn-secondary btn-danger-hover">
+            <span>🔄</span>
+            <span>Reset All Progress</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           VIEW 4: MOCK BOARD EXAM SIMULATOR
+           ============================================================== -->
+      <section id="view-exam" class="view-section">
+        <div id="examStartScreen" class="exam-start-screen">
+          <span class="exam-start-icon">⏱️</span>
+          <h2>PNLE Board Exam Simulation</h2>
+          <p class="exam-start-desc">
+            Simulate official PRC testing conditions. This practice set tests mixed competencies across Nursing Practice I to V and Jurisprudence. 
+            Timed at <strong>20 minutes</strong> to build exam pacing and mental stamina.
+          </p>
+          <div class="exam-start-badges">
+            <span class="badge badge-teal">No Pauses Allowed</span>
+            <span class="badge badge-cyan">Passing Score: 75%</span>
+            <span class="badge badge-purple">Instant Diagnostic Report</span>
+          </div>
+          <button id="startMockExamBtn" class="btn btn-primary exam-start-btn">
+            Begin Examination Now →
+          </button>
+
+          <!-- Mock Exam Performance History & Trend Display -->
+          <div id="examHistorySection" class="exam-history-container"></div>
+        </div>
+
+        <div id="examRunningScreen" class="exam-running-screen">
+          <div class="exam-header-bar">
+            <div>
+              <span id="examQuestionNum" class="exam-q-num">Question 1 of 18</span>
+            </div>
+            <div id="examTimerDisplay" class="exam-timer">⏱️ 20:00</div>
+            <button id="submitExamBtn" class="btn btn-sm btn-outline exam-submit-btn">
+              Finish & Submit Exam
+            </button>
+          </div>
+
+          <div class="question-card">
+            <div class="question-vignette">
+              <p id="examVignette"></p>
+            </div>
+            <h3 id="examStem" class="question-stem"></h3>
+            <div id="examOptions" class="options-list"></div>
+
+            <div class="practice-actions-bar">
+              <button id="examPrevBtn" class="btn btn-secondary">← Previous</button>
+              <button id="examNextBtn" class="btn btn-secondary">Next →</button>
+            </div>
+          </div>
+
+          <div class="exam-nav-grid" id="examNavGrid"></div>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           VIEW 5: CLINICAL PEARLS & INTERACTIVE CALCULATORS
+           ============================================================== -->
+      <section id="view-pearls" class="view-section">
+        <div class="section-header">
+          <div class="section-title">
+            <h2>Clinical Pearls & Board Exam Toolkits</h2>
+            <span class="badge badge-gold">High-Yield Memory Aids</span>
+          </div>
+          <div class="pearls-header-right">
+            <p class="section-desc">
+              Quick-reference clinical calculators, normal laboratory values, and the Republic Act No. 9173 statutory matrix.
+            </p>
+            <button id="printNotesBtn" class="btn btn-secondary" title="Export clean printable study guide">
+              🖨️ Print / Export High-Yield Sheet
+            </button>
+          </div>
+        </div>
+
+        <!-- Clinical Pearls Category Filter Pills -->
+        <div class="pearls-filter-pills" id="pearlsFilterPills">
+          <button class="filter-pill active" data-pearl-cat="all">All Resources</button>
+          <button class="filter-pill" data-pearl-cat="calc">🧮 Clinical Calculators</button>
+          <button class="filter-pill" data-pearl-cat="lab">🧪 Normal Lab Values</button>
+          <button class="filter-pill" data-pearl-cat="matrix">🧭 Prioritization Matrix</button>
+          <button class="filter-pill" data-pearl-cat="law">📜 Republic Act 9173</button>
+        </div>
+
+        <div class="calc-grid">
+          <!-- 1. Burn Parkland Calculator -->
+          <div class="calc-card" data-resource="calc">
+            <h3 class="calc-heading">
+              <span>🔥</span>
+              <span>Parkland Burn Resuscitation Calculator</span>
+            </h3>
+            <p class="calc-subtext">
+              Formula: 4 mL x weight (kg) x %TBSA. Give 50% in first 8 hours FROM TIME OF INJURY!
+            </p>
+
+            <div class="burn-inputs-grid">
+              <div class="calc-form-group">
+                <label for="burnWeight" class="calc-label">Patient Weight (kg):</label>
+                <input type="number" id="burnWeight" class="calc-input" value="70" min="1" max="250">
+              </div>
+              <div class="calc-form-group">
+                <label for="burnTBSA" class="calc-label">Burn Area (% TBSA):</label>
+                <input type="number" id="burnTBSA" class="calc-input" value="45" min="1" max="100">
+              </div>
+            </div>
+
+            <button id="burnCalcBtn" class="btn btn-sm btn-primary btn-calc-full">Calculate IV Fluid Volume</button>
+
+            <div class="calc-result-box">
+              <div class="calc-result-label-sm">Total 24-Hour Requirement (Lactated Ringer's)</div>
+              <div id="burnTotalVol" class="calc-result-val">12,600 mL</div>
+              <div class="calc-result-subrow">
+                <div>First 8 Hours: <strong id="burnFirst8Vol" class="calc-result-teal">6,300 mL</strong></div>
+                <div>Hourly Rate: <strong id="burnFirst8Rate" class="calc-result-gold">788 mL/hr</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. APGAR Score Calculator -->
+          <div class="calc-card" data-resource="calc">
+            <h3 class="calc-heading">
+              <span>👶</span>
+              <span>APGAR Newborn Scoring Calculator</span>
+            </h3>
+            <p class="calc-subtext">
+              Assessed at 1 and 5 minutes post-delivery. Evaluates adaptation to extrauterine life.
+            </p>
+
+            <div class="apgar-controls">
+              <div>
+                <label class="calc-label">Appearance (Color):</label>
+                <select class="calc-input apgar-select" title="Appearance (Color)">
+                  <option value="2">2 - Completely Pink body and extremities</option>
+                  <option value="1" selected>1 - Acrocyanosis (Pink body, Blue hands/feet)</option>
+                  <option value="0">0 - Pale or Blue throughout</option>
+                </select>
+              </div>
+              <div>
+                <label class="calc-label">Pulse (Heart Rate):</label>
+                <select class="calc-input apgar-select" title="Pulse (Heart Rate)">
+                  <option value="2" selected>2 - Over 100 bpm</option>
+                  <option value="1">1 - Below 100 bpm</option>
+                  <option value="0">0 - Absent pulse</option>
+                </select>
+              </div>
+              <div>
+                <label class="calc-label">Grimace (Reflex Irritability):</label>
+                <select class="calc-input apgar-select" title="Grimace (Reflex Irritability)">
+                  <option value="2" selected>2 - Prompt response (cough, sneeze, vigorous cry)</option>
+                  <option value="1">1 - Grimace / minimal facial motion</option>
+                  <option value="0">0 - No response</option>
+                </select>
+              </div>
+              <div>
+                <label class="calc-label">Activity (Muscle Tone):</label>
+                <select class="calc-input apgar-select" title="Activity (Muscle Tone)">
+                  <option value="2" selected>2 - Active motion, well-flexed extremities</option>
+                  <option value="1">1 - Some flexion of extremities</option>
+                  <option value="0">0 - Limp / flaccid</option>
+                </select>
+              </div>
+              <div>
+                <label class="calc-label">Respiration (Effort):</label>
+                <select class="calc-input apgar-select" title="Respiration (Effort)">
+                  <option value="2" selected>2 - Vigorous, good strong cry</option>
+                  <option value="1">1 - Slow, irregular, weak cry</option>
+                  <option value="0">0 - Absent / gasping</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="calc-result-box">
+              <div class="apgar-result-label">Total APGAR Score</div>
+              <div id="apgarTotalScore" class="calc-result-val">9 / 10</div>
+              <div id="apgarVerdict" class="badge badge-teal apgar-result-badge">Normal / Vigorous (Routine EINC)</div>
+            </div>
+          </div>
+
+          <!-- 3. Naegele's Rule Calculator -->
+          <div class="calc-card" data-resource="calc">
+            <h3 class="calc-heading">
+              <span>📅</span>
+              <span>Estimated Date of Delivery (Naegele's Rule)</span>
+            </h3>
+            <p class="calc-subtext">
+              Formula: LMP + 7 days - 3 months + 1 year (or LMP + 9 months + 7 days).
+            </p>
+
+            <div class="calc-form-group">
+              <label for="lmpDateInput" class="calc-label">First Day of Last Menstrual Period (LMP):</label>
+              <input type="date" id="lmpDateInput" class="calc-input" value="2026-03-10">
+            </div>
+
+            <button id="calcEddBtn" class="btn btn-sm btn-primary btn-calc-full">Calculate Expected Delivery Date</button>
+
+            <div class="calc-result-box">
+              <div class="calc-result-label-sm">Estimated Date of Delivery (EDD)</div>
+              <div id="eddResultDate" class="calc-result-val">December 17, 2026</div>
+            </div>
+          </div>
+
+          <!-- 4. Prioritization Hierarchy Quick Reference -->
+          <div class="calc-card" data-resource="matrix">
+            <h3 class="calc-heading">
+              <span>🧭</span>
+              <span>Prioritization & Delegation Decision Matrix</span>
+            </h3>
+            <p class="calc-subtext">
+              The exact decision frameworks tested heavily on the PNLE:
+            </p>
+
+            <ul class="priority-list">
+              <li class="priority-item-cyan">
+                <strong>1. ABC Principle:</strong> Airway (stridor, swelling) > Breathing (dyspnea, O2 sat) > Circulation (hypotension, bleeding).
+              </li>
+              <li class="priority-item-teal">
+                <strong>2. Acute vs. Chronic:</strong> New onset confusion or sudden pain takes priority over long-standing COPD or osteoarthritis.
+              </li>
+              <li class="priority-item-gold">
+                <strong>3. Unstable vs. Stable:</strong> Vital sign shifts or hemorrhaging clients precede scheduled medication administration.
+              </li>
+              <li class="priority-item-crimson">
+                <strong>4. Scope & Delegation:</strong> Never delegate what you EAT: <strong>E</strong>valuate, <strong>A</strong>ssess, <strong>T</strong>each!
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Normal Laboratory Values Searchable Table -->
+        <div class="calc-card lab-card-mb" data-resource="lab">
+          <div class="lab-card-header">
+            <div>
+              <h3>High-Yield Normal Laboratory Values</h3>
+              <p class="calc-subtext">Quick-recall normal ranges frequently tested on the board exam.</p>
+            </div>
+            <input type="text" id="labSearchInput" class="calc-input lab-search-input" placeholder="🔍 Search electrolytes, ABG, drugs...">
+          </div>
+
+          <div class="lab-table-scroll">
+            <table class="lab-table">
+              <thead>
+                <tr class="lab-table-head">
+                  <th class="lab-table-th">Parameter</th>
+                  <th class="lab-table-th">Normal Range</th>
+                  <th class="lab-table-th">Clinical Significance / PNLE Recall Pearl</th>
+                </tr>
+              </thead>
+              <tbody id="labValuesTbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Republic Act No. 9173 Statutory Matrix -->
+        <div class="calc-card" data-resource="law">
+          <h3 class="ra-heading">Republic Act No. 9173 (Philippine Nursing Act of 2002) - Core Provisions</h3>
+          <p class="ra-subtext">
+            Statutory mandates governing licensure, board composition, and standards of nursing practice in the Philippines.
+          </p>
+
+          <div class="ra-grid">
+            <div class="ra-card">
+              <div class="ra-card-title-cyan">Board of Nursing (BON)</div>
+              <p class="ra-card-text">1 Chairperson and 6 Members (Total: 7). Appointed by the President of the Philippines. 3-year term, eligible for one reappointment (max 6 years).</p>
+            </div>
+
+            <div class="ra-card">
+              <div class="ra-card-title-teal">Board Member Qualifications</div>
+              <p class="ra-card-text">RN with Master's degree in nursing, natural born Filipino, at least 10 years continuous practice with last 5 years in the Philippines (Sec. 4).</p>
+            </div>
+
+            <div class="ra-card">
+              <div class="ra-card-title-gold">Passing Rating Standard</div>
+              <p class="ra-card-text">General Average ≥ 75% with NO rating below 60% in any subject. Conditional status if ≥75% overall but &lt;60% in a subject (retake within 2 years).</p>
+            </div>
+
+            <div class="ra-card">
+              <div class="ra-card-title-crimson">Scope of Practice (Sec. 28)</div>
+              <p class="ra-card-text">Special training explicitly required for: 1) Intravenous injections, and 2) Suturing of perineal lacerations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Mock Exam Results Modal -->
+  <dialog id="examResultModal" aria-labelledby="examResultTitle">
+    <div class="modal-header-row">
+      <h3 id="examResultTitle">Official PNLE Simulation Result</h3>
+      <button id="closeResultModalBtn" class="btn-icon modal-close-btn">✕</button>
+    </div>
+    <div id="examResultDetails"></div>
+    <div class="modal-footer-row">
+      <button class="btn btn-primary" onclick="document.getElementById('examResultModal').close();">
+        Review Remediation Plan →
+      </button>
+    </div>
+  </dialog>
+
+  <!-- Reset Confirmation Modal -->
+  <dialog id="resetConfirmModal" class="app-modal" aria-labelledby="resetModalTitle">
+    <div class="modal-header-row">
+      <h3 id="resetModalTitle">⚠️ Reset Review Progress</h3>
+      <button id="closeResetModalBtn" class="btn-icon modal-close-btn" aria-label="Close modal">✕</button>
+    </div>
+    <div class="modal-body">
+      <p class="reset-modal-desc">Are you sure you want to completely reset your PNLE review progress?</p>
+      <p class="text-sm text-secondary">
+        This action will permanently clear all recorded practice answers, saved bookmarks, mock exam scores, and flashcard review intervals. This cannot be undone.
+      </p>
+    </div>
+    <div class="modal-footer-row">
+      <button id="cancelResetBtn" class="btn btn-secondary">Cancel</button>
+      <button id="confirmResetBtn" class="btn btn-danger">Yes, Reset All Data</button>
+    </div>
+  </dialog>
+
+  <!-- Practice Session Complete Modal -->
+  <dialog id="sessionCompleteModal" class="app-modal" aria-labelledby="sessionModalTitle">
+    <div class="session-modal-content">
+      <span class="session-trophy-icon">🎉</span>
+      <h3 id="sessionModalTitle" class="session-modal-title">Practice Set Completed!</h3>
+      <p class="session-modal-desc">You have answered all questions in this study set. Great job building clinical stamina!</p>
+
+      <div class="session-stats-grid">
+        <div class="session-stat-item">
+          <span id="sessionCompletedCount" class="session-stat-val">0</span>
+          <span class="session-stat-lbl">Questions</span>
+        </div>
+        <div class="session-stat-item">
+          <span id="sessionAccuracyVal" class="session-stat-val teal">0%</span>
+          <span class="session-stat-lbl">Accuracy</span>
+        </div>
+        <div class="session-stat-item">
+          <span id="sessionStreakVal" class="session-stat-val gold">0d</span>
+          <span class="session-stat-lbl">Streak</span>
+        </div>
+      </div>
+
+      <div class="session-actions-list">
+        <button id="sessionReviewMistakesBtn" class="btn btn-secondary">❌ Review Wrong Answers</button>
+        <button id="sessionRoadmapBtn" class="btn btn-outline">📋 Return to Roadmap</button>
+        <button id="sessionKeepPracticingBtn" class="btn btn-primary">✨ Practice All Subjects</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Scripts -->
+  <script src="js/data/pnle_questions.js"></script>
+  <script src="js/data/case_studies.js"></script>
+  <script src="js/data/flashcards_data.js"></script>
+  <script src="js/data/roadmap_data.js"></script>
+  <script src="js/data/clinical_pearls.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- Offline PWA Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(err => {
+          console.log('ServiceWorker registration skipped or failed:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,2052 @@
+/* ==========================================================================
+   PASADO - Component Styles & Layouts (Enhanced)
+   ========================================================================== */
+
+/* Header & Navigation Bar */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 15, 29, 0.85);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: var(--transition);
+}
+
+[data-theme="light"] .app-header {
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: var(--radius-md);
+  background: var(--grad-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #041019;
+  font-weight: 900;
+  font-size: 1.3rem;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff 30%, var(--brand-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .brand-name {
+  background: linear-gradient(135deg, #0f172a 30%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-tagline {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* Nav Tabs */
+.nav-tabs {
+  display: flex;
+  align-items: center;
+  background: var(--bg-surface);
+  padding: 0.25rem 0.3rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  flex-shrink: 1;
+  min-width: 0;
+  gap: 0.2rem;
+}
+
+.nav-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.38rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: transparent;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition-fast);
+}
+
+.nav-tab:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .nav-tab:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.nav-tab.active {
+  background: var(--grad-brand);
+  color: #041019;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(14, 165, 233, 0.3);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1080px) {
+  .brand-tagline {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0.6rem 0;
+  }
+  .brand {
+    order: 1;
+  }
+  .header-actions {
+    order: 2;
+  }
+  .nav-tabs {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.25rem;
+    scrollbar-width: none;
+  }
+}
+
+.streak-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: var(--radius-full);
+  color: #fbbf24;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Grounding / Human Verification Banner */
+.grounding-banner {
+  background: linear-gradient(90deg, rgba(14, 165, 233, 0.1) 0%, rgba(6, 214, 160, 0.1) 100%);
+  border-bottom: 1px solid rgba(14, 165, 233, 0.15);
+  padding: 0.55rem 0;
+  font-size: 0.8rem;
+}
+
+.grounding-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.grounding-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text-secondary);
+}
+
+.grounding-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.grounding-tag {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.5rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Main Layout Views */
+.main-content {
+  flex: 1;
+  padding: 2rem 0 4rem;
+}
+
+.view-section {
+  display: none;
+}
+.view-section.active {
+  display: block;
+  animation: fadeIn 0.3s var(--ease-smooth);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Section Header */
+.section-header {
+  margin-bottom: 2rem;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+.section-desc {
+  font-size: 0.95rem;
+  max-width: 750px;
+}
+
+/* ==========================================================================
+   VIEW 1: ROADMAP (STRUCTURED REVIEW PATH)
+   ========================================================================== */
+.roadmap-container {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .roadmap-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.roadmap-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.roadmap-timeline::before {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  bottom: 2rem;
+  left: 27px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--brand-cyan) 0%, var(--brand-teal) 50%, var(--border-subtle) 100%);
+  z-index: 1;
+}
+
+.roadmap-card {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 1.25rem;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: var(--transition);
+}
+
+.roadmap-card:hover {
+  border-color: var(--border-active);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+}
+
+.roadmap-card.completed {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.roadmap-card.in-progress {
+  border-color: var(--brand-cyan);
+  box-shadow: var(--shadow-glow);
+}
+
+.roadmap-card.weak-node {
+  border-color: rgba(239, 68, 68, 0.4);
+  background: linear-gradient(145deg, rgba(239, 68, 68, 0.05) 0%, var(--bg-card) 100%);
+}
+
+.node-icon-wrapper {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  border: 2px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--brand-cyan);
+  transition: var(--transition);
+}
+
+.roadmap-card.completed .node-icon-wrapper {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: var(--brand-emerald);
+  color: var(--brand-emerald);
+}
+
+.roadmap-card.in-progress .node-icon-wrapper {
+  background: rgba(14, 165, 233, 0.15);
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+  animation: pulseGlow 2.5s infinite;
+}
+
+.node-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.node-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.node-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.node-code {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background: rgba(14, 165, 233, 0.12);
+  color: var(--brand-cyan);
+}
+
+.node-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.node-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.node-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.node-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.node-topics-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.25rem;
+}
+
+.topic-chip {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.node-progress-bar-wrap {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-top: 0.4rem;
+}
+
+.node-progress-bar-fill {
+  height: 100%;
+  background: var(--grad-brand);
+  border-radius: var(--radius-full);
+  transition: width 0.5s var(--ease-smooth);
+}
+
+.node-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.node-legal-cite {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Roadmap Sidebar */
+.roadmap-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 5rem;
+}
+
+.sidebar-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.readiness-meter-wrap {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.readiness-gauge {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  background: conic-gradient(var(--gauge-fill-color, var(--brand-teal)) 0% var(--gauge-percent, 0%), var(--bg-surface) var(--gauge-percent, 0%) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 20px rgba(6, 214, 160, 0.2);
+}
+
+.readiness-gauge::after {
+  content: '';
+  width: 104px;
+  height: 104px;
+  background: var(--bg-secondary);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.gauge-inner-text {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gauge-score {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.gauge-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   VIEW 2: PRACTICE QUESTION ENGINE (CLINICAL REASONING)
+   ========================================================================== */
+.practice-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.practice-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.filter-pills {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+}
+
+.filter-pill {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+.filter-pill.active {
+  background: var(--grad-brand);
+  color: #041019;
+  font-weight: 700;
+}
+
+.question-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 1.5rem;
+}
+
+.question-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.question-tags {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.question-vignette {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: rgba(14, 165, 233, 0.04);
+  border-left: 3px solid var(--brand-cyan);
+  padding: 1.25rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin-bottom: 1.5rem;
+}
+
+.question-stem {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+/* Choices / Options */
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.option-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+}
+
+.option-card:hover:not(.locked) {
+  border-color: var(--border-active);
+  background: var(--bg-card-hover);
+  transform: translateX(4px);
+}
+
+.option-card:focus-visible {
+  outline: 2px solid var(--brand-cyan);
+  outline-offset: 2px;
+  border-color: var(--brand-cyan);
+}
+
+.option-card.eliminated {
+  opacity: 0.45;
+  text-decoration: line-through;
+}
+
+.option-letter {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.option-card:hover:not(.locked) .option-letter {
+  color: var(--brand-cyan);
+  border-color: var(--brand-cyan);
+}
+
+.option-text {
+  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.eliminate-btn {
+  opacity: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.option-card:hover .eliminate-btn {
+  opacity: 1;
+}
+
+.eliminate-btn:hover {
+  color: var(--brand-crimson);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* Answer Selected States */
+.option-card.selected {
+  border-color: var(--brand-cyan) !important;
+  background: rgba(14, 165, 233, 0.12) !important;
+}
+.option-card.selected .option-letter {
+  background: var(--brand-cyan) !important;
+  color: #041019 !important;
+  border-color: var(--brand-cyan) !important;
+}
+
+.option-card.correct {
+  border-color: var(--brand-emerald) !important;
+  background: rgba(16, 185, 129, 0.12) !important;
+}
+.option-card.correct .option-letter {
+  background: var(--brand-emerald) !important;
+  color: #041019 !important;
+  border-color: var(--brand-emerald) !important;
+}
+
+.option-card.incorrect {
+  border-color: var(--brand-crimson) !important;
+  background: rgba(239, 68, 68, 0.12) !important;
+}
+.option-card.incorrect .option-letter {
+  background: var(--brand-crimson) !important;
+  color: #ffffff !important;
+  border-color: var(--brand-crimson) !important;
+}
+
+/* Clinical Rationale Box */
+.rationale-card {
+  display: none;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  margin-top: 1.5rem;
+  animation: fadeIn 0.35s var(--ease-smooth);
+}
+
+.rationale-card.show {
+  display: block;
+}
+
+.rationale-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.rationale-verdict {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.verdict-correct { color: var(--brand-emerald); }
+.verdict-incorrect { color: var(--brand-crimson); }
+
+.rationale-section {
+  margin-bottom: 1.25rem;
+}
+
+.rationale-subtitle {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: var(--brand-cyan);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.rationale-body {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+}
+
+/* Distractor Analysis Grid */
+.distractor-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.distractor-item {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  background: var(--bg-primary);
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.distractor-key {
+  font-weight: 700;
+  color: var(--brand-crimson);
+}
+
+/* Clinical Pearl Banner */
+.pearl-box {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(217, 119, 6, 0.05) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+}
+
+.pearl-title {
+  color: #fbbf24;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.pearl-text {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  line-height: 1.55;
+}
+
+/* Practice Controls Bar */
+.practice-actions-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
+   VIEW 3: TARGETED WEAK AREA DIAGNOSTIC
+   ========================================================================== */
+.weak-areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.weak-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.weak-card.danger {
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.weak-card.warning {
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.weak-card.passing {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.weak-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.weak-stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.danger .weak-stat-number { color: var(--brand-crimson); }
+.warning .weak-stat-number { color: var(--brand-gold); }
+.passing .weak-stat-number { color: var(--brand-emerald); }
+
+/* ==========================================================================
+   VIEW: UNFOLDING CLINICAL CASE STUDIES (CJMM)
+   ========================================================================== */
+.case-study-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.patient-ehr-card {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.ehr-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ehr-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.ehr-label {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.stage-tracker-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.stage-tab-pill {
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.stage-tab-pill.active {
+  background: var(--brand-cyan);
+  color: #041019;
+  border-color: var(--brand-cyan);
+}
+
+.stage-tab-pill.passed {
+  border-color: var(--brand-emerald);
+  color: var(--brand-emerald);
+}
+
+.chart-vitals-box {
+  background: rgba(14, 165, 233, 0.05);
+  border: 1px dashed var(--border-active);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--brand-cyan);
+}
+
+/* ==========================================================================
+   VIEW: SPACED REPETITION FLASHCARDS (LEITNER SYSTEM)
+   ========================================================================== */
+.flashcards-container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.flashcard-stats-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.flashcard-scene {
+  perspective: 1200px;
+  width: 100%;
+  min-height: 340px;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  min-height: 340px;
+  text-align: center;
+  transition: transform 0.6s var(--ease-smooth);
+  transform-style: preserve-3d;
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-lg);
+}
+
+.flashcard-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.flashcard-front {
+  background: var(--grad-card);
+  border: 1.5px solid var(--border-active);
+  color: var(--text-primary);
+}
+
+.flashcard-back {
+  background: linear-gradient(145deg, #162438 0%, #0f172a 100%);
+  border: 1.5px solid var(--brand-teal);
+  color: var(--text-primary);
+  transform: rotateY(180deg);
+}
+
+.fc-category-badge {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+}
+
+.fc-box-badge {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+}
+
+.fc-hint-tap {
+  position: absolute;
+  bottom: 1rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.leitner-ratings-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .leitner-ratings-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.btn-leitner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.65rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.8rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  transition: var(--transition);
+}
+
+.btn-again { color: var(--brand-crimson); border-color: rgba(239, 68, 68, 0.4); }
+.btn-again:hover { background: rgba(239, 68, 68, 0.15); }
+
+.btn-hard { color: var(--brand-gold); border-color: rgba(245, 158, 11, 0.4); }
+.btn-hard:hover { background: rgba(245, 158, 11, 0.15); }
+
+.btn-good { color: var(--brand-cyan); border-color: rgba(14, 165, 233, 0.4); }
+.btn-good:hover { background: rgba(14, 165, 233, 0.15); }
+
+.btn-easy { color: var(--brand-teal); border-color: rgba(6, 214, 160, 0.4); }
+.btn-easy:hover { background: rgba(6, 214, 160, 0.15); }
+
+/* ==========================================================================
+   VIEW 4: MOCK EXAM SIMULATOR
+   ========================================================================= */
+.exam-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.exam-timer {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--brand-gold);
+  background: rgba(245, 158, 11, 0.1);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.exam-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+  gap: 0.45rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.exam-nav-btn {
+  height: 36px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.exam-nav-btn.answered {
+  background: rgba(14, 165, 233, 0.2);
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+}
+
+.exam-nav-btn.current {
+  box-shadow: 0 0 0 2px var(--brand-gold);
+}
+
+/* ==========================================================================
+   VIEW 5: CLINICAL PEARLS & CALCULATORS
+   ========================================================================== */
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 800px) {
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calc-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.calc-form-group {
+  margin-bottom: 1rem;
+}
+
+.calc-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: var(--text-primary);
+}
+
+.calc-input {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.calc-input:focus {
+  border-color: var(--brand-cyan);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+}
+
+.calc-result-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+.calc-result-val {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--brand-cyan);
+}
+
+/* Dialog / Modal */
+dialog {
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-lg);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 2rem;
+  max-width: 550px;
+  width: 90%;
+  margin: auto;
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: var(--glass-blur);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+/* ==========================================================================
+   PRINT STYLESHEET FOR STUDY NOTES EXPORT
+   ========================================================================== */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .app-header, .grounding-banner, .nav-tabs, .header-actions, .practice-actions-bar,
+  .btn, .leitner-ratings-bar, button {
+    display: none !important;
+  }
+  .main-content {
+    padding: 0 !important;
+  }
+  .view-section {
+    display: block !important;
+  }
+  .calc-card, .question-card, .patient-ehr-card, .sidebar-card {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    color: #000 !important;
+    page-break-inside: avoid;
+    margin-bottom: 1.5rem !important;
+  }
+  h1, h2, h3, h4, strong {
+    color: #000 !important;
+  }
+}
+
+/* ==========================================================================
+   PASADO - Extracted Inline Styles (utility classes replacing inline style="")
+   ========================================================================== */
+
+/* --- Sidebar card headings & text --- */
+.sidebar-heading { margin-bottom: 0.5rem; }
+.sidebar-heading-teal { margin-bottom: 0.5rem; color: var(--brand-teal); }
+.sidebar-subtext { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; }
+
+/* --- Readiness badge override --- */
+.readiness-badge { font-size: 0.85rem; padding: 0.4rem 0.85rem; }
+
+/* --- Stats list inside sidebar card --- */
+.stats-list {
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.stats-row { display: flex; justify-content: space-between; }
+.stats-label { color: var(--text-muted); }
+.stats-value-gold { color: var(--brand-gold); }
+
+/* --- 3-Pillar method list --- */
+.pillar-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+.pillar-item { display: flex; gap: 0.6rem; }
+.pillar-number { color: var(--brand-cyan); font-weight: 700; }
+
+/* --- Question counter & TOS badge --- */
+.q-counter { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); }
+.badge-tos { font-size: 0.7rem; }
+
+/* --- Clinical scenario label --- */
+.clinical-scenario-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--brand-cyan);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.05em;
+}
+
+/* --- Rationale section variants --- */
+.rationale-ref { margin-top: 1rem; font-size: 0.75rem; color: var(--text-muted); text-align: right; }
+.rationale-subtitle-danger { color: var(--brand-crimson); }
+
+/* --- Case study selector row --- */
+.case-selector-row {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.case-selector-label { font-weight: 700; color: var(--text-primary); }
+.case-select-input { max-width: 450px; }
+
+/* --- EHR chart header --- */
+.ehr-header-left { display: flex; align-items: center; gap: 0.75rem; }
+.ehr-icon { font-size: 1.5rem; }
+.ehr-patient-name { color: var(--brand-cyan); }
+.ehr-patient-obstetric { font-size: 0.8rem; color: var(--text-muted); }
+.ehr-allergies-value { color: var(--brand-gold); }
+
+/* --- Case step header --- */
+.case-step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.case-step-name { color: var(--brand-teal); }
+.case-chart-assessment { margin-bottom: 1.25rem; }
+.case-rationale-hidden { display: none; }
+
+/* --- Flashcard stats right side --- */
+.fc-stats-right { display: flex; align-items: center; gap: 0.75rem; }
+.fc-counter-text { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); }
+
+/* --- Flashcard text --- */
+.fc-front-text { font-size: 1.25rem; font-weight: 700; line-height: 1.5; color: var(--text-primary); }
+.fc-back-text { font-size: 1.1rem; line-height: 1.6; color: var(--text-primary); white-space: pre-line; margin-bottom: 1rem; }
+.fc-back-mnemonic { font-size: 0.85rem; color: var(--brand-gold); font-weight: 600; }
+
+/* --- Leitner rating sub-label --- */
+.leitner-sublabel { font-size: 0.65rem; opacity: 0.8; }
+
+/* --- Flashcard nav controls --- */
+.fc-nav-controls { display: flex; justify-content: space-between; margin-top: 1.5rem; }
+
+/* --- Weak area rescue banner --- */
+.rescue-drill-banner {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12) 0%, rgba(6, 214, 160, 0.12) 100%);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.rescue-drill-heading { margin-bottom: 0.35rem; }
+.rescue-drill-desc { font-size: 0.9rem; }
+
+/* --- Exam start screen --- */
+.exam-start-screen {
+  max-width: 700px;
+  margin: 3rem auto;
+  text-align: center;
+  background: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+}
+.exam-start-icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
+.exam-start-desc { margin: 1rem 0 1.5rem; line-height: 1.6; }
+.exam-start-badges {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+}
+.exam-start-btn { font-size: 1.05rem; padding: 0.85rem 2rem; }
+.exam-running-screen { display: none; max-width: 900px; margin: 0 auto; }
+.exam-running-screen.active { display: block; }
+.exam-start-screen.hidden { display: none; }
+.exam-q-num { font-weight: 700; font-size: 1.1rem; }
+.exam-submit-btn { border-color: var(--brand-crimson); color: var(--brand-crimson); }
+
+/* --- Pearls section header --- */
+.pearls-header-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* --- Calc card headings --- */
+.calc-heading { margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+.calc-subtext { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
+.btn-calc-full { width: 100%; }
+
+/* --- Burn calculator --- */
+.burn-inputs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.calc-result-label-sm { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
+.calc-result-subrow { display: flex; justify-content: space-around; margin-top: 0.75rem; font-size: 0.85rem; }
+.calc-result-teal { color: var(--brand-teal); }
+.calc-result-gold { color: var(--brand-gold); }
+
+/* --- APGAR calculator --- */
+.apgar-controls { display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.85rem; }
+.apgar-result-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
+.apgar-result-badge { margin-top: 0.5rem; }
+
+/* --- Prioritization list --- */
+.priority-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.85rem; }
+.priority-item-cyan  { background: var(--bg-surface); padding: 0.75rem; border-radius: var(--radius-sm); border-left: 3px solid var(--brand-cyan); }
+.priority-item-teal  { background: var(--bg-surface); padding: 0.75rem; border-radius: var(--radius-sm); border-left: 3px solid var(--brand-teal); }
+.priority-item-gold  { background: var(--bg-surface); padding: 0.75rem; border-radius: var(--radius-sm); border-left: 3px solid var(--brand-gold); }
+.priority-item-crimson { background: var(--bg-surface); padding: 0.75rem; border-radius: var(--radius-sm); border-left: 3px solid var(--brand-crimson); }
+
+/* --- Lab values card --- */
+.lab-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.lab-card-mb { margin-bottom: 2rem; }
+.lab-search-input { max-width: 300px; }
+.lab-table-scroll { overflow-x: auto; }
+.lab-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+.lab-table-head { border-bottom: 2px solid var(--border-subtle); color: var(--text-muted); }
+.lab-table-th { padding: 0.75rem; }
+
+/* --- RA 9173 provision cards --- */
+.ra-heading { margin-bottom: 0.5rem; color: var(--brand-purple); }
+.ra-subtext { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+.ra-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+.ra-card { background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); }
+.ra-card-title-cyan    { font-weight: 700; color: var(--brand-cyan);    margin-bottom: 0.25rem; }
+.ra-card-title-teal    { font-weight: 700; color: var(--brand-teal);    margin-bottom: 0.25rem; }
+.ra-card-title-gold    { font-weight: 700; color: var(--brand-gold);    margin-bottom: 0.25rem; }
+.ra-card-title-crimson { font-weight: 700; color: var(--brand-crimson); margin-bottom: 0.25rem; }
+.ra-card-text { font-size: 0.85rem; }
+
+/* --- Modal dialog rows --- */
+.modal-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.modal-close-btn { width: 2rem; height: 2rem; }
+.modal-footer-row { display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1rem; }
+
+/* --- Filter pill weak-area accent --- */
+.pill-weak { color: var(--brand-crimson); }
+
+/* --- Flashcard filter pills row --- */
+.fc-filter-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+/* --- Case Study SATA Submit Button --- */
+.sata-submit-btn {
+  margin-top: 1rem;
+}
+
+/* --- Replaced Inline Style Classes: Diagnostics & Weak Areas --- */
+.weak-diagnostic-card {
+  margin-bottom: 1.5rem;
+}
+.weak-diagnostic-title {
+  margin-top: 0.5rem;
+}
+.weak-diagnostic-desc {
+  margin-top: 0.25rem;
+}
+.weak-diagnostic-legend {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.subject-stat-card {
+  /* standard subject diagnostic card */
+}
+.subject-stat-title {
+  margin-top: 0.5rem;
+}
+.subject-stat-bar-wrap {
+  margin-bottom: 0.85rem;
+}
+.subject-stat-subtext {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* --- Replaced Inline Style Classes: Exam Results Modal --- */
+.exam-result-summary {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.exam-result-badge {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+.exam-result-score {
+  font-size: 3rem;
+  margin-top: 0.75rem;
+  color: var(--brand-cyan);
+}
+.exam-breakdown-card {
+  background: var(--bg-surface);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+}
+.exam-breakdown-title {
+  margin-bottom: 0.75rem;
+}
+.exam-breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+/* --- Replaced Inline Style Classes: Lab Values Table --- */
+.lab-table-name {
+  font-weight: 700;
+  color: var(--text-primary);
+  padding: 0.75rem;
+}
+.lab-table-value {
+  font-family: var(--font-mono);
+  color: var(--brand-cyan);
+  padding: 0.75rem;
+}
+.lab-table-tip {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding: 0.75rem;
+}
+
+/* --- Error Boundary Banner --- */
+.app-error-banner {
+  display: none;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid var(--brand-crimson);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  color: #fca5a5;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  animation: fadeIn 0.3s ease;
+}
+.app-error-banner.visible {
+  display: flex;
+}
+.app-error-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.btn-error-reload {
+  background: var(--brand-crimson);
+  color: #ffffff;
+  border: none;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity var(--transition-fast);
+}
+.btn-error-reload:hover {
+  opacity: 0.85;
+}
+
+/* --- Data Management Card & Controls --- */
+.data-management-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.data-management-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.data-management-icon {
+  font-size: 1.8rem;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: var(--radius-md);
+  padding: 0.5rem;
+  line-height: 1;
+}
+.data-management-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+.data-management-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.btn-danger-hover:hover {
+  border-color: var(--brand-crimson);
+  color: var(--brand-crimson);
+  background: rgba(239, 68, 68, 0.1);
+}
+.btn-danger {
+  background: var(--brand-crimson);
+  color: #ffffff;
+  border: 1px solid var(--brand-crimson);
+}
+.btn-danger:hover {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+.practice-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.btn-retry-q {
+  display: none;
+  border-color: var(--brand-gold);
+  color: var(--brand-gold);
+}
+.btn-retry-q.visible {
+  display: inline-flex;
+}
+.btn-retry-q:hover {
+  background: rgba(245, 158, 11, 0.15);
+}
+
+.reset-modal-desc {
+  margin-bottom: 0.75rem;
+}
+
+/* ==========================================================================
+   ENHANCED STUDY FEATURES (13 IMPROVEMENTS DESIGN SYSTEM)
+   ========================================================================== */
+
+/* Universal Utility */
+.hidden {
+  display: none !important;
+}
+
+/* Enhanced Filter Pills */
+.filter-pill.pill-wrong {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.35);
+}
+.filter-pill.pill-wrong.active {
+  background: var(--grad-danger);
+  color: #ffffff;
+  border-color: #ef4444;
+}
+
+.filter-pill.pill-bookmarked {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.35);
+}
+.filter-pill.pill-bookmarked.active {
+  background: var(--grad-gold);
+  color: #041019;
+  border-color: #f59e0b;
+}
+
+.filter-pill.pill-due {
+  background: rgba(14, 165, 233, 0.12);
+  color: #38bdf8;
+  border-color: rgba(14, 165, 233, 0.35);
+}
+.filter-pill.pill-due.active {
+  background: var(--grad-brand);
+  color: #041019;
+  border-color: #0ea5e9;
+}
+
+/* Practice Action Buttons & Timed Mode */
+.btn-toggle-rationale {
+  display: none;
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+}
+.btn-toggle-rationale.visible {
+  display: inline-flex;
+}
+.btn-toggle-rationale:hover {
+  background: rgba(14, 165, 233, 0.15);
+}
+
+.timer-badge {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  transition: var(--transition);
+}
+.timer-badge.warning {
+  border-color: rgba(239, 68, 68, 0.6);
+  background: rgba(239, 68, 68, 0.25);
+  color: #f87171;
+  animation: pulseGlow 1s infinite;
+}
+
+/* Quick Notes & Annotations */
+.question-notes-card {
+  margin-top: 1.25rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.25rem;
+  transition: var(--transition);
+}
+.notes-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.notes-title {
+  color: var(--text-primary);
+}
+.note-textarea {
+  width: 100%;
+  min-height: 64px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  resize: vertical;
+  transition: var(--transition);
+}
+.note-textarea:focus {
+  outline: none;
+  border-color: var(--brand-cyan);
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+}
+
+/* Empty Practice State */
+.empty-practice-card {
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  background: var(--bg-surface);
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-lg);
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.3s var(--ease-smooth);
+}
+.empty-practice-icon {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.empty-practice-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.empty-practice-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+}
+
+/* Mock Exam Simulation History & Trend Table */
+.exam-history-container {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+.exam-history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.exam-history-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.exam-trend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.exam-trend-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+  text-align: center;
+  transition: var(--transition);
+}
+.exam-trend-card.pass {
+  border-color: rgba(6, 214, 160, 0.4);
+}
+.exam-trend-card.fail {
+  border-color: rgba(239, 68, 68, 0.4);
+}
+.exam-trend-score {
+  font-size: 1.45rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  margin: 0.2rem 0;
+}
+.exam-trend-score.pass {
+  color: var(--brand-teal);
+}
+.exam-trend-score.fail {
+  color: var(--brand-crimson);
+}
+.exam-trend-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.exam-history-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+.exam-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+.exam-history-table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  font-weight: 600;
+}
+.exam-history-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+}
+.exam-history-table tr:last-child td {
+  border-bottom: none;
+}
+.exam-history-empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Practice Session Complete Modal */
+.session-modal-content {
+  text-align: center;
+  padding: 0.5rem 0;
+}
+.session-trophy-icon {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  animation: pulseGlow 2s infinite;
+}
+.session-modal-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+.session-modal-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+.session-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+.session-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.session-stat-val {
+  font-size: 1.4rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+}
+.session-stat-val.teal {
+  color: var(--brand-teal);
+}
+.session-stat-val.gold {
+  color: var(--brand-gold);
+}
+.session-stat-lbl {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+.session-actions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+/* Clinical Pearls Resource Filtering */
+.pearls-filter-pills {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+  overflow-x: auto;
+  flex-wrap: wrap;
+}
+.hidden-resource {
+  display: none !important;
+}
+
+/* Progress Step Utility Classes (Zero Inline Styles) */
+.p-w-0   { width: 0%; }
+.p-w-5   { width: 5%; }
+.p-w-10  { width: 10%; }
+.p-w-15  { width: 15%; }
+.p-w-20  { width: 20%; }
+.p-w-25  { width: 25%; }
+.p-w-30  { width: 30%; }
+.p-w-35  { width: 35%; }
+.p-w-40  { width: 40%; }
+.p-w-45  { width: 45%; }
+.p-w-50  { width: 50%; }
+.p-w-55  { width: 55%; }
+.p-w-60  { width: 60%; }
+.p-w-65  { width: 65%; }
+.p-w-70  { width: 70%; }
+.p-w-75  { width: 75%; }
+.p-w-80  { width: 80%; }
+.p-w-85  { width: 85%; }
+.p-w-90  { width: 90%; }
+.p-w-95  { width: 95%; }
+.p-w-100 { width: 100%; }
+
+.bg-danger { background: var(--brand-crimson) !important; }
+.bg-warning { background: var(--brand-gold) !important; }
+.bg-success { background: var(--brand-emerald) !important; }
+.bg-teal { background: var(--brand-teal) !important; }
+
+/* Readiness Gauge Conic Gradient Utility Classes */
+.gauge-pass { --gauge-fill-color: var(--brand-teal); box-shadow: 0 0 20px rgba(6, 214, 160, 0.25); }
+.gauge-fail { --gauge-fill-color: var(--brand-crimson); box-shadow: 0 0 20px rgba(239, 71, 111, 0.25); }
+.gauge-p-0   { --gauge-percent: 0%; }
+.gauge-p-5   { --gauge-percent: 5%; }
+.gauge-p-10  { --gauge-percent: 10%; }
+.gauge-p-15  { --gauge-percent: 15%; }
+.gauge-p-20  { --gauge-percent: 20%; }
+.gauge-p-25  { --gauge-percent: 25%; }
+.gauge-p-30  { --gauge-percent: 30%; }
+.gauge-p-35  { --gauge-percent: 35%; }
+.gauge-p-40  { --gauge-percent: 40%; }
+.gauge-p-45  { --gauge-percent: 45%; }
+.gauge-p-50  { --gauge-percent: 50%; }
+.gauge-p-55  { --gauge-percent: 55%; }
+.gauge-p-60  { --gauge-percent: 60%; }
+.gauge-p-65  { --gauge-percent: 65%; }
+.gauge-p-70  { --gauge-percent: 70%; }
+.gauge-p-75  { --gauge-percent: 75%; }
+.gauge-p-80  { --gauge-percent: 80%; }
+.gauge-p-85  { --gauge-percent: 85%; }
+.gauge-p-90  { --gauge-percent: 90%; }
+.gauge-p-95  { --gauge-percent: 95%; }
+.gauge-p-100 { --gauge-percent: 100%; }
+

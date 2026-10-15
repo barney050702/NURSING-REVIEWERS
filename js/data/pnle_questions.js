@@ -2655,6 +2655,1957 @@ const PNLE_QUESTIONS = [
       "reference": "Code of Ethics for Registered Nurses (PRC BON Res. 220 s. 2004); American Nurses Association (ANA) Code of Ethics Provisions"
     }
   }
+,
+  {
+    "id": "np1-016",
+    "area": "NP I",
+    "areaName": "Community Health Nursing",
+    "topic": "Republic Act 7160 - Devolution of Health Services",
+    "subtopic": "Local Government Code of 1991",
+    "vignette": "A newly appointed Public Health Nurse in a 3rd-class municipality in Leyte is orienting community health workers on the administrative governance of healthcare in the Philippines under Republic Act No. 7160 (Local Government Code).",
+    "question": "Which of the following statements accurately describes the operational structure of devolved health services in the Philippines?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Provincial governments administer provincial and district hospitals, while municipal governments administer Rural Health Units (RHUs) and Barangay Health Stations (BHS)."
+      },
+      {
+        "id": "B",
+        "text": "The Department of Health directly finances and manages all rural health units and barangay health stations in the province."
+      },
+      {
+        "id": "C",
+        "text": "Barangay captains are the direct technical supervisors of the Municipal Health Officer and Public Health Nurses."
+      },
+      {
+        "id": "D",
+        "text": "Regional Health Offices have direct administrative authority to hire and terminate municipal rural health unit personnel."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Under RA 7160 (Local Government Code of 1991), healthcare services were devolved to Local Government Units (LGUs). Provincial governments manage secondary and tertiary provincial and district hospitals, while Municipal/City governments manage primary care facilities\u2014Rural Health Units (RHUs) and Barangay Health Stations (BHS).",
+      "distractorBreakdown": {
+        "B": "The DOH retained technical regulatory authority, national policy-making, and specialized medical centers, but direct operations and funding of RHUs were devolved to LGUs.",
+        "C": "The Municipal Health Officer (MHO) oversees technical supervision of PHNs and midwives; barangay captains oversee local community affairs.",
+        "D": "Local personnel hiring is under the administrative jurisdiction of the Local Chief Executive (Mayor/Governor), not DOH Regional Directors."
+      },
+      "clinicalPearl": "Devolution Rule (RA 7160): Provincial = Provincial & District Hospitals (Secondary/Tertiary). Municipal/City = RHUs & Barangay Health Stations (Primary Care). DOH = Policy, Standards, and Retained Specialty Hospitals.",
+      "tosCompetency": "Healthcare Systems, Public Health Governance and Legal Mandates",
+      "reference": "Republic Act No. 7160; DOH Community Health Nursing Services in the Philippines"
+    }
+  },
+  {
+    "id": "np1-017",
+    "area": "NP I",
+    "areaName": "Community Health Nursing",
+    "topic": "Universal Health Care Act (RA 11223)",
+    "subtopic": "National Health Insurance & Primary Care Networks",
+    "vignette": "A family of indigent rice farmers in Isabela visits the Rural Health Unit to ask how the Universal Health Care Act (RA 11223) affects their access to prescribed medications and laboratory diagnostics.",
+    "question": "As the Public Health Nurse, what essential feature of Republic Act 11223 should you emphasize regarding membership and primary care entitlements?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Only formally employed citizens who pay monthly premiums are automatically covered under the National Health Insurance Program."
+      },
+      {
+        "id": "B",
+        "text": "Every Filipino citizen is automatically enrolled into the National Health Insurance Program and entitled to essential primary care services without upfront out-of-pocket payment."
+      },
+      {
+        "id": "C",
+        "text": "Citizens must present an active Barangay Indigency Certificate every month to qualify for municipal clinic consultations."
+      },
+      {
+        "id": "D",
+        "text": "Universal Health Care covers only in-hospital tertiary surgical procedures and excludes preventive primary care consultations."
+      }
+    ],
+    "correctAnswer": "B",
+    "rationale": {
+      "whyCorrect": "Under RA 11223 (Universal Health Care Act of 2019), ALL Filipino citizens are automatically enrolled into PhilHealth (National Health Insurance Program) as either direct or indirect contributors. It guarantees universal access to a comprehensive package of primary care services (PhilHealth Konsulta) without financial hardship.",
+      "distractorBreakdown": {
+        "A": "RA 11223 establishes automatic universal coverage for all Filipinos regardless of employment or contribution capability.",
+        "C": "Monthly renewal of indigency certificates is not required under the automatic enrollment provision of RA 11223.",
+        "D": "UHC strongly emphasizes comprehensive outpatient primary care, preventive checkups, and diagnostic screenings via Primary Care Networks."
+      },
+      "clinicalPearl": "RA 11223 UHC Pillars: (1) Automatic PhilHealth membership for 100% of Filipinos, (2) Integration into Province-wide / City-wide Health Systems (PWH/CWHS), (3) PhilHealth Konsulta comprehensive primary care outpatient benefit.",
+      "tosCompetency": "Safe and Quality Health Care Delivery: Universal Health Coverage Policies",
+      "reference": "Republic Act No. 11223 (Universal Health Care Act); PhilHealth Circulars 2024"
+    }
+  },
+  {
+    "id": "np1-018",
+    "area": "NP I",
+    "areaName": "Community Health Nursing",
+    "topic": "Responsible Parenthood and Reproductive Health Act (RA 10354)",
+    "subtopic": "Informed Choice & Family Planning",
+    "vignette": "A 23-year-old mother of three visits the barangay health center requesting advice on modern family planning. Her husband insists they should rely on calendar rhythm, but she expresses exhaustion and desires a long-acting reversible contraceptive.",
+    "question": "Which principle under Republic Act No. 10354 (Responsible Parenthood and Reproductive Health Act) guides the nurse's counseling approach?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The nurse must require the husband's written legal consent before dispensing any family planning method."
+      },
+      {
+        "id": "B",
+        "text": "The nurse must provide medically accurate, non-judgmental counseling on all modern natural and artificial methods, honoring the client's voluntary informed choice."
+      },
+      {
+        "id": "C",
+        "text": "The health center should exclusively promote artificial contraceptives because natural family planning is officially prohibited by the DOH."
+      },
+      {
+        "id": "D",
+        "text": "The nurse is legally obligated to convince the mother to follow her spouse's preference to maintain domestic tranquility."
+      }
+    ],
+    "correctAnswer": "B",
+    "rationale": {
+      "whyCorrect": "Under RA 10354 (RH Law), healthcare providers must uphold voluntary informed choice, providing non-coercive, medically accurate information on both natural and modern artificial family planning methods. Spousal consent is NOT required for adult non-permanent contraception.",
+      "distractorBreakdown": {
+        "A": "Spousal consent is required ONLY for irreversible surgical procedures (Tubal Ligation, Vasectomy), not for reversible modern methods like IUD, implants, or pills.",
+        "C": "The DOH provides and promotes BOTH modern natural (BOM, BBT, STM) and modern artificial methods without bias.",
+        "D": "Clients possess bodily autonomy; coercing a client to adopt a spouse's preference violates ethical and legal standards."
+      },
+      "clinicalPearl": "RA 10354 Key Test Rule: Adult women DO NOT need husband's signature for reversible methods (pills, IUD, injectables, implants). Spousal consent is only legally mandated for surgical sterilization (tubal ligation/vasectomy).",
+      "tosCompetency": "Ethico-Moral-Legal Responsibility: Reproductive Health Rights and Autonomy",
+      "reference": "Republic Act No. 10354; DOH Family Planning Clinical Practice Guidelines"
+    }
+  },
+  {
+    "id": "np1-019",
+    "area": "NP I",
+    "areaName": "Community Health Nursing",
+    "topic": "DOH National Tuberculosis Control Program (NTP)",
+    "subtopic": "TB-DOTS Regimen & Adverse Drug Reactions",
+    "vignette": "A 42-year-old construction worker diagnosed with pulmonary tuberculosis is on Category I treatment: Rifampicin, Isoniazid, Pyrazinamide, and Ethambutol (HRZE). Two weeks into therapy, he comes to the RHU complaining that his urine and tears are bright orange-red.",
+    "question": "What is the nurse's most appropriate response?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Immediately discontinue Rifampicin and refer to a nephrologist for suspected acute glomerulonephritis."
+      },
+      {
+        "id": "B",
+        "text": "Reassure the client that orange-red discoloration of bodily fluids is a harmless side effect of Rifampicin and urge him to continue medications without interruption."
+      },
+      {
+        "id": "C",
+        "text": "Instruct the patient to double his daily water intake to dilute the Ethambutol toxicity in his kidneys."
+      },
+      {
+        "id": "D",
+        "text": "Stop all anti-TB medications and send a STAT emergency sputum culture."
+      }
+    ],
+    "correctAnswer": "B",
+    "rationale": {
+      "whyCorrect": "Rifampicin characteristically causes benign, harmless orange-red discoloration of body fluids (urine, sweat, saliva, tears). Educating clients about this before starting therapy prevents panic and non-adherence. Contact lens wearers should be advised lenses may be permanently stained.",
+      "distractorBreakdown": {
+        "A": "This is an expected benign side effect, not kidney damage or hematuria.",
+        "C": "Ethambutol causes retrobulbar optic neuritis (decreased red-green visual acuity), not red bodily fluids.",
+        "D": "Discontinuing Category I therapy without clinical indication breeds multidrug-resistant tuberculosis (MDR-TB)."
+      },
+      "clinicalPearl": "Anti-TB High-Yield Mnemonics: (1) Rifampicin = RED-orange secretions (benign), (2) Isoniazid (INH) = Peripheral Neuropathy (give Vitamin B6 / Pyridoxine), (3) Pyrazinamide = Hyperuricemia / Gout, (4) Ethambutol = EYE problems (optic neuritis, red-green vision).",
+      "tosCompetency": "Pharmacology and Safe Treatment Protocols in Public Health",
+      "reference": "DOH National Tuberculosis Control Program Manual of Procedures (6th Ed.)"
+    }
+  },
+  {
+    "id": "np1-020",
+    "area": "NP I",
+    "areaName": "Community Health Nursing",
+    "topic": "Dengue Clinical Management & Triage (2025 Protocol)",
+    "subtopic": "Warning Signs & Fluid Resuscitation",
+    "vignette": "A 10-year-old schoolboy is brought to the rural emergency clinic on Day 4 of fever. His fever has suddenly dropped from 39.5\u00b0C to 37.0\u00b0C (defervescence), but his mother reports he is persistently vomiting, has severe abdominal pain, and is unusually lethargic.",
+    "question": "According to the DOH National Dengue Prevention and Control Program guidelines, what stage of dengue is this child entering, and what is the nurse's immediate priority?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Recovery phase; discharge the child home with oral rehydration solution and paracetamol as fever has resolved."
+      },
+      {
+        "id": "B",
+        "text": "Critical phase with warning signs; initiate immediate IV fluid therapy with isotonic crystalloid and prepare for urgent hospitalization."
+      },
+      {
+        "id": "C",
+        "text": "Febrile phase; instruct the mother to apply cold water sponge baths every 2 hours."
+      },
+      {
+        "id": "D",
+        "text": "Chronic dengue phase; administer prophylactic broad-spectrum intramuscular antibiotics."
+      }
+    ],
+    "correctAnswer": "B",
+    "rationale": {
+      "whyCorrect": "The CRITICAL PHASE of Dengue typically occurs around defervescence (Days 3-7). Temperature drops, but systemic capillary leak begins. Persistent vomiting, severe abdominal tenderness, and lethargy are classic DOH/WHO DENGUE WARNING SIGNS indicating plasma leakage that can rapidly progress to Dengue Shock Syndrome. Immediate IV isotonic crystalloid (0.9% NaCl or Lactated Ringer's) and hospital admission are urgent.",
+      "distractorBreakdown": {
+        "A": "Defervescence in dengue does not mean recovery; it marks the onset of the dangerous critical phase where shock and severe hemorrhage strike.",
+        "C": "The child is no longer febrile; cold baths are contraindicated and delay lifesaving IV fluid access.",
+        "D": "Dengue is caused by an arbovirus (Flavivirus); prophylactic antibiotics have zero role and delay fluid resuscitation."
+      },
+      "clinicalPearl": "Dengue Warning Signs (DOH): Abdominal pain/tenderness, Persistent vomiting, Clinical fluid accumulation (ascites, pleural effusion), Mucosal bleeding, Lethargy/restlessness, Liver enlargement >2 cm, Increasing hematocrit with rapid drop in platelet count. Treat as Emergency!",
+      "tosCompetency": "Acute Infectious Disease Triage and Clinical Judgment in Communities",
+      "reference": "DOH Guidelines on the Clinical Management of Dengue (Administrative Order 2023-0012)"
+    }
+  },
+  {
+    "id": "np1-021",
+    "area": "NP I",
+    "areaName": "Community Health Nursing",
+    "topic": "COPAR (Community Organizing Participatory Action Research)",
+    "subtopic": "Phases of Community Development",
+    "vignette": "A public health nurse is working with a remote upland indigenous community to develop a sustainable community-based primary health program. The community has completed its initial social investigation and identified clean drinking water as their highest health priority.",
+    "question": "Which sequence correctly reflects the core methodological phases of COPAR under Philippine community development principles?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Pre-Entry Phase -> Entry Phase -> Community Diagnosis / Study Phase -> Community Organization Phase -> Action Phase -> Evaluation & Phase-Out"
+      },
+      {
+        "id": "B",
+        "text": "Action Phase -> Entry Phase -> Pre-Entry Phase -> Community Diagnosis -> Termination"
+      },
+      {
+        "id": "C",
+        "text": "Entry Phase -> Action Phase -> Resource Allocation -> Community Organizing -> Phase-Out"
+      },
+      {
+        "id": "D",
+        "text": "Pre-Entry Phase -> Financial Mobilization -> Construction Phase -> Evaluation"
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "COPAR is a social development approach with a defined sequential progression: (1) Pre-entry (site selection, profiling), (2) Entry (integration with community, courtesy calls), (3) Community Diagnosis (participatory research), (4) Community Organization (forming core groups, health committees), (5) Action Phase (mobilization, executing projects), and (6) Evaluation & Phase-Out (empowerment, hand-over).",
+      "distractorBreakdown": {
+        "B": "Action cannot precede entry or diagnosis; acting without community consultation violates community organizing principles.",
+        "C": "Organization and diagnosis must occur before major project implementation.",
+        "D": "Leaves out the foundational integration, diagnosis, and organizing phases essential to people empowerment."
+      },
+      "clinicalPearl": "COPAR Golden Rule: 'Go to the people, live with them, learn from them, plan with them, work with them. Start with what they know, build on what they have.' The nurse is a facilitator, never a dictator.",
+      "tosCompetency": "Community Organizing, Health Promotion, and Participatory Research",
+      "reference": "DOH Community Health Nursing Services Manual; COPAR Philippine Practice Standards"
+    }
+  },
+  {
+    "id": "np1-022",
+    "area": "NP I",
+    "areaName": "Community Health Nursing",
+    "topic": "DOH Expanded Program on Immunization (EPI)",
+    "subtopic": "2024/2025 Schedule & Routes of Administration",
+    "vignette": "A mother brings her 6-week-old infant to the health center for the first round of infant immunizations. The nurse prepares the vaccines scheduled at 6 weeks of age.",
+    "question": "Which combination of vaccines, doses, and routes correctly corresponds to the DOH National Immunization Program (NIP) for a 6-week-old infant?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Pentavalent 1 (0.5 mL IM anterolateral thigh), OPV 1 (2 drops orally), PCV 1 (0.5 mL IM anterolateral thigh), Rota 1 (oral)."
+      },
+      {
+        "id": "B",
+        "text": "BCG (0.05 mL ID deltoid) and Hepatitis B (0.5 mL IM) only."
+      },
+      {
+        "id": "C",
+        "text": "Measles-Rubella (0.5 mL Subcutaneous) and IPV (0.5 mL IM)."
+      },
+      {
+        "id": "D",
+        "text": "Tetanus-Diphtheria (0.5 mL IM) and Yellow Fever (0.5 mL SC)."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "At 6 weeks of age, the infant is scheduled to receive: Pentavalent 1 (DTP-HepB-Hib) 0.5 mL IM (anterolateral thigh), Oral Polio Vaccine (OPV 1) 2 drops orally, Pneumococcal Conjugate Vaccine (PCV 1) 0.5 mL IM, and Rotavirus 1 (oral). BCG and Hep B birth dose are administered at birth.",
+      "distractorBreakdown": {
+        "B": "BCG and Hep B-0 are administered at birth (within 24 hours of delivery).",
+        "C": "Measles-Rubella (MR) is given at 9 months (1st dose) and 12 months (2nd dose); IPV is given at 14 weeks.",
+        "D": "Tetanus-Diphtheria (Td) is administered to pregnant women and adolescents/adults, not 6-week-old infants."
+      },
+      "clinicalPearl": "DOH Infant EPI Master Milestones: Birth = BCG (0.05 mL ID right deltoid) + Hep B birth dose (0.5 mL IM thigh). 6, 10, 14 Weeks = Pentavalent + OPV + PCV. 14 Weeks = IPV (Inactivated Polio). 9 & 12 Months = MR / MMR (Subcutaneous).",
+      "tosCompetency": "Safe and Quality Nursing Care: Pediatric Vaccine Administration Protocols",
+      "reference": "DOH National Immunization Program Guidelines 2024; Administrative Order 2021-0023"
+    }
+  },
+  {
+    "id": "np1-023",
+    "area": "NP I",
+    "areaName": "Community Health Nursing",
+    "topic": "Environmental Sanitation & Water Supply Levels",
+    "subtopic": "DOH Sanitary Engineering Classifications",
+    "vignette": "During a community environmental sanitation assessment in an isolated coastal sitio, the rural health nurse observes that residents draw water from an improved protected hand pump serving approximately 20 households located within 200 meters.",
+    "question": "Under DOH Environmental Sanitation Standards, how is this water supply facility classified?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Level I (Point Source)"
+      },
+      {
+        "id": "B",
+        "text": "Level II (Communal Faucet System / Stand-posts)"
+      },
+      {
+        "id": "C",
+        "text": "Level III (Waterworks System / Individual House Connections)"
+      },
+      {
+        "id": "D",
+        "text": "Level IV (Bulk Desalination Utility)"
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Under Presidential Decree 856 (Code on Sanitation of the Philippines) and DOH standards: Level I (Point Source) is a protected well or spring without a distribution system, serving an average of 15-25 households within a 250-meter radius (e.g., protected hand pumps).",
+      "distractorBreakdown": {
+        "B": "Level II (Communal Faucet) consists of a source, reservoir, and piped distribution network to communal faucets located at central points serving 4-6 households per standpipe.",
+        "C": "Level III (Waterworks) has individual household water meters and taps directly inside each residential dwelling.",
+        "D": "There is no Level IV in Philippine standard environmental sanitation water supply hierarchy."
+      },
+      "clinicalPearl": "Philippine Water Supply Levels (PD 856): Level I = Point source (protected well/spring, no pipes). Level II = Communal faucet (piped to public standposts). Level III = Piped directly into individual private homes.",
+      "tosCompetency": "Environmental Health, Sanitation and Community Disease Prevention",
+      "reference": "Presidential Decree No. 856 (Code on Sanitation of the Philippines); DOH Environmental Health Standards"
+    }
+  },
+  {
+    "id": "np1-024",
+    "area": "NP I",
+    "areaName": "Community Health Nursing",
+    "topic": "Field Health Services Information System (FHSIS)",
+    "subtopic": "Recording and Reporting Mechanisms",
+    "vignette": "A newly deployed nurse in the Municipal Health Office is reviewing recording tools used in the barangay health station. The midwife asks which tool serves as the fundamental building block of the FHSIS from which monthly consolidated reports are extracted.",
+    "question": "Which of the following documents is the fundamental facility-based record designed for continuous monitoring of specific client groups (e.g., prenatal, EPI, family planning)?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Target Client List (TCL)"
+      },
+      {
+        "id": "B",
+        "text": "Annual LGU Financial Ledger"
+      },
+      {
+        "id": "C",
+        "text": "Summary Table (ST)"
+      },
+      {
+        "id": "D",
+        "text": "Monthly Consolidation Table (MCT)"
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "The Target Client List (TCL) is the fundamental facility-based monitoring record in the FHSIS. It tracks eligible clients continuously (e.g., TCL for Prenatal Care, TCL for Immunization, TCL for Family Planning) to monitor delivery of care and serve as the direct data source for Monthly Reports.",
+      "distractorBreakdown": {
+        "B": "Financial ledgers belong to municipal treasury accounting, not public health epidemiology.",
+        "C": "Summary Tables are intermediate processing tools at the municipality level.",
+        "D": "Monthly Consolidation Tables are compiled from the TCLs, but the primary clinical tracking tool is the Target Client List."
+      },
+      "clinicalPearl": "FHSIS Data Hierarchy: Individual/Family Record (Treatment Record) -> Target Client List (TCL) -> Monthly Consolidation Table (MCT) -> Monthly Form (M1/M2) -> Annual Forms (A1/A2). TCLs monitor coverage & identify dropouts!",
+      "tosCompetency": "Health Information Systems, Documentation, and Public Health Telemetry",
+      "reference": "DOH Field Health Services Information System (FHSIS) Manual 2023"
+    }
+  },
+  {
+    "id": "np1-025",
+    "area": "NP I",
+    "areaName": "Community Health Nursing",
+    "topic": "Disaster Risk Reduction and Management for Health (DRRM-H)",
+    "subtopic": "START Triage Protocol in Community Mass Casualties",
+    "vignette": "A 6.8-magnitude earthquake causes structural collapse of a public market in Bohol. The rural health unit team arrives as first responders. A 35-year-old victim is trapped under debris, breathing at 36 breaths per minute with weak radial pulses and altered mentation.",
+    "question": "Using the START (Simple Triage and Rapid Treatment) triage algorithm, how should the triage nurse categorize this victim?",
+    "options": [
+      {
+        "id": "A",
+        "text": "RED (Immediate) \u2014 Life-threatening but salvageable with rapid intervention."
+      },
+      {
+        "id": "B",
+        "text": "YELLOW (Delayed) \u2014 Serious injuries but systemic compromise is not immediate."
+      },
+      {
+        "id": "C",
+        "text": "GREEN (Minimal) \u2014 Minor injuries, ambulatory walking wounded."
+      },
+      {
+        "id": "D",
+        "text": "BLACK (Expectant) \u2014 Deceased or unsalvageable given available resources."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Under the START algorithm, adult triage assesses Respiration, Perfusion, and Mental Status (RPM). Any patient with respiratory rate >30 bpm, absent radial pulse / capillary refill >2 seconds, or unable to obey simple commands is classified as RED (Immediate priority for transport and surgical resuscitation).",
+      "distractorBreakdown": {
+        "B": "Yellow is for non-ambulatory patients whose RPM parameters are within acceptable limits (RR <30, normal pulse, obeys commands).",
+        "C": "Green is reserved for the 'walking wounded' who can follow commands and move away from the impact site.",
+        "D": "Black is for non-breathing victims whose airway positioning fails to trigger spontaneous respiration, or catastrophic non-survivable wounds."
+      },
+      "clinicalPearl": "START Triage 30-2-Can Do Rule: (1) Respiration >30 = RED, (2) Radial pulse absent or Cap Refill >2s = RED, (3) Cannot follow simple commands = RED. If walking = GREEN. If apneic after airway opening = BLACK. All other serious = YELLOW.",
+      "tosCompetency": "Emergency Preparedness, Disaster Triage, and Critical Community Care",
+      "reference": "DOH DRRM-H Disaster Triage Manual; National Disaster Risk Reduction and Management Council (NDRRMC)"
+    }
+  },
+  {
+    "id": "np2-016",
+    "area": "NP II",
+    "areaName": "Maternal and Child Nursing",
+    "topic": "Severe Preeclampsia & Magnesium Sulfate Therapy",
+    "subtopic": "Toxicity Signs and Nursing Antidote",
+    "vignette": "A 28-year-old primigravida at 34 weeks of gestation is admitted to the high-risk labor ward with severe preeclampsia (BP 170/110 mmHg, 3+ proteinuria). The obstetrician initiates a Magnesium Sulfate infusion (4g IV loading dose, followed by 2g/hr maintenance). Four hours later, the nurse assesses the patient: respiratory rate is 10 breaths/min, deep tendon reflexes (patellar) are absent (0), and hourly urine output is 18 mL/hr.",
+    "question": "What is the nurse's immediate sequence of actions?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Immediately stop the Magnesium Sulfate infusion, administer 10% Calcium Gluconate IV push slowly over 3-5 minutes, and notify the physician."
+      },
+      {
+        "id": "B",
+        "text": "Increase the IV rate of normal saline to flush the kidneys and recheck reflexes in 30 minutes."
+      },
+      {
+        "id": "C",
+        "text": "Administer an extra dose of Hydralazine IV push to protect the cerebral vasculature from hypertensive stroke."
+      },
+      {
+        "id": "D",
+        "text": "Encourage the patient to perform deep breathing exercises and reposition to the right lateral decubitus position."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "The patient exhibits classic life-threatening signs of MAGNESIUM SULFATE TOXICITY: loss of patellar reflexes (usually first sign at >9 mg/dL), bradypnea <12 bpm, and oliguria <30 mL/hr (magnesium is cleared renally; oliguria causes toxic accumulation). The nurse must immediately STOP the infusion and administer the antidote CALCIUM GLUCONATE (10 mL of 10% solution IV push slowly).",
+      "distractorBreakdown": {
+        "B": "Failing to stop the magnesium infusion while respiratory depression is already present leads to cardiac arrest and respiratory arrest.",
+        "C": "Hydralazine lowers blood pressure, but does not reverse neuromuscular paralysis and diaphragm arrest caused by hypermagnesemia.",
+        "D": "Deep breathing and repositioning cannot overcome toxic central and peripheral neuromuscular blockade."
+      },
+      "clinicalPearl": "Magnesium Sulfate Toxicity Checklist: (1) Respiratory rate <12 bpm, (2) Absent DTRs (patellar reflexes), (3) Urine output <30 mL/hr. Antidote: 10% Calcium Gluconate (1g / 10 mL IV over 3-5 mins) must always be at bedside!",
+      "tosCompetency": "High-Risk Intrapartum Nursing: Pharmacological Safety & Antidote Administration",
+      "reference": "DOH Clinical Practice Guidelines on Hypertensive Disorders of Pregnancy; ACOG Practice Bulletin"
+    }
+  },
+  {
+    "id": "np2-017",
+    "area": "NP II",
+    "areaName": "Maternal and Child Nursing",
+    "topic": "Third Trimester Bleeding: Previa vs Abruptio",
+    "subtopic": "Clinical Differentiation & Contraindicated Nursing Actions",
+    "vignette": "A 32-year-old multigravida at 35 weeks of gestation arrives at the emergency room with sudden vaginal bleeding. On triage assessment, the bleeding is bright red and completely painless. The uterus is soft, non-tender, and relaxed between contractions. Vital signs are stable.",
+    "question": "Based on the clinical presentation, which diagnostic procedure is strictly CONTRAINDICATED?",
+    "options": [
+      {
+        "id": "A",
+        "text": "External electronic fetal heart rate monitoring"
+      },
+      {
+        "id": "B",
+        "text": "Digital vaginal examination (Internal Examination / IE)"
+      },
+      {
+        "id": "C",
+        "text": "Abdominal ultrasonography"
+      },
+      {
+        "id": "D",
+        "text": "Venipuncture for complete blood count and crossmatching"
+      }
+    ],
+    "correctAnswer": "B",
+    "rationale": {
+      "whyCorrect": "The presentation of sudden, PAINLESS, bright red vaginal bleeding in the third trimester is classic for PLACENTA PREVIA. Performing a digital vaginal examination (internal exam) can puncture or tear the low-lying placenta covering the internal cervical os, resulting in catastrophic, exsanguinating maternal and fetal hemorrhage. All internal pelvic examinations are strictly contraindicated until placenta position is verified by ultrasound.",
+      "distractorBreakdown": {
+        "A": "Continuous non-invasive fetal monitoring is essential to track fetal well-being.",
+        "C": "Abdominal ultrasound is the gold standard diagnostic tool of choice to localize placental insertion safely.",
+        "D": "Crossmatching and blood sampling are mandatory preparations in anticipation of potential hemorrhage."
+      },
+      "clinicalPearl": "Board Exam Golden Rule: In any third-trimester pregnant patient with vaginal bleeding, NEVER perform an Internal Examination (IE) or digital pelvic exam until Placenta Previa has been ruled out by ultrasound!",
+      "tosCompetency": "Antepartum Complications: Hemorrhage Management and Patient Safety",
+      "reference": "Williams Obstetrics (26th Ed.); DOH Maternal and Newborn Care Protocols"
+    }
+  },
+  {
+    "id": "np2-018",
+    "area": "NP II",
+    "areaName": "Maternal and Child Nursing",
+    "topic": "Postpartum Hemorrhage & Uterine Atony",
+    "subtopic": "The 4 T's and Emergency Interventions",
+    "vignette": "One hour after delivering an 8.5-lb infant, a postpartum mother's perineal pad is completely saturated with bright red blood. On palpation, the fundus is boggy, soft, and displaced above and to the right of the umbilicus.",
+    "question": "What is the nurse's priority sequence of immediate clinical actions?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Assist the patient to void or catheterize to empty the distended bladder, then perform vigorous fundal massage until the uterus is firm."
+      },
+      {
+        "id": "B",
+        "text": "Pack the vagina with sterile gauze rolls and administer oral iron supplements."
+      },
+      {
+        "id": "C",
+        "text": "Place the mother in high Fowler's position and administer cold water orally."
+      },
+      {
+        "id": "D",
+        "text": "Wait for the attending obstetrician before touching the abdomen."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "A fundus that is boggy and displaced to the right indicates urinary bladder distention, which physically prevents normal uterine myometrial contraction (uterine atony, the #1 cause of PPH under the 4 T's: Tone). The nurse must immediately empty the bladder (voiding or catheterization) and perform continuous fundal massage to stimulate contraction and expel trapped clots.",
+      "distractorBreakdown": {
+        "B": "Vaginal packing without active uterine contraction conceals blood accumulation inside the uterine cavity (internal hemorrhage).",
+        "C": "High Fowler's drops blood pressure; Trendelenburg or modified supine with legs elevated is preferred for hypovolemic shock.",
+        "D": "Delaying fundal massage in active postpartum hemorrhage can cause maternal exsanguination within minutes."
+      },
+      "clinicalPearl": "Postpartum Hemorrhage 4 T's: (1) Tone (Atony = 70-80% of cases), (2) Trauma (lacerations/hematomas), (3) Tissue (retained placenta), (4) Thrombin (coagulopathy). If fundus is high and right-displaced = FULL BLADDER! Empty bladder & MASSAGE fundus!",
+      "tosCompetency": "Postpartum Nursing Care: Obstetric Hemorrhage Management",
+      "reference": "DOH Basic Emergency Obstetric and Newborn Care (BEmONC) Manual"
+    }
+  },
+  {
+    "id": "np2-019",
+    "area": "NP II",
+    "areaName": "Maternal and Child Nursing",
+    "topic": "Essential Intrapartum and Newborn Care (EINC)",
+    "subtopic": "Unang Yakap Protocol Time-Bound Interventions",
+    "vignette": "A nurse midwife is assisting at a normal spontaneous vertex delivery in a district hospital. As soon as the infant is completely delivered, the nurse executes the DOH-EINC ('Unang Yakap') clinical sequence.",
+    "question": "Which of the following describes the correct order of the 4 core time-bound interventions under the DOH EINC guidelines?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Immediate thorough drying (first 30s) -> Early skin-to-skin contact -> Properly timed cord clamping (1-3 minutes) -> Non-separation for breastfeeding initiation."
+      },
+      {
+        "id": "B",
+        "text": "Immediate cord clamping -> Routine suctioning -> Skin-to-skin contact -> Bathing the infant within 10 minutes."
+      },
+      {
+        "id": "C",
+        "text": "Routine gastric aspiration -> Footprint identification -> Vitamin K injection -> Skin-to-skin contact."
+      },
+      {
+        "id": "D",
+        "text": "Vigorous wiping of vernix caseosa -> Immediate separation under radiant warmer -> Bottle feeding sugar water."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "DOH Administrative Order 2009-0025 (EINC / Unang Yakap) establishes 4 core time-bound steps: (1) Immediate and thorough drying for 30 seconds, (2) Early skin-to-skin contact on mother's chest/abdomen, (3) Properly timed cord clamping after pulsations cease (1 to 3 minutes), (4) Non-separation of mother and infant for early initiation of breastfeeding (within 90 minutes).",
+      "distractorBreakdown": {
+        "B": "Early cord clamping causes anemia; routine suctioning of vigorous neonates is harmful; bathing must be delayed for at least 6 hours.",
+        "C": "Gastric aspiration is unnecessary and causes bradycardia; invasive procedures must wait until after the first breastfeed.",
+        "D": "Vernix caseosa is protective and should not be removed; separation disrupts bonding and thermal stabilization."
+      },
+      "clinicalPearl": "EINC 4 Essential Steps (Unang Yakap): (1) Dry thoroughly (30 sec), (2) Skin-to-skin contact, (3) Delayed cord clamping (wait for pulsations to stop, 1-3 mins), (4) Non-separation for breastfeeding. Delay bathing for AT LEAST 6 HOURS to prevent hypothermia!",
+      "tosCompetency": "Neonatal Resuscitation & Essential Newborn Care Protocols",
+      "reference": "DOH Administrative Order No. 2009-0025; WHO Essential Intrapartum and Newborn Care"
+    }
+  },
+  {
+    "id": "np2-020",
+    "area": "NP II",
+    "areaName": "Maternal and Child Nursing",
+    "topic": "Newborn Screening Act of 2004 (RA 9288)",
+    "subtopic": "Timing, Technique, and Expanded Panel",
+    "vignette": "A newly delivered mother in the maternity ward asks the staff nurse why her 36-hour-old baby needs a heel prick test before discharge.",
+    "question": "What is the nurse's most accurate educational statement regarding the timing and purpose of Expanded Newborn Screening (ENBS)?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It is done after 24 hours of life to detect over 28 metabolic, endocrine, and hematologic disorders before irreversible mental retardation or death occurs."
+      },
+      {
+        "id": "B",
+        "text": "It is an optional DNA test exclusively recommended for infants born to mothers over 40 years of age."
+      },
+      {
+        "id": "C",
+        "text": "It must be drawn from the infant's jugular vein immediately in the first 10 minutes following birth."
+      },
+      {
+        "id": "D",
+        "text": "It screens only for HIV antibodies and requires maternal court authorization."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Under RA 9288 (Newborn Screening Act of 2004) and DOH expanded protocols, newborn screening is ideally performed between 24 and 72 hours of life (after adequate protein and lactose feeds). The Expanded Newborn Screening (ENBS) panel tests for 28+ disorders (including Congenital Hypothyroidism, Congenital Adrenal Hyperplasia, PKU, G6PD deficiency, Galactosemia, MSUD) to initiate early medical treatment and prevent severe intellectual disability or fatality.",
+      "distractorBreakdown": {
+        "B": "NBS is universal for all newborns, not restricted to older mothers.",
+        "C": "Specimen is collected via a capillary heel-prick on the medial or lateral plantar surface of the heel onto specialized filter paper, never jugular puncture.",
+        "D": "It screens for congenital inborn errors of metabolism and hemoglobinopathies, not HIV antibodies."
+      },
+      "clinicalPearl": "RA 9288 Heel Prick Rules: Perform ideally at 24 to 72 hours of life. Puncture site: Lateral or medial plantar surface of heel (NEVER the posterior curvature or center to avoid osteomyelitis of the calcaneus).",
+      "tosCompetency": "Legal Mandates in Pediatrics: Congenital Screening Protocols",
+      "reference": "Republic Act No. 9288; DOH National Institutes of Health Newborn Screening Center"
+    }
+  },
+  {
+    "id": "np2-021",
+    "area": "NP II",
+    "areaName": "Maternal and Child Nursing",
+    "topic": "Congenital Anomalies: Pyloric Stenosis",
+    "subtopic": "Assessment Findings & Nursing Care",
+    "vignette": "A 5-week-old male infant is brought to the pediatric clinic due to vomiting. The mother states the infant vomits forcefully across the room after every feeding. The emesis is non-bilious (curdled milk). On physical examination, the infant appears avidly hungry and a small, firm, olive-shaped mass is palpable in the right upper epigastrium.",
+    "question": "Which clinical condition and laboratory finding should the nurse anticipate?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Hypertrophic Pyloric Stenosis; Hypochloremic, hypokalemic metabolic alkalosis."
+      },
+      {
+        "id": "B",
+        "text": "Intussusception; Metabolic acidosis with hypercalcemia."
+      },
+      {
+        "id": "C",
+        "text": "Hirschsprung's Disease; Hyperkalemic respiratory alkalosis."
+      },
+      {
+        "id": "D",
+        "text": "Tracheoesophageal Fistula; Hypoglycemia with metabolic acidosis."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Projective non-bilious vomiting in a hungry 3-6 week infant and a palpable olive-shaped epigastric mass are classic hallmarks of HYPERTROPHIC PYLORIC STENOSIS. Persistent vomiting of stomach hydrochloric acid leads to classic HYPOCHLOREMIC, HYPOKALEMIC METABOLIC ALKALOSIS. Correcting electrolyte imbalance prior to pyloromyotomy surgery is mandatory.",
+      "distractorBreakdown": {
+        "B": "Intussusception features sudden episodic colic pain, inconsolable crying, a sausage-shaped abdominal mass, and 'currant jelly' stools.",
+        "C": "Hirschsprung's disease (congenital aganglionic megacolon) features failure to pass meconium in first 48 hours and ribbon-like foul-smelling stools.",
+        "D": "TEF features the 3 C's: Coughing, Choking, and Cyanosis during feeds with excessive oral frothy drooling."
+      },
+      "clinicalPearl": "Pediatric GI Triads to Memorize: (1) Pyloric Stenosis = Projectile NON-bilious vomiting + Olive mass + Metabolic Alkalosis. (2) Intussusception = Sausage mass + Currant jelly stool + Colicky crying. (3) Hirschsprung = Ribbon-like stool + Delayed meconium.",
+      "tosCompetency": "Pediatric Surgical Pathology: Assessment and Fluid-Electrolyte Stabilization",
+      "reference": "Wong's Essentials of Pediatric Nursing (11th Ed.)"
+    }
+  },
+  {
+    "id": "np2-022",
+    "area": "NP II",
+    "areaName": "Maternal and Child Nursing",
+    "topic": "Pediatric Kawasaki Disease",
+    "subtopic": "Diagnostic Hallmarks & Cardiac Risk",
+    "vignette": "A 3-year-old child is admitted with high spiking fever for 6 days that does not respond to antipyretics. Assessment reveals bilateral non-exudative conjunctivitis, red dry cracked lips, a bright red 'strawberry tongue', indurated edema of hands and feet with desquamation, and a polymorphous trunk rash.",
+    "question": "What is the primary life-threatening complication of this condition that nursing care aims to prevent?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Coronary artery aneurysms and acute myocardial infarction."
+      },
+      {
+        "id": "B",
+        "text": "Acute glomerulonephritis and renal failure."
+      },
+      {
+        "id": "C",
+        "text": "Intracranial hemorrhage from berry aneurysms."
+      },
+      {
+        "id": "D",
+        "text": "Permanent sensorineural hearing loss."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Kawasaki Disease (mucocutaneous lymph node syndrome) is an acute systemic necrotizing vasculitis of medium-sized arteries. Its most serious complication is CORONARY ARTERY ANEURYSM (in 20-25% of untreated children), which can cause coronary thrombosis, rupture, and sudden fatal myocardial infarction. Treatment is IVIG (Intravenous Immunoglobulin) and high-dose Aspirin.",
+      "distractorBreakdown": {
+        "B": "Glomerulonephritis is a sequela of Group A Beta-Hemolytic Streptococcal (GABHS) pharyngitis, not Kawasaki.",
+        "C": "Berry aneurysms in the circle of Willis are associated with polycystic kidney disease and coarctation of aorta.",
+        "D": "Sensorineural hearing loss is associated with congenital rubella or bacterial meningitis."
+      },
+      "clinicalPearl": "Kawasaki Disease Clinical Pearl: Standard medical exception where high-dose ASPIRIN is prescribed to children (to inhibit platelet aggregation and vascular inflammation) alongside IVIG. Screen coronary arteries via echocardiogram!",
+      "tosCompetency": "Pediatric Cardiovascular Pathology: Vasculitis and Thromboembolic Prophylaxis",
+      "reference": "American Heart Association Pediatric Kawasaki Guidelines; Nelson Textbook of Pediatrics"
+    }
+  },
+  {
+    "id": "np2-023",
+    "area": "NP II",
+    "areaName": "Maternal and Child Nursing",
+    "topic": "Labor Dystocia & Cephalopelvic Disproportion (CPD)",
+    "subtopic": "Partograph Interpretation & Alert Lines",
+    "vignette": "A labor and delivery room nurse in a provincial hospital is plotting labor progress on the DOH Partograph for a 22-year-old G1P0 at 4 cm cervical dilation. Four hours later, reassessment reveals the cervix remains at 4 cm with station -2, and the cervical dilation curve crosses to the right of the 'Action Line'. Contractions are hypotonic.",
+    "question": "What is the clinical significance of the partograph crossing the Action Line, and what is the nurse's priority action?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Labor is progressing normally; instruct the mother to walk around the ward corridors."
+      },
+      {
+        "id": "B",
+        "text": "Labor arrest/dystocia has occurred; alert the obstetrician immediately and prepare for emergency cesarean section or medical augmentation."
+      },
+      {
+        "id": "C",
+        "text": "Administer an immediate IV bolus of sterile distilled water to relax the pelvic floor."
+      },
+      {
+        "id": "D",
+        "text": "Advise the mother that delivery will occur within 30 minutes and assemble delivery instruments."
+      }
+    ],
+    "correctAnswer": "B",
+    "rationale": {
+      "whyCorrect": "The WHO/DOH Partograph features an Alert Line (normal rate of dilation in active labor = 1 cm/hr) and an Action Line (4 hours to the right of Alert Line). If cervical dilation crosses the Action Line, prolonged labor / labor dystocia is confirmed, carrying high risks of obstructed labor, maternal sepsis, uterine rupture, and fetal asphyxia. Immediate obstetric escalation for definitive action (C-section or augmentation if CPD ruled out) is mandatory.",
+      "distractorBreakdown": {
+        "A": "Crossing the Action Line is a major obstetric emergency sign, not normal progression.",
+        "C": "IV sterile water causes acute intravascular hemolysis and death.",
+        "D": "Zero cervical change in 4 hours at 4 cm indicates labor arrest, not imminent birth."
+      },
+      "clinicalPearl": "Partograph Golden Rules: Active phase begins at 4 cm. Expected rate of dilation = >=1 cm/hour. Alert line warns of delay. Crossing the ACTION LINE = STOP & ACT! Obstetric intervention required immediately!",
+      "tosCompetency": "Intrapartum Fetal Surveillance and Partograph Clinical Decision-Making",
+      "reference": "WHO Partograph Guidelines; DOH BEmONC/CEmONC Protocols"
+    }
+  },
+  {
+    "id": "np2-024",
+    "area": "NP II",
+    "areaName": "Maternal and Child Nursing",
+    "topic": "Rh Incompatibility & Rho(D) Immune Globulin",
+    "subtopic": "Indications, Timing, and Indirect Coombs Test",
+    "vignette": "A prenatal nurse is reviewing laboratory results for an Rh-negative primigravida whose husband is Rh-positive. The indirect Coombs test result at 28 weeks of gestation is negative (unsensitized).",
+    "question": "Which nursing intervention is indicated for this patient?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Administer Rho(D) Immune Globulin (RhoGAM) 300 mcg IM now at 28 weeks, and plan for a second dose within 72 hours after delivery if the newborn is Rh-positive."
+      },
+      {
+        "id": "B",
+        "text": "Withhold RhoGAM indefinitely because the mother is already immune to Rh antigens."
+      },
+      {
+        "id": "C",
+        "text": "Prepare the mother for immediate emergency cesarean delivery to prevent fetal hydrops fetalis."
+      },
+      {
+        "id": "D",
+        "text": "Administer RhoGAM directly to the newborn infant via the umbilical vein catheter."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "An unsensitized (Indirect Coombs negative) Rh-negative pregnant client must receive Rho(D) Immune Globulin (RhoGAM) at 28 weeks of gestation prophylactic dose. If the newborn is determined to be Rh-positive at birth and maternal direct Coombs is negative, a second dose of RhoGAM (300 mcg IM) is administered within 72 hours postpartum to prevent maternal anti-Rh antibody formation in future pregnancies.",
+      "distractorBreakdown": {
+        "B": "A negative Coombs test means the mother is UNSENSITIZED (does NOT have antibodies), which is the exact and only time RhoGAM works. RhoGAM cannot reverse active sensitization.",
+        "C": "Cesarean delivery is not indicated for uncomplicated unsensitized Rh compatibility.",
+        "D": "RhoGAM is administered to the MOTHER (intramuscularly into deltoid), never to the infant."
+      },
+      "clinicalPearl": "RhoGAM Rules: (1) Mother is Rh-negative, Father is Rh-positive, baby is Rh-positive. (2) Mother must be UNSENSITIZED (Coombs negative). (3) Doses: 28 weeks antepartum AND within 72 hours postpartum. (4) Also given after miscarriage, ectopic pregnancy, or amniocentesis!",
+      "tosCompetency": "Immunology & Prophylaxis in Maternal-Fetal Nursing",
+      "reference": "ACOG Practice Bulletin on Rh Incompatibility; Williams Obstetrics"
+    }
+  },
+  {
+    "id": "np2-025",
+    "area": "NP II",
+    "areaName": "Maternal and Child Nursing",
+    "topic": "Pediatric Dehydration & Oral Rehydration Salts (ORS)",
+    "subtopic": "IMCI Diarrhea Management Plans A, B, and C",
+    "vignette": "A 9-month-old infant is brought to the RHU due to watery diarrhea 6 times a day for 2 days. Physical assessment reveals sunken fontanelle, sunken eyes, skin pinch that goes back slowly (1-2 seconds), and the infant drinks water eagerly and thirstily.",
+    "question": "Under DOH IMCI protocols, how is this child's dehydration categorized, and what treatment plan must be implemented?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Some Dehydration (Plan B); administer oral rehydration salts (ORS) 75 mL/kg over a 4-hour period at the clinic and continue breastfeeding."
+      },
+      {
+        "id": "B",
+        "text": "Severe Dehydration (Plan C); immediately insert IV line and administer 100 mL/kg Ringer's Lactate."
+      },
+      {
+        "id": "C",
+        "text": "No Dehydration (Plan A); advise home fluids and extra fluids after each loose stool."
+      },
+      {
+        "id": "D",
+        "text": "Dysentery; administer immediate oral Metronidazole and withhold oral fluids."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Under IMCI guidelines, an infant with two of the following signs: restless/irritable, sunken eyes, skin pinch goes back slowly, and drinks eagerly/thirsty is classified as SOME DEHYDRATION (Yellow row). Treatment Plan B mandates giving recommended amount of ORS (approx. 75 mL/kg) over 4 hours in the clinic while monitoring tolerance, alongside zinc supplementation for 14 days and continued breastfeeding.",
+      "distractorBreakdown": {
+        "B": "Severe Dehydration (Plan C) requires lethargy/unconsciousness, inability to drink, or skin pinch going back VERY slowly (>2 seconds), requiring IV fluid resuscitation.",
+        "C": "Plan A applies when the child does not exhibit two signs of dehydration.",
+        "D": "Dysentery is defined as blood in the stool; this child has watery diarrhea without blood."
+      },
+      "clinicalPearl": "IMCI Dehydration Cheat Sheet: (1) Severe Dehydration (Plan C) = Lethargic/floppy + Pinch >2s + Drinks poorly. (2) Some Dehydration (Plan B) = Sunken eyes + Eager/thirsty drinker + Pinch goes back slowly (1-2s). (3) Zinc sulfate (10-20 mg/day for 14 days) is ALWAYS prescribed to prevent recurrent diarrhea!",
+      "tosCompetency": "Pediatric Gastroenterology and Fluid Balance in Primary Health Care",
+      "reference": "DOH IMCI Chart Booklet 2024; WHO Diarrhoeal Disease Management Guidelines"
+    }
+  },
+  {
+    "id": "np3-016",
+    "area": "NP III",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part A)",
+    "topic": "Chest Tube Drainage System Mechanics",
+    "subtopic": "Water Seal Fluctuation vs Continuous Bubbling",
+    "vignette": "A 55-year-old male post-thoracotomy has a three-chamber water-seal chest drainage system in place. During the morning assessment, the nurse notes that the water level in the water seal chamber fluctuates up and down with the patient's inspiration and expiration (tidaling). However, in the same water seal chamber, the nurse observes continuous, rapid bubbling.",
+    "question": "How should the nurse interpret these findings, and what is the appropriate action?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Tidaling is normal; continuous bubbling in the water seal chamber indicates an air leak in the system or pleural space that requires immediate localization."
+      },
+      {
+        "id": "B",
+        "text": "Tidaling indicates a completely occluded chest tube; immediately milk and strip the tubing."
+      },
+      {
+        "id": "C",
+        "text": "Continuous bubbling is expected in the water seal chamber; increase suction pressure to 40 cm H2O."
+      },
+      {
+        "id": "D",
+        "text": "Both findings indicate pneumothorax resolution; clamp the chest tube and remove the catheter."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "In a chest tube system, TIDALING (water level rising on inspiration and falling on expiration during spontaneous breathing) is NORMAL and confirms catheter patency. Conversely, CONTINUOUS bubbling in the WATER SEAL chamber indicates an active AIR LEAK (either in the patient's lung or a loose connection in the tubing). The nurse must inspect connections, check insertion dressing, and notify the surgeon.",
+      "distractorBreakdown": {
+        "B": "Tidaling indicates patency, not occlusion. Stripping or milking chest tubes creates extreme negative intrathoracic pressures that damage lung tissue and is strictly contraindicated.",
+        "C": "Gentle bubbling is normal only in the SUCTION CONTROL chamber, NEVER in the water seal chamber.",
+        "D": "Clamping a bubbling chest tube can convert a simple air leak into a fatal TENSION PNEUMOTHORAX."
+      },
+      "clinicalPearl": "Chest Tube Rules: (1) Water seal tidaling = NORMAL (patency). (2) Water seal bubbling = AIR LEAK! (3) Suction chamber bubbling = NORMAL (gentle). (4) Never strip/milk tubes! (5) Never clamp routinely! If bottle breaks = immerse tube end in sterile water!",
+      "tosCompetency": "Respiratory Care: Thoracotomy and Closed Chest Drainage Management",
+      "reference": "Brunner & Suddarth's Textbook of Medical-Surgical Nursing (15th Ed.)"
+    }
+  },
+  {
+    "id": "np3-017",
+    "area": "NP III",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part A)",
+    "topic": "Peptic Ulcer Disease: Gastric vs Duodenal",
+    "subtopic": "Pain Timing, Etiology, and Complications",
+    "vignette": "A 48-year-old executive presents with epigastric burning pain. He reports the pain consistently awakens him in the middle of the night (around 1:00 AM to 2:00 AM) and occurs 2 to 3 hours after meals. Eating a snack or drinking milk promptly relieves the pain.",
+    "question": "Which type of peptic ulcer is most consistent with these clinical findings?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Duodenal ulcer"
+      },
+      {
+        "id": "B",
+        "text": "Gastric ulcer"
+      },
+      {
+        "id": "C",
+        "text": "Curling's burn ulcer"
+      },
+      {
+        "id": "D",
+        "text": "Mallory-Weiss tear"
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "DUODENAL ULCERS characteristically produce epigastric pain 2 to 3 hours AFTER meals and at night (1 AM-3 AM) when the stomach is empty and acid empties into the duodenum. Food or antacids BUFFER the gastric acid and provide prompt relief. In contrast, GASTRIC ULCER pain occurs 30-60 minutes after eating and is worsened or aggravated by food intake (leading to weight loss).",
+      "distractorBreakdown": {
+        "B": "Gastric ulcer pain occurs immediately after meals (30-60 min) and eating worsens the pain, so clients often avoid food and experience weight loss.",
+        "C": "Curling's ulcer is an acute stress ulcer resulting specifically from extensive severe burns.",
+        "D": "Mallory-Weiss tear is a longitudinal mucosal laceration at the gastroesophageal junction caused by violent retching or vomiting, presenting with hematemesis."
+      },
+      "clinicalPearl": "Ulcer Memory Aid: (1) Duodenal = 'Do Eat!' (Food relieves pain; pain 2-3 hrs later or late night; client often gains weight). (2) Gastric = 'Gut hurts when Eating' (Food precipitates pain; client avoids food; weight loss). Most common cause = Helicobacter pylori!",
+      "tosCompetency": "Gastrointestinal Disorders: Diagnostic Clinical Reasoning and Dietary Regimens",
+      "reference": "Medical-Surgical Nursing: Concepts for Interprofessional Collaborative Care (Ignatavicius, 10th Ed.)"
+    }
+  },
+  {
+    "id": "np3-018",
+    "area": "NP III",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part A)",
+    "topic": "Hepatic Cirrhosis & Hepatic Encephalopathy",
+    "subtopic": "Lactulose Pharmacodynamics & Asterixis",
+    "vignette": "A client with end-stage alcoholic liver cirrhosis is admitted with lethargy, confusion, and a flapping tremor of the dorsiflexed hands (asterixis). Blood analysis shows elevated serum ammonia at 145 mcg/dL. The physician orders Lactulose 30 mL orally four times daily.",
+    "question": "How should the nurse explain the therapeutic action of Lactulose to the family, and what is the expected clinical endpoint?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Lactulose acidifies the colon contents, trapping toxic ammonia ions (NH4+) and expelling them via 2 to 3 soft bowel movements per day."
+      },
+      {
+        "id": "B",
+        "text": "Lactulose suppresses stomach acid production to prevent esophageal variceal rupture."
+      },
+      {
+        "id": "C",
+        "text": "Lactulose acts as a direct diuretic to relieve abdominal ascites and lower portal vein pressure."
+      },
+      {
+        "id": "D",
+        "text": "Lactulose induces severe watery diarrhea exceeding 10 watery stools daily to dehydrate brain edema."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Lactulose is degraded by colonic bacteria into lactic and acetic acids. The acidified colonic lumen converts diffusible ammonia (NH3) into non-absorbable ammonium ions (NH4+), which are trapped in feces and eliminated through laxative action. The clinical goal of therapy is 2 TO 3 SOFT STOOLS PER DAY, clearing ammonia and reversing encephalopathy.",
+      "distractorBreakdown": {
+        "B": "Proton pump inhibitors and beta-blockers reduce variceal risk, not lactulose.",
+        "C": "Spironolactone and Furosemide are diuretics for ascites; lactulose is an osmotic disaccharide.",
+        "D": "Excessive diarrhea (>4-5 loose stools/day) leads to severe dehydration, hypokalemia, and hypernatremia, which paradoxically worsens hepatic encephalopathy."
+      },
+      "clinicalPearl": "Hepatic Encephalopathy Triad: (1) Elevated ammonia, (2) Asterixis (flapping tremor), (3) Fetor hepaticus (musty breath odor). Medication of choice: Lactulose. Target: 2 to 3 soft stools per day! Monitor Potassium (hypokalemia increases ammonia retention).",
+      "tosCompetency": "Gastroenterology and Hepatology Nursing: Neuro-toxin Elimination",
+      "reference": "Brunner & Suddarth's Textbook of Medical-Surgical Nursing (15th Ed.)"
+    }
+  },
+  {
+    "id": "np3-019",
+    "area": "NP III",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part A)",
+    "topic": "Total Hip Arthroplasty (THA)",
+    "subtopic": "Postoperative Positioning & Dislocation Precautions",
+    "vignette": "A 68-year-old female is 24 hours postoperative following a right Total Hip Arthroplasty (posterior surgical approach) for femoral neck fracture. The nurse is planning early mobility and bed positioning.",
+    "question": "Which postoperative positioning principle must the nurse maintain to prevent prosthetic hip dislocation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Keep the operative leg abducted using an abduction wedge pillow, and avoid hip flexion beyond 90 degrees."
+      },
+      {
+        "id": "B",
+        "text": "Encourage the client to cross her legs at the ankles to promote venous return."
+      },
+      {
+        "id": "C",
+        "text": "Seat the client on low, soft sofas to promote comfortable lumbar extension."
+      },
+      {
+        "id": "D",
+        "text": "Instruct the patient to bend forward at the waist to put on socks and shoes independently."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Following posterior total hip replacement, the artificial femoral head can dislodge from the acetabular cup if the hip is flexed past 90 degrees, adducted past the midline, or internally rotated. An ABDUCTION PILLOW maintains the operative leg separated and neutral. High chairs with firm seats and elevated toilet seats are mandatory.",
+      "distractorBreakdown": {
+        "B": "Crossing legs adducts the operative hip past the midline, which directly triggers prosthetic dislocation.",
+        "C": "Low, soft chairs cause the hips to flex significantly beyond 90 degrees.",
+        "D": "Bending forward at the waist to reach the feet exceeds the 90-degree flexion limit. Assistive reaching devices must be used."
+      },
+      "clinicalPearl": "Total Hip Precautions (Posterior Approach): 'No ADDuiction, No Internal Rotation, No Flexion >90\u00b0!' Use an Abductor pillow, use raised toilet seats, keep toes pointed forward or slightly outward, and never cross legs!",
+      "tosCompetency": "Musculoskeletal Nursing: Post-Surgical Arthroplasty Rehabilitation",
+      "reference": "Lewis's Medical-Surgical Nursing: Assessment and Management of Clinical Problems"
+    }
+  },
+  {
+    "id": "np3-020",
+    "area": "NP III",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part A)",
+    "topic": "Chronic Kidney Disease & Hyperkalemia",
+    "subtopic": "ECG Changes & Pharmacological Sequence",
+    "vignette": "A patient with Stage 5 Chronic Kidney Disease misses two scheduled hemodialysis sessions. She presents to the emergency room with severe generalized weakness. Her serum Potassium is critically elevated at 7.2 mEq/L. The cardiac monitor displays tall, peaked, tented T waves with widening QRS complexes and PR prolongation.",
+    "question": "Which medication must the nurse administer FIRST to protect the myocardium from fatal dysrhythmias?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Intravenous Calcium Gluconate (10%)"
+      },
+      {
+        "id": "B",
+        "text": "Sodium Polystyrene Sulfonate (Kayexalate) orally"
+      },
+      {
+        "id": "C",
+        "text": "Regular Insulin with 50% Dextrose (D50W) IV push"
+      },
+      {
+        "id": "D",
+        "text": "Oral Furosemide (Lasix)"
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "CALCIUM GLUCONATE is the FIRST-LINE drug given when hyperkalemia is accompanied by ECG changes (peaked T waves, wide QRS). Calcium does not lower potassium levels, but it immediately STABILIZES the myocardial membrane potential, raising the threshold potential and preventing ventricular fibrillation and asystole. After calcium stabilizes the heart, insulin + dextrose is given to shift K+ intracellularly, and hemodialysis or Kayexalate removes K+ from the body.",
+      "distractorBreakdown": {
+        "B": "Kayexalate takes 2 to 4 hours to work via ion exchange in the gut; in acute severe hyperkalemia with ECG changes, the patient will arrest before Kayexalate takes effect.",
+        "C": "Regular Insulin with D50 shifts K+ into cells, but does not provide immediate membrane protection. Calcium must be given first.",
+        "D": "In Stage 5 CKD (ESRD), kidneys are non-functional; loop diuretics like Furosemide will not induce diuresis or potassium excretion."
+      },
+      "clinicalPearl": "Hyperkalemia Emergency Sequence: (1) STABILIZE the heart = Calcium Gluconate IV (STAT), (2) SHIFT potassium into cells = Regular Insulin IV + D50W, nebulized Albuterol, NaHCO3, (3) ELIMINATE potassium = Hemodialysis (fastest), Kayexalate, or Loop Diuretics.",
+      "tosCompetency": "Renal and Critical Care Nursing: Life-Threatening Electrolyte Emergencies",
+      "reference": "Brunner & Suddarth's Textbook of Medical-Surgical Nursing (15th Ed.)"
+    }
+  },
+  {
+    "id": "np3-021",
+    "area": "NP III",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part A)",
+    "topic": "Diabetes Mellitus: Dawn Phenomenon vs Somogyi Effect",
+    "subtopic": "3:00 AM Blood Glucose Differentiation",
+    "vignette": "A 26-year-old client with Type 1 Diabetes reports consistently high fasting blood glucose readings (220-250 mg/dL) upon waking at 7:00 AM. The nurse instructs the client to set an alarm and check blood glucose at 3:00 AM. The 3:00 AM reading is 52 mg/dL (hypoglycemic).",
+    "question": "How should the nurse interpret this glycemic pattern, and what is the appropriate clinical intervention?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Somogyi Effect; decrease evening bedtime insulin or add a bedtime protein/carbohydrate snack."
+      },
+      {
+        "id": "B",
+        "text": "Dawn Phenomenon; increase the evening intermediate-acting insulin dose."
+      },
+      {
+        "id": "C",
+        "text": "Diabetic Ketoacidosis; start continuous regular insulin infusion immediately."
+      },
+      {
+        "id": "D",
+        "text": "Hyperosmolar Hyperglycemic State; instruct the patient to fast after 6:00 PM."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "The SOMOGYI EFFECT is characterized by nocturnal hypoglycemia (around 2-3 AM) followed by rebound morning hyperglycemia due to the surge of counter-regulatory hormones (epinephrine, cortisol, glucagon, growth hormone). Management involves PREVENTING the 3:00 AM hypoglycemia by decreasing nighttime insulin or providing a bedtime protein snack. Conversely, if 3 AM glucose is elevated or normal, it is DAWN PHENOMENON (requiring increased evening insulin).",
+      "distractorBreakdown": {
+        "B": "In Dawn Phenomenon, the 3 AM blood glucose is normal or elevated, requiring increased insulin. Increasing insulin in Somogyi effect would worsen nocturnal hypoglycemia and could be fatal.",
+        "C": "DKA features ketosis, acidemia, and dehydration; this is an ambulatory insulin adjustment dilemma.",
+        "D": "Fasting after 6 PM will worsen nocturnal hypoglycemia."
+      },
+      "clinicalPearl": "Dawn vs Somogyi Rule of Thumb: Test blood glucose at 3:00 AM! If 3 AM glucose is LOW (<70 mg/dL) = SOMOGYI EFFECT (Somogyi = 'So Much Insulin!'). If 3 AM glucose is HIGH (>100 mg/dL) = DAWN PHENOMENON (Dawn = 'Down on Insulin!').",
+      "tosCompetency": "Endocrine Disorders: Advanced Insulin Pharmacology and Glycemic Control",
+      "reference": "American Diabetes Association (ADA) Standards of Care 2024"
+    }
+  },
+  {
+    "id": "np3-022",
+    "area": "NP III",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part A)",
+    "topic": "Peripheral Vascular Disease: Arterial vs Venous",
+    "subtopic": "Clinical Signs & Leg Positioning Protocols",
+    "vignette": "A 62-year-old smoker presents with severe leg pain in the calves when walking two blocks (intermittent claudication), which resolves with rest. Physical assessment reveals hairless, cool lower extremities with shiny taut skin, thickened toenails, weak pedal pulses, and pale elevation with dependent deep red rubor.",
+    "question": "Which disease process and positioning guideline corresponds to this client's nursing care plan?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Peripheral Arterial Disease (PAD); position legs in a dependent (dangling) position below heart level to facilitate gravity-assisted arterial perfusion."
+      },
+      {
+        "id": "B",
+        "text": "Chronic Venous Insufficiency (CVI); elevate legs above heart level for 30 minutes 4 times daily."
+      },
+      {
+        "id": "C",
+        "text": "Deep Vein Thrombosis (DVT); apply warm moist packs and massage calves vigorously."
+      },
+      {
+        "id": "D",
+        "text": "Raynaud's Disease; immerse feet in ice baths twice daily."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Intermittent claudication, dependent rubor, elevation pallor, hairless cool extremities, and weak pedal pulses are classic signs of PERIPHERAL ARTERIAL DISEASE (PAD). In PAD, arterial blood flow to tissues is compromised; positioning the legs DEPENDENT (dangling down) uses gravity to enhance blood delivery to ischemic distal tissues. Elevating legs in PAD worsens ischemia and pain.",
+      "distractorBreakdown": {
+        "B": "Elevation above heart level is indicated for Chronic Venous Insufficiency (CVI) to promote venous return and reduce edema, but worsens arterial starvation.",
+        "C": "Massaging calves in suspected DVT dislodges the thrombus, causing a fatal pulmonary embolism.",
+        "D": "Cold exposure causes severe vasospasm in Raynaud's and further tissue necrosis in PAD."
+      },
+      "clinicalPearl": "PVD Positioning Memory Hack: (1) A in PAD = Arterial -> Hang the legs down like the legs of the letter 'A'! (Dangle for arterial flow). (2) V in PVD = Venous -> Elevate the legs in the shape of a 'V'! (Elevate for venous return).",
+      "tosCompetency": "Cardiovascular and Peripheral Vascular Nursing Interventions",
+      "reference": "Brunner & Suddarth's Textbook of Medical-Surgical Nursing (15th Ed.)"
+    }
+  },
+  {
+    "id": "np3-023",
+    "area": "NP III",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part A)",
+    "topic": "Cerebrovascular Accident (Stroke) Care",
+    "subtopic": "tPA Eligibility Window and Stroke Positioning",
+    "vignette": "A 58-year-old male is rushed to the emergency department with sudden-onset right-sided hemiplegia and expressive aphasia that started 75 minutes ago. The emergency physician is considering intravenous tissue plasminogen activator (Alteplase / IV tPA).",
+    "question": "What is the nurse's immediate diagnostic priority before any fibrinolytic therapy can be safely administered?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Obtain an emergency non-contrast head CT scan to rule out intracranial hemorrhage."
+      },
+      {
+        "id": "B",
+        "text": "Insert a 16-Fr indwelling urinary catheter and start a heparin drip."
+      },
+      {
+        "id": "C",
+        "text": "Administer 325 mg Aspirin orally to prevent further clot propagation."
+      },
+      {
+        "id": "D",
+        "text": "Perform a lumbar puncture to analyze cerebrospinal fluid pressure."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "The supreme priority in acute stroke is an immediate NON-CONTRAST HEAD CT SCAN. Fibrinolytic therapy (tPA / Alteplase) is indicated strictly for acute ISCHEMIC stroke within 3 to 4.5 hours of symptom onset. Administering tPA to a patient with an unsuspected hemorrhagic stroke or intracranial bleed is uniformly fatal.",
+      "distractorBreakdown": {
+        "B": "Invasive lines (catheters, arterial lines) must be placed with extreme caution, but ruling out hemorrhage via CT is the primary gating step.",
+        "C": "Aspirin and antiplatelets are withheld for at least 24 hours post-tPA to avoid secondary intracranial bleeding.",
+        "D": "Lumbar puncture in suspected stroke with mass effect can trigger fatal uncal brain herniation."
+      },
+      "clinicalPearl": "Acute Stroke Golden Rules: (1) TIME IS BRAIN: tPA window = within 3 to 4.5 hours of symptom onset. (2) Rule out bleed first: STAT Non-contrast CT Head. (3) Blood pressure must be <185/110 mmHg before tPA. (4) No invasive sticks for 24h post-tPA!",
+      "tosCompetency": "Neurological Nursing: Acute Stroke Management and Thrombolysis Protocols",
+      "reference": "American Heart Association / American Stroke Association (AHA/ASA) Guidelines 2024"
+    }
+  },
+  {
+    "id": "np3-024",
+    "area": "NP III",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part A)",
+    "topic": "Spinal Cord Injury: Autonomic Dysreflexia",
+    "subtopic": "Recognition, Triggers, and Emergency Nursing Steps",
+    "vignette": "A 24-year-old male with a T4 complete spinal cord injury suddenly complains of a severe, throbbing headache. The nurse notices the client's face and neck are profusely sweating and flushed, while his legs are pale and cool. Blood pressure is 210/115 mmHg and pulse is 48 bpm (bradycardia).",
+    "question": "What is the nurse's immediate sequence of priority emergency actions?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Elevate the head of bed to 90 degrees (high Fowler's), immediately check for a distended bladder / kinked catheter, and loosen constrictive clothing."
+      },
+      {
+        "id": "B",
+        "text": "Place the client in Trendelenburg position to improve cerebral blood flow."
+      },
+      {
+        "id": "C",
+        "text": "Administer IV Epinephrine to reverse the severe bradycardia."
+      },
+      {
+        "id": "D",
+        "text": "Perform a digital rectal exam immediately without anesthetic lubricant."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "This patient is experiencing AUTONOMIC DYSREFLEXIA (hyperreflexia), a life-threatening hypertensive emergency occurring in injuries at or above T6. Massive uninhibited sympathetic discharge below the lesion triggers severe hypertension and cutaneous pallor, while baroreceptors trigger compensatory parasympathetic bradycardia and facial flushing above the lesion. Priority steps: (1) SIT PATIENT UP (high Fowler's) to lower BP orthostatically, (2) Remove noxious stimulus: check bladder distention/kinked catheter (#1 cause), check bowel impaction, remove tight clothes.",
+      "distractorBreakdown": {
+        "B": "Trendelenburg position increases cerebral venous congestion and will precipitate a catastrophic hemorrhagic stroke or seizure.",
+        "C": "Epinephrine will elevate the BP further, causing immediate death.",
+        "D": "Digital rectal exams without topical lidocaine will act as another intense noxious stimulus, aggravating the crisis."
+      },
+      "clinicalPearl": "Autonomic Dysreflexia Action Sequence: (1) Sit client UP! (High Fowler's). (2) Loosen tight clothing. (3) Check Foley catheter for kinks or distended bladder. (4) Check for fecal impaction. (5) Monitor BP every 2-5 minutes; give antihypertensive if stimulus not found.",
+      "tosCompetency": "Neurological Critical Care: Spinal Cord Injury Complications",
+      "reference": "Brunner & Suddarth's Textbook of Medical-Surgical Nursing (15th Ed.)"
+    }
+  },
+  {
+    "id": "np3-025",
+    "area": "NP III",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part A)",
+    "topic": "Cardiac Glycosides: Digoxin Safety",
+    "subtopic": "Apical Pulse, Toxicity Signs, and Hypokalemia",
+    "vignette": "A 71-year-old female taking Digoxin 0.25 mg daily and Furosemide 40 mg daily for congestive heart failure is admitted with nausea, anorexia, and blurred vision with yellowish-green halos around lights. Her apical pulse is 50 bpm and irregular. Serum Potassium is 3.1 mEq/L.",
+    "question": "What should the nurse do first?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Hold the Digoxin dose, notify the physician immediately, and request a STAT serum Digoxin and Potassium level."
+      },
+      {
+        "id": "B",
+        "text": "Administer the scheduled Digoxin with a glass of orange juice to correct the potassium deficit."
+      },
+      {
+        "id": "C",
+        "text": "Administer an extra dose of Furosemide to clear the yellow visual halos."
+      },
+      {
+        "id": "D",
+        "text": "Reassure the patient that seeing green-yellow halos is a benign ocular adaptation to aging."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Anorexia, nausea/vomiting, bradycardia (<60 bpm), and visual disturbances (yellow-green halos, photophobia) are classic signs of DIGOXIN TOXICITY (therapeutic range: 0.5 - 2.0 ng/mL). Furthermore, HYPOKALEMIA (potassium 3.1 mEq/L, often caused by loop diuretics like Furosemide) potentiates digoxin binding to the Na+/K+ ATPase pump, dramatically increasing toxicity risk even at normal drug levels. The dose must be held immediately.",
+      "distractorBreakdown": {
+        "B": "Giving Digoxin to a bradycardic, toxic patient with severe hypokalemia can trigger fatal ventricular arrhythmias.",
+        "C": "Furosemide depletes potassium further, worsening digoxin toxicity.",
+        "D": "Yellow halos are the hallmark clinical presentation of digitalis toxicity (xanthopsia), never a normal aging process."
+      },
+      "clinicalPearl": "Digoxin Rules: (1) Count apical pulse for 1 full minute; HOLD if <60 bpm in adults (<70 in children, <90 in infants). (2) Therapeutic range = 0.5 to 2.0 ng/mL. (3) Low Potassium = HIGH Digoxin Toxicity risk! Antidote: Digoxin Immune Fab (DigiFab).",
+      "tosCompetency": "Pharmacological Safety: Cardiac Glycosides and Electrolyte Monitoring",
+      "reference": "Davis's Drug Guide for Nurses (18th Ed.); Medical-Surgical Nursing (Ignatavicius)"
+    }
+  },
+  {
+    "id": "np4-016",
+    "area": "NP IV",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part B)",
+    "topic": "Traumatic Brain Injury & Increased Intracranial Pressure (ICP)",
+    "subtopic": "Cushing's Triad & Mannitol Administration",
+    "vignette": "A 29-year-old motor vehicle crash victim with a closed head injury has an intracranial pressure (ICP) monitor in place. The baseline ICP is 26 mmHg (normal: 5-15 mmHg). On neurological assessment, his blood pressure has widened from 130/80 to 185/60 mmHg, heart rate has dropped from 76 to 48 bpm, and his breathing pattern is irregular and Cheyne-Stokes.",
+    "question": "What is the clinical significance of this triad of signs, and what is the nurse's immediate priority intervention?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Cushing's Triad indicating impending brainstem herniation; administer IV Mannitol as ordered, elevate head of bed 30 degrees, and avoid neck flexion."
+      },
+      {
+        "id": "B",
+        "text": "Neurogenic shock; administer rapid IV fluid boluses and place patient in Trendelenburg position."
+      },
+      {
+        "id": "C",
+        "text": "Autonomic dysreflexia; catheterize the patient and administer hydralazine IV."
+      },
+      {
+        "id": "D",
+        "text": "Normal intracranial compensation; maintain flat supine position and recheck in 2 hours."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Cushing's Triad\u2014(1) Systolic hypertension with widening pulse pressure, (2) Bradycardia, and (3) Irregular respirations\u2014is a late and ominous sign of severe Increased ICP indicating impending uncal/brainstem herniation. Priority nursing actions: administer osmotic diuretic (Mannitol 20% or hypertonic saline), elevate HOB 30 degrees (promotes venous drainage), keep head and neck in neutral alignment (no flexion/rotation), and avoid hypercapnia (keep PaCO2 35-40 mmHg).",
+      "distractorBreakdown": {
+        "B": "Neurogenic shock presents with HYPOTENSION and bradycardia, not widening systolic hypertension.",
+        "C": "Autonomic dysreflexia occurs with T6 or higher spinal cord injuries, not isolated closed head injury with high ICP.",
+        "D": "Elevated ICP >20 with Cushing's triad will cause brain death within minutes if untreated; keeping the head flat impedes jugular venous outflow and elevates ICP further."
+      },
+      "clinicalPearl": "Cushing's Triad vs Shock: Shock = Low BP, Tachycardia, Tachypnea. Cushing's Triad (High ICP) = HIGH Systolic BP (wide pulse pressure), BRADYCARDIA, IRREGULAR Respirations! Opposite of shock!",
+      "tosCompetency": "Neurological Critical Care: ICP Monitoring and Brain Herniation Prevention",
+      "reference": "Brunner & Suddarth's Textbook of Medical-Surgical Nursing (15th Ed.)"
+    }
+  },
+  {
+    "id": "np4-017",
+    "area": "NP IV",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part B)",
+    "topic": "Severe Burn Resuscitation: Parkland Formula",
+    "subtopic": "Fluid Resuscitation Timing & Urine Output Gating",
+    "vignette": "A 70-kg factory worker suffers deep partial-thickness burns to his entire anterior torso (18%) and both entire arms (9% + 9% = 18%), totaling 36% TBSA. The burn occurred at 8:00 AM, and he arrives in the emergency department at 10:00 AM.",
+    "question": "Using the Parkland Formula (4 mL x kg x %TBSA), how much Lactated Ringer's solution must be administered between 10:00 AM and 4:00 PM (the remaining 6 hours of the first 8-hour window)?",
+    "options": [
+      {
+        "id": "A",
+        "text": "5,040 mL"
+      },
+      {
+        "id": "B",
+        "text": "10,080 mL"
+      },
+      {
+        "id": "C",
+        "text": "2,520 mL"
+      },
+      {
+        "id": "D",
+        "text": "1,260 mL"
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Total 24-hr fluid = 4 mL x 70 kg x 36% = 10,080 mL. According to the Parkland Formula, HALF of the total (5,040 mL) must be administered within the FIRST 8 HOURS FROM THE TIME OF INJURY (8:00 AM to 4:00 PM). Because the patient arrived at 10:00 AM (2 hours post-burn) with no fluids given, the entire 5,040 mL must be infused over the remaining 6 hours.",
+      "distractorBreakdown": {
+        "B": "10,080 mL is the total 24-hour requirement, not the first 8 hours.",
+        "C": "2,520 mL is one-quarter of the total fluid requirement.",
+        "D": "1,260 mL represents severe under-resuscitation that will lead to burn shock and acute renal failure."
+      },
+      "clinicalPearl": "Parkland Formula Rules: Total 24h = 4 mL x kg x %TBSA. Give 50% in first 8 hours FROM THE TIME OF BURN (not hospital arrival!), remaining 50% over the next 16 hours. Best indicator of fluid adequacy = Urine Output (0.5 to 1.0 mL/kg/hr in adults, or 30-50 mL/hr).",
+      "tosCompetency": "Critical Care: Burn Resuscitation Calculations and Hemodynamic Endpoints",
+      "reference": "American Burn Association (ABA) Practice Guidelines; Advanced Burn Life Support (ABLS)"
+    }
+  },
+  {
+    "id": "np4-018",
+    "area": "NP IV",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part B)",
+    "topic": "Diabetic Ketoacidosis (DKA) Management",
+    "subtopic": "Fluid Resuscitation, Insulin Infusion, and Potassium Shifts",
+    "vignette": "A 19-year-old college student with Type 1 Diabetes is brought to the ICU in a state of somnolence. Laboratory analysis reveals blood glucose 580 mg/dL, arterial pH 7.15, HCO3 10 mEq/L, serum Potassium 4.8 mEq/L, and positive urine ketones. The client exhibits rapid, deep breathing (Kussmaul respirations) with a fruity breath odor.",
+    "question": "When intravenous Regular Insulin is initiated to correct the hyperglycemia and ketoacidosis, which electrolyte must the nurse monitor with extreme vigilance to prevent sudden cardiac arrest?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Potassium (risk of precipitous hypokalemia as insulin drives potassium into cells)."
+      },
+      {
+        "id": "B",
+        "text": "Calcium (risk of severe hypercalcemia)."
+      },
+      {
+        "id": "C",
+        "text": "Magnesium (risk of acute hypermagnesemic coma)."
+      },
+      {
+        "id": "D",
+        "text": "Sodium (risk of hyponatremic encephalopathy)."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Insulin drives both glucose and POTASSIUM from the extracellular fluid into the intracellular compartment. In DKA, total body potassium is severely depleted due to osmotic diuresis, even if initial serum K+ appears normal or high (due to acidosis). Once IV regular insulin and fluids are started, serum potassium can drop precipitously, causing fatal cardiac dysrhythmias (ventricular fibrillation/asystole). Potassium replacement must be added to IV fluids once K+ drops below 5.0 mEq/L.",
+      "distractorBreakdown": {
+        "B": "Calcium fluctuations in DKA are minimal compared to the life-threatening potassium shifts.",
+        "C": "Hypermagnesemia is not an acute complication of insulin therapy.",
+        "D": "Pseudohyponatremia occurs initially due to osmotic fluid shifts from hyperglycemia, but corrects as blood glucose normalizes."
+      },
+      "clinicalPearl": "DKA Golden Clinical Rule: NEVER administer insulin if serum Potassium is <3.3 mEq/L! Correct hypokalemia first. When blood glucose reaches 250 mg/dL, add 5% DEXTROSE to IV fluids to prevent hypoglycemia and cerebral edema while continuing insulin to clear ketones!",
+      "tosCompetency": "Endocrine Critical Care: Acid-Base Correction and Insulin Protocols",
+      "reference": "American Diabetes Association (ADA) Clinical Guidelines; Medical-Surgical Nursing (Ignatavicius)"
+    }
+  },
+  {
+    "id": "np4-019",
+    "area": "NP IV",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part B)",
+    "topic": "Massive Blood Transfusion & Hemolytic Reactions",
+    "subtopic": "Acute Hemolytic Reaction Signs & Emergency Steps",
+    "vignette": "Ten minutes after the nurse initiates a transfusion of Packed Red Blood Cells (PRBCs) for a patient with upper GI bleeding, the client complains of severe flank and lower back pain, chills, dyspnea, and a sense of impending doom. The cardiac monitor shows heart rate 124 bpm and blood pressure 86/50 mmHg.",
+    "question": "What is the nurse's immediate priority action?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Immediately STOP the transfusion, disconnect the blood tubing from the IV catheter, and flush the line with 0.9% normal saline using entirely new tubing."
+      },
+      {
+        "id": "B",
+        "text": "Slow the infusion rate to 20 drops per minute and administer acetaminophen orally."
+      },
+      {
+        "id": "C",
+        "text": "Run the remaining blood rapidly under pressure to complete the unit before it clots."
+      },
+      {
+        "id": "D",
+        "text": "Administer IV diphenhydramine through the blood transfusion Y-tubing."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Low back/flank pain, chills, hypotension, and tachycardia within the first 15 minutes of blood transfusion indicate an ACUTE HEMOLYTIC TRANSFUSION REACTION (ABO incompatibility). The donor RBCs are undergoing rapid intravascular destruction. The nurse must STOP THE TRANSFUSION IMMEDIATELY, disconnect the tubing at the catheter hub to prevent infusing residual blood in the line, and maintain IV access with 0.9% Normal Saline using fresh tubing. The blood bag and tubing must be sent to the blood bank.",
+      "distractorBreakdown": {
+        "B": "Slowing the infusion in a hemolytic reaction is fatal; continued antigen-antibody destruction causes disseminated intravascular coagulation (DIC) and acute tubular necrosis.",
+        "C": "Infusing incompatible blood under pressure will cause irreversible shock and death.",
+        "D": "Medications must never be infused through blood tubing; diphenhydramine treats minor allergic reactions (hives), not acute hemolytic lysis."
+      },
+      "clinicalPearl": "Blood Transfusion Reaction Protocol: (1) STOP the blood immediately! (2) Disconnect tubing at IV hub (do not flush remaining blood in the line). (3) Infuse Normal Saline with NEW tubing. (4) Notify MD & Blood Bank. (5) Send blood bag, tubing, and fresh urine/blood samples to lab to check for hemoglobinuria.",
+      "tosCompetency": "Hematology Critical Care: Transfusion Safety and Anaphylaxis/Hemolysis Triage",
+      "reference": "American Association of Blood Banks (AABB) Standards; Brunner & Suddarth"
+    }
+  },
+  {
+    "id": "np4-020",
+    "area": "NP IV",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part B)",
+    "topic": "Mechanical Ventilation: High vs Low Pressure Alarms",
+    "subtopic": "Troubleshooting Alarms & Patient Advocacy",
+    "vignette": "An intubated, mechanically ventilated patient in the ICU triggers a continuous HIGH-PRESSURE ALARM on the ventilator. The nurse notes the patient is coughing vigorously and attempting to bite the endotracheal tube, with audible rhonchi over the mainstem bronchi.",
+    "question": "Which set of nursing interventions addresses the root cause of this high-pressure alarm?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Insert an oral bite block, perform inline endotracheal suctioning, and check tubing for kinks or water condensation."
+      },
+      {
+        "id": "B",
+        "text": "Check for ventilator circuit disconnection and inflate the endotracheal tube cuff with extra air."
+      },
+      {
+        "id": "C",
+        "text": "Immediately extubate the patient and initiate bag-valve-mask ventilation."
+      },
+      {
+        "id": "D",
+        "text": "Silence the alarm permanently and turn off the humidifier."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "HIGH-PRESSURE ALARMS are triggered when peak airway resistance exceeds preset safety limits. Common causes: secretions in airway (suction indicated), patient biting the tube (bite block indicated), tubing kinks, water condensation in tubing, coughing, bronchospasm, or tension pneumothorax. LOW-PRESSURE ALARMS are caused by leaks or circuit disconnections.",
+      "distractorBreakdown": {
+        "B": "Circuit disconnections and cuff leaks cause LOW-PRESSURE ALARMS, not high-pressure alarms.",
+        "C": "Unplanned emergency extubation is dangerous; addressing the obstruction (suction, bite block) resolves the alarm.",
+        "D": "Silencing alarms without resolving the underlying cause leads to hypoxia and asphyxiation."
+      },
+      "clinicalPearl": "Ventilator Alarm Rules: HIGH PRESSURE = OBSTRUCTION (Biting tube, Secretions, Kinked tubing, Bronchospasm, Coughing, Pneumothorax). LOW PRESSURE = DISCONNECTION or LEAK (Tubing disconnected, Cuff deflated/leaking). If cannot resolve alarm quickly = DISCONNECT & BAG THE PATIENT WITH 100% O2!",
+      "tosCompetency": "Critical Care Respiratory Nursing: Mechanical Ventilation and Airway Patency",
+      "reference": "AACN Core Curriculum for High Acuity, Progressive, and Critical Care Nursing"
+    }
+  },
+  {
+    "id": "np4-021",
+    "area": "NP IV",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part B)",
+    "topic": "Arterial Blood Gas (ABG) Interpretation",
+    "subtopic": "ROME Method & Respiratory Acidosis with Compensation",
+    "vignette": "A 64-year-old male with severe emphysema (COPD) is admitted with acute shortness of breath and drowsiness. His arterial blood gas (ABG) results are: pH 7.32, PaCO2 58 mmHg, HCO3 30 mEq/L, PaO2 62 mmHg.",
+    "question": "How should the nurse interpret these ABG values?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Partially Compensated Respiratory Acidosis with moderate hypoxemia"
+      },
+      {
+        "id": "B",
+        "text": "Uncompensated Metabolic Alkalosis"
+      },
+      {
+        "id": "C",
+        "text": "Fully Compensated Respiratory Alkalosis"
+      },
+      {
+        "id": "D",
+        "text": "Mixed Metabolic and Respiratory Acidosis"
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "(1) pH is 7.32 (normal: 7.35-7.45) -> Acidosis. (2) PaCO2 is 58 mmHg (normal: 35-45) -> Respiratory cause (elevated acid). (3) HCO3 is 30 mEq/L (normal: 22-26) -> Kidneys are retaining bicarbonate to compensate. Because the pH has NOT yet returned to the normal range, it is PARTIALLY COMPENSATED RESPIRATORY ACIDOSIS. PaO2 62 mmHg reflects moderate hypoxemia.",
+      "distractorBreakdown": {
+        "B": "In metabolic alkalosis, pH would be >7.45 and driven by primary high HCO3.",
+        "C": "Full compensation requires the pH to be within the normal reference range (7.35-7.45).",
+        "D": "In mixed acidosis, both PaCO2 would be high and HCO3 would be low, driving pH extremely low."
+      },
+      "clinicalPearl": "ROME Mnemonic for ABGs: Respiratory Opposite (pH and PaCO2 move in opposite directions), Metabolic Equal (pH and HCO3 move in the same direction). Compensation Guide: If pH is abnormal and opposite value is abnormal = PARTIALLY compensated. If pH is normal = FULLY compensated. If opposite value is normal = UNCOMPENSATED.",
+      "tosCompetency": "Acid-Base Balance, Diagnostic Laboratory Telemetry, and Arterial Blood Gases",
+      "reference": "Brunner & Suddarth's Textbook of Medical-Surgical Nursing (15th Ed.)"
+    }
+  },
+  {
+    "id": "np4-022",
+    "area": "NP IV",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part B)",
+    "topic": "Shock Syndromes: Cardiogenic vs Anaphylactic",
+    "subtopic": "Hemodynamic Profiles and First-Line Drug of Choice",
+    "vignette": "A 34-year-old female receiving an intravenous cephalosporin infusion suddenly develops diffuse urticaria, stridor, wheezing, and facial angioedema. Her blood pressure drops to 78/40 mmHg and heart rate increases to 132 bpm.",
+    "question": "What is the nurse's first-line drug of choice, route, and immediate nursing action?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Administer Epinephrine 1:1,000 (0.3 to 0.5 mg) INTRAMUSCULARLY into the vastus lateralis, stop the antibiotic infusion, and apply high-flow oxygen."
+      },
+      {
+        "id": "B",
+        "text": "Administer oral Diphenhydramine 50 mg with sips of water."
+      },
+      {
+        "id": "C",
+        "text": "Infuse Dopamine at 20 mcg/kg/min via peripheral line."
+      },
+      {
+        "id": "D",
+        "text": "Administer IV Furosemide to reduce laryngeal edema."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "The drug of choice for ANAPHYLACTIC SHOCK is EPINEPHRINE administered INTRAMUSCULARLY (IM) into the vastus lateralis (anterolateral thigh) at 1:1,000 concentration (0.3-0.5 mg in adults). Epinephrine acts as a potent alpha-1 agonist (vasoconstriction, raises BP), beta-1 agonist (increases cardiac output), and beta-2 agonist (bronchodilation, inhibits mast cell mediator release). The triggering IV antibiotic must be stopped immediately.",
+      "distractorBreakdown": {
+        "B": "Oral antihistamines have a delayed onset of 1-2 hours and cannot be swallowed during severe laryngeal edema and impending airway closure.",
+        "C": "Dopamine lacks beta-2 bronchodilating properties and is not the first-line drug for anaphylaxis.",
+        "D": "Furosemide is a loop diuretic that will deplete circulating volume in an already hypotensive, vasodilated shock patient."
+      },
+      "clinicalPearl": "Anaphylaxis First-Line Rule: EPINEPHRINE IM into the THIGH is #1! Antihistamines (Diphenhydramine) and Corticosteroids (Hydrocortisone/Methylprednisolone) are SECOND-LINE adjuncts that do not reverse acute airway bronchospasm or vascular collapse.",
+      "tosCompetency": "Emergency Pharmacotherapy: Anaphylaxis and Resuscitation Protocols",
+      "reference": "World Allergy Organization (WAO) Anaphylaxis Guidelines; AHA ACLS Protocols"
+    }
+  },
+  {
+    "id": "np4-023",
+    "area": "NP IV",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part B)",
+    "topic": "Acute Coronary Syndrome (ACS): STEMI",
+    "subtopic": "MONA Protocol & Cardiac Biomarkers",
+    "vignette": "A 56-year-old diabetic male arrives in the emergency department with severe, crushing substernal chest pressure radiating to his left jaw and shoulder that began 45 minutes ago. The 12-lead ECG reveals 3-mm ST-segment elevation in leads II, III, and aVF (inferior wall STEMI).",
+    "question": "Which diagnostic cardiac biomarker is the most specific and sensitive indicator of acute myocardial necrosis?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Cardiac Troponin I (cTnI)"
+      },
+      {
+        "id": "B",
+        "text": "Creatine Kinase-MB (CK-MB)"
+      },
+      {
+        "id": "C",
+        "text": "Myoglobin"
+      },
+      {
+        "id": "D",
+        "text": "Lactate Dehydrogenase (LDH)"
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "CARDIAC TROPONIN I (and Troponin T) is the gold standard biomarker for myocardial infarction due to its extraordinary cardiac specificity and prolonged detection window (rises within 2-4 hours, peaks at 24 hours, and remains elevated for 10 to 14 days).",
+      "distractorBreakdown": {
+        "B": "CK-MB is useful for detecting re-infarction because it returns to baseline in 48-72 hours, but is less sensitive and specific than Troponins.",
+        "C": "Myoglobin rises fastest (within 1-2 hours), but lacks cardiac specificity (elevated in any skeletal muscle injury).",
+        "D": "LDH is an obsolete, non-specific biomarker that has been replaced by cardiac troponins in modern clinical practice."
+      },
+      "clinicalPearl": "Cardiac Biomarker Timeline: (1) Myoglobin = Rises first (1-2h), leaves first (24h), non-specific. (2) CK-MB = Rises in 4-6h, peaks in 24h, gone in 3 days (best for re-infarction). (3) TROPONIN = Gold standard! Highly specific, stays elevated for up to 2 weeks!",
+      "tosCompetency": "Cardiovascular Critical Care: Myocardial Infarction Biomarkers and ECG Triage",
+      "reference": "ACC/AHA Guidelines for the Management of Acute Coronary Syndromes"
+    }
+  },
+  {
+    "id": "np4-024",
+    "area": "NP IV",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part B)",
+    "topic": "Endocrine Emergencies: Thyroid Storm vs Myxedema Coma",
+    "subtopic": "Hyperpyrexia Management & Contraindicated Antipyretics",
+    "vignette": "A 38-year-old woman with Graves' disease undergoes urgent appendectomy. In the post-anesthesia care unit, she develops extreme agitation, delirium, heart rate of 168 bpm (atrial fibrillation), and a spiking temperature of 41.0\u00b0C (105.8\u00b0F). The endocrinologist diagnoses Thyroid Storm (Thyrotoxic Crisis).",
+    "question": "Which antipyretic medication is strictly CONTRAINDICATED in the management of hyperpyrexia during Thyroid Storm?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Aspirin (Acetylsalicylic Acid)"
+      },
+      {
+        "id": "B",
+        "text": "Acetaminophen (Paracetamol)"
+      },
+      {
+        "id": "C",
+        "text": "Propylthiouracil (PTU)"
+      },
+      {
+        "id": "D",
+        "text": "Propranolol"
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "ASPIRIN is strictly CONTRAINDICATED in thyroid storm because salicylates displace thyroid hormones (T3 and T4) from their binding proteins (thyroid-binding globulin / TBG), dramatically increasing circulating levels of FREE, ACTIVE thyroid hormones and catastrophically exacerbating the thyrotoxic crisis. Acetaminophen (Paracetamol) and cooling blankets are the antipyretics of choice.",
+      "distractorBreakdown": {
+        "B": "Acetaminophen is the safe and preferred antipyretic because it does not displace thyroid hormones from protein carriers.",
+        "C": "Propylthiouracil (PTU) is a primary treatment of choice that inhibits new thyroid hormone synthesis and blocks peripheral conversion of T4 to T3.",
+        "D": "Propranolol is a beta-blocker administered to control severe tachycardia and peripheral adrenergic hyperactivity."
+      },
+      "clinicalPearl": "Thyroid Storm Board Trap: NEVER give ASPIRIN for fever in Thyroid Storm! Aspirin displaces T3/T4 from proteins, worsening the storm! Use ACETAMINOPHEN + Cooling blankets + Propylthiouracil (PTU) + Beta-blockers + Potassium Iodide (SSKI).",
+      "tosCompetency": "Endocrine Critical Care: Thyrotoxic Crisis and Pharmacological Contraindications",
+      "reference": "American Thyroid Association (ATA) Guidelines for Thyrotoxicosis; Brunner & Suddarth"
+    }
+  },
+  {
+    "id": "np4-025",
+    "area": "NP IV",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part B)",
+    "topic": "Emergency Management: Tension Pneumothorax",
+    "subtopic": "Tracheal Deviation & Emergency Needle Decompression",
+    "vignette": "A construction worker falls from a scaffolding, suffering blunt thoracic trauma. He presents with severe dyspnea, cyanosis, distended neck veins (JVD), absent breath sounds on the entire right side, and hyperresonance to percussion. The trachea is visibly deviated to the LEFT side. Blood pressure is 74/42 mmHg.",
+    "question": "What is the life-threatening pathology, and what is the nurse's immediate emergency intervention?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Right Tension Pneumothorax; prepare for immediate emergency needle decompression at the 2nd intercostal space midclavicular line (or 4th/5th ICS anterior axillary line)."
+      },
+      {
+        "id": "B",
+        "text": "Cardiac Tamponade; prepare for emergency pericardiocentesis."
+      },
+      {
+        "id": "C",
+        "text": "Flail Chest; apply tight sandbags over the right chest wall."
+      },
+      {
+        "id": "D",
+        "text": "Right massive hemothorax; place the client in Trendelenburg position."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "A one-way valve air leak into the pleural space creates a TENSION PNEUMOTHORAX. Trapped air accumulates under positive pressure, collapsing the ipsilateral lung and shifting the mediastinum and trachea to the CONTRALATERAL (opposite) side. This kinks the inferior vena cava, abolishing venous return and causing obstructive shock. Immediate emergency NEEDLE DECOMPRESSION (14-gauge angiocatheter inserted at 2nd ICS midclavicular line) converts the tension pneumothorax into an open pneumothorax, saving the patient's life before formal chest tube thoracostomy.",
+      "distractorBreakdown": {
+        "B": "Cardiac tamponade features Beck's Triad (JVD, muffled heart sounds, hypotension), but breath sounds are equal and trachea is midline.",
+        "C": "Flail chest features paradoxical chest movement (inward on inspiration, outward on expiration), not tracheal deviation.",
+        "D": "Hemothorax presents with DULLNESS to percussion, not hyperresonance, and does not require needle thoracostomy."
+      },
+      "clinicalPearl": "Tension Pneumothorax Clinical Hallmarks: (1) Trachea deviated to OPPOSITE side, (2) Absent breath sounds & HYPERRESONANCE on affected side, (3) Distended neck veins, (4) Profound hypotension (obstructive shock). STAT ACTION: Needle thoracostomy (2nd ICS MCL)! Do NOT wait for X-ray!",
+      "tosCompetency": "Emergency and Trauma Nursing: Obstructive Shock and Needle Thoracostomy",
+      "reference": "Advanced Trauma Life Support (ATLS) 10th Ed.; Emergency Nurses Association (ENA)"
+    }
+  },
+  {
+    "id": "np5-016",
+    "area": "NP V",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part C)",
+    "topic": "Philippine Nursing Act of 2002 (RA 9173)",
+    "subtopic": "Qualifications of Members of the Board of Nursing",
+    "vignette": "A distinguished Chief Nurse with 15 years of continuous clinical experience and a Master's degree in Nursing Administration is nominated to serve as a Member of the Professional Regulatory Board of Nursing (PRC BON).",
+    "question": "Under Section 5 of Republic Act No. 9173, which qualification is legally mandated for an appointee to the Board of Nursing?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Must be a natural-born citizen of the Philippines, a registered nurse with a Master's degree in nursing, and have at least ten (10) years of continuous practice of the profession."
+      },
+      {
+        "id": "B",
+        "text": "Must hold an active doctorate degree in jurisprudence or public administration."
+      },
+      {
+        "id": "C",
+        "text": "Must be an active voting officer of a review center or NCLEX preparatory agency."
+      },
+      {
+        "id": "D",
+        "text": "Must be at least 65 years of age at the time of appointment by the PRC."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Under RA 9173 Section 5, qualifications for BON members are: (1) Natural-born citizen and resident of the Philippines, (2) Registered Nurse with Master's degree in nursing, education, or allied medical sciences, (3) Member of good standing of the accredited professional organization (PNA), (4) At least ten (10) years of continuous practice of nursing, the last five (5) of which must be in the Philippines, and (5) No pecuniary interest in any nursing school or review center.",
+      "distractorBreakdown": {
+        "B": "A doctorate in law is not required; a Master's degree (preferably in nursing) is the educational requirement.",
+        "C": "Having pecuniary interest in or being an officer of a nursing review center is strictly PROHIBITED under Section 5 to avoid conflict of interest.",
+        "D": "There is no minimum age requirement of 65; the focus is on citizenship, experience (10 years), and clean moral/legal record."
+      },
+      "clinicalPearl": "RA 9173 BON Qualifications: (1) Natural-born Filipino, (2) RN with Master's Degree, (3) 10 years continuous practice (last 5 in PH), (4) PNA member in good standing, (5) NO connection with any review center or school for at least 1 year prior to nomination!",
+      "tosCompetency": "Professional Governance: Legal Mandates under RA 9173",
+      "reference": "Republic Act No. 9173 (The Philippine Nursing Act of 2002); PRC BON Rules"
+    }
+  },
+  {
+    "id": "np5-017",
+    "area": "NP V",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part C)",
+    "topic": "Nursing Leadership: Principles of Delegation",
+    "subtopic": "Five Rights of Delegation & Prohibited UAP Tasks",
+    "vignette": "A head nurse in a busy 40-bed medical ward is assigning clinical duties during a morning shift. The team consists of two Registered Nurses (RNs) and two unlicensed Nursing Aides (Unlicensed Assistive Personnel / UAP).",
+    "question": "Which of the following tasks is appropriate for the Registered Nurse to delegate to a Nursing Aide?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Assisting a stable hemiplegic patient with morning hygiene and recording the volume of urine emptied from a Foley catheter bag."
+      },
+      {
+        "id": "B",
+        "text": "Performing the initial comprehensive physical assessment on a newly admitted patient with heart failure."
+      },
+      {
+        "id": "C",
+        "text": "Providing discharge instruction regarding self-injection of subcutaneous insulin."
+      },
+      {
+        "id": "D",
+        "text": "Evaluating the therapeutic response of a patient 30 minutes after intravenous morphine administration."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Under professional nursing standards and delegation frameworks (The 5 Rights of Delegation: Right Task, Circumstance, Person, Direction/Communication, Supervision), Unlicensed Assistive Personnel (UAP / aides) can perform routine, non-invasive, standardized tasks for STABLE patients\u2014such as ambulation, hygiene, vital signs, and measuring output. Registered Nurses can NEVER delegate Assessment, Clinical Judgment, Teaching/Education, or Evaluation (mnemonic: TAPE).",
+      "distractorBreakdown": {
+        "B": "Initial nursing assessment requires professional clinical judgment and diagnostic synthesis; it cannot be delegated.",
+        "C": "Discharge teaching and medication education are exclusive nursing responsibilities (Teaching).",
+        "D": "Evaluating pharmacological outcomes (Evaluation) requires clinical analysis and is non-delegable."
+      },
+      "clinicalPearl": "Delegation Rule: DO NOT delegate 'TAPE': (T) Teaching / Health Education, (A) Assessment (initial or unstable), (P) Planning / Nursing Diagnosis, (E) Evaluation of care. UAPs perform routine care on STABLE clients!",
+      "tosCompetency": "Management and Leadership: Safe Clinical Delegation in Hospital Units",
+      "reference": "Code of Ethics for Registered Nurses; NCSBN / ANA Joint Statement on Delegation"
+    }
+  },
+  {
+    "id": "np5-018",
+    "area": "NP V",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part C)",
+    "topic": "Psychiatric Nursing: Suicide Risk Assessment",
+    "subtopic": "Lethality of Plan & Patient Protection Protocol",
+    "vignette": "A 21-year-old female university student is admitted to the psychiatric inpatient unit following a depressive episode. During the intake interview, she looks down at the floor and whispers, 'Everything would be so much better for my family if I just wasn't around anymore.'",
+    "question": "What is the nurse's most therapeutic and immediate response?",
+    "options": [
+      {
+        "id": "A",
+        "text": "'Are you having thoughts of killing yourself, and do you have a specific plan on how you would do it?'"
+      },
+      {
+        "id": "B",
+        "text": "'You have your whole life ahead of you, so you shouldn't think that way.'"
+      },
+      {
+        "id": "C",
+        "text": "'Why do you feel your family would be better off without you?'"
+      },
+      {
+        "id": "D",
+        "text": "'Let's focus on positive things today and avoid talking about death.'"
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "When a client drops hints of suicidal ideation, the nurse must ask DIRECT, CLEAR, and UNAMBIGUOUS questions to evaluate suicidal intent, plan, and lethality. Asking directly ('Are you thinking of killing yourself?') does NOT plant the idea in the client's mind; rather, it provides relief, validation, and opens a lifesaving dialogue to initiate immediate 1-on-1 observation.",
+      "distractorBreakdown": {
+        "B": "False reassurance and minimizing feelings dismisses the client's profound psychic pain and shuts down communication.",
+        "C": "Asking 'Why' puts the patient on the defensive and sounds accusatory in therapeutic psychiatric nursing.",
+        "D": "Changing the subject or avoiding discussions of death invalidates the patient and leaves life-threatening suicidality unassessed."
+      },
+      "clinicalPearl": "Suicide Assessment Rule: ALWAYS ask directly: (1) 'Are you having thoughts of killing yourself?' (2) 'Do you have a plan?' (3) 'Do you have access to the means?' Highest risk period: When severe depression lifts and client suddenly appears energetic and cheerful (energy to execute the plan)!",
+      "tosCompetency": "Mental Health Nursing: Suicide Lethality Assessment and Patient Protection",
+      "reference": "Townsend's Psychiatric Mental Health Nursing (10th Ed.); Kaplan & Sadock"
+    }
+  },
+  {
+    "id": "np5-019",
+    "area": "NP V",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part C)",
+    "topic": "Schizophrenia: Delusions and Hallucinations",
+    "subtopic": "Reality Testing & Therapeutic Communication",
+    "vignette": "A 30-year-old male diagnosed with Paranoid Schizophrenia cower in the corner of the dayroom. He points to the ceiling corner and shouts, 'Don't you see those snipers with red laser sights? They are going to shoot me through the window!'",
+    "question": "Which response by the nurse demonstrates proper reality orientation and therapeutic communication?",
+    "options": [
+      {
+        "id": "A",
+        "text": "'I don't see any snipers or laser lights, but I can see how terrified you are right now. You are safe here with me in the clinic.'"
+      },
+      {
+        "id": "B",
+        "text": "'You are completely imagining things; there are no snipers in a psychiatric hospital.'"
+      },
+      {
+        "id": "C",
+        "text": "'Let's duck under the table so they can't see us through the glass.'"
+      },
+      {
+        "id": "D",
+        "text": "'Why do you think government agents are targeting you specifically?'"
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "The therapeutic response to hallucinations or delusions: (1) Acknowledge the client's feelings ('I can see how terrified you are'), (2) State reality gently without arguing or debating ('I don't see any snipers'), and (3) Provide safety and reassurance ('You are safe here'). Never argue with a delusion, and never validate or reinforce false perceptual experiences.",
+      "distractorBreakdown": {
+        "B": "Bluntly dismissing the patient as 'imagining things' is confrontational, increases agitation, and destroys therapeutic rapport.",
+        "C": "Ducking under the table reinforces and validates the psychotic hallucination, intensifying the client's paranoia.",
+        "D": "Asking 'Why' and exploring the content of the delusion deepens fixation on psychotic themes."
+      },
+      "clinicalPearl": "Psychiatric Hallucination Protocol: Validate feelings -> Present reality -> Provide safety. 'I understand that you hear/see that, but I do not hear/see it. You are safe here.' NEVER play along with hallucinations!",
+      "tosCompetency": "Psychiatric Nursing: Management of Hallucinations and Delusional States",
+      "reference": "Videbeck's Psychiatric-Mental Health Nursing (8th Ed.)"
+    }
+  },
+  {
+    "id": "np5-020",
+    "area": "NP V",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part C)",
+    "topic": "Bipolar Disorder: Acute Mania",
+    "subtopic": "Milieu Safety, Nutrition, and Limit Setting",
+    "vignette": "A 27-year-old client in an acute manic phase of Bipolar I Disorder has been pacing rapidly around the psychiatric unit for 5 hours without resting. She talks nonstop with pressured speech, flight of ideas, intrusive behavior toward peers, and refuses to sit down for meals.",
+    "question": "What is the nurse's priority nursing intervention to preserve physiological stamina and milieu safety?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Provide high-calorie, high-protein finger foods and nutrient shakes that the client can consume while pacing, in a low-stimulus environment."
+      },
+      {
+        "id": "B",
+        "text": "Lock the client in her bedroom until she agrees to sit at the dining table for 30 minutes."
+      },
+      {
+        "id": "C",
+        "text": "Engage the client in a competitive basketball tournament with other patients."
+      },
+      {
+        "id": "D",
+        "text": "Insist on an uninterrupted 8-hour group psychotherapy session to address grandiosity."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Manic clients have extreme hyperactivity and poor nutritional intake, placing them at acute risk for severe dehydration, weight loss, and physical exhaustion leading to cardiac collapse. Providing PORTABLE FINGER FOODS (sandwiches, cheese sticks, fruits) and high-protein drinks allows nourishment on the go without requiring sitting. Decreasing environmental stimuli (soft lighting, low noise) prevents behavioral escalation.",
+      "distractorBreakdown": {
+        "B": "Unwarranted seclusion without clear immediate danger violates patient rights and triggers combative rage.",
+        "C": "Competitive games overstimulate the manic patient and frequently precipitate violent altercations.",
+        "D": "Manic clients cannot concentrate for prolonged group therapy; grandiosity is not amenable to insight-oriented debate during acute mania."
+      },
+      "clinicalPearl": "Acute Mania Priority Nursing Care: (1) Safety first: decrease environmental stimuli (single room, dim lights). (2) Nutrition: HIGH-CALORIE FINGER FOODS & frequent fluids on the move. (3) Consistent, firm limit setting with calm, short sentences.",
+      "tosCompetency": "Mood Disorders: Mania Interventions and Milieu Management",
+      "reference": "Townsend's Essentials of Psychiatric Mental Health Nursing"
+    }
+  },
+  {
+    "id": "np5-021",
+    "area": "NP V",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part C)",
+    "topic": "Alcohol Withdrawal & Delirium Tremens",
+    "subtopic": "CIWA Protocol, Benzodiazepines, and Wernicke Prevention",
+    "vignette": "A 45-year-old chronic alcoholic is admitted for emergency surgery. Forty-eight hours postoperatively, he becomes severely agitated, tremulous, and diaphoretic. His blood pressure is 175/100 mmHg, pulse is 120 bpm, and he claims insects are crawling on his hospital gown (formication).",
+    "question": "Which clinical complication is this patient exhibiting, and what is the primary pharmacological protocol?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Alcohol Withdrawal Delirium (Delirium Tremens); administer IV Benzodiazepines (e.g., Diazepam or Lorazepam) and high-dose Thiamine (Vitamin B1)."
+      },
+      {
+        "id": "B",
+        "text": "Postoperative Opioid Overdose; administer IV Naloxone (Narcan) immediately."
+      },
+      {
+        "id": "C",
+        "text": "Surgical site sepsis; administer broad-spectrum IV Vancomycin."
+      },
+      {
+        "id": "D",
+        "text": "Malingering; discharge patient home immediately with oral sedatives."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Delirium Tremens (DTs) is a medical emergency occurring 48 to 72 hours after cessation of heavy alcohol intake. Hallmarks include gross tremors, autonomic hyperactivity (severe hypertension, tachycardia), tactile/visual hallucinations (insects crawling), and agitation. BENZODIAZEPINES (Diazepam, Lorazepam, Chlordiazepoxide) prevent seizures and fatal exhaustion. THIAMINE (Vitamin B1) is mandatory prior to glucose administration to prevent WERNICKE-KORSAKOFF ENCEPHALOPATHY.",
+      "distractorBreakdown": {
+        "B": "Opioid overdose produces pinpoint pupils, respiratory depression, and bradycardia; this patient has autonomic hyperarousal.",
+        "C": "Sepsis produces fever, but tactile hallucinations, tremors, and history of alcohol abuse point directly to DTs.",
+        "D": "DTs carries up to a 15% mortality rate if untreated; labeling the patient as malingering is gross negligence."
+      },
+      "clinicalPearl": "Alcohol Withdrawal Golden Rules: (1) Peaks at 24-48 hours; Delirium Tremens peaks at 48-72 hours. (2) Drug of choice: BENZODIAZEPINES (Diazepam/Lorazepam). (3) Always give THIAMINE (Vitamin B1) before IV glucose to prevent irreversible Wernicke's Encephalopathy!",
+      "tosCompetency": "Addiction and Substance-Related Emergencies: Detoxification Protocols",
+      "reference": "Clinical Institute Withdrawal Assessment for Alcohol (CIWA-Ar); Kaplan & Sadock"
+    }
+  },
+  {
+    "id": "np5-022",
+    "area": "NP V",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part C)",
+    "topic": "Nursing Research: Hierarchy of Evidence & Ethics",
+    "subtopic": "Informed Consent & Randomized Controlled Trials",
+    "vignette": "A nurse researcher is designing a clinical study to evaluate the effectiveness of a novel honey-based dressing versus standard silver sulfadiazine on healing rates of second-degree burn wounds. Participants are randomly assigned to either the experimental dressing group or the standard control group.",
+    "question": "Which research design is the nurse conducting, and which ethical safeguard is legally required before enrollment?",
+    "options": [
+      {
+        "id": "A",
+        "text": "True Experimental Design (Randomized Controlled Trial); voluntary written informed consent with full disclosure of potential risks and freedom to withdraw without penalty."
+      },
+      {
+        "id": "B",
+        "text": "Quasi-Experimental Design; institutional permission without individual participant consent."
+      },
+      {
+        "id": "C",
+        "text": "Descriptive Phenomenological Design; retroactive verbal assent after healing is complete."
+      },
+      {
+        "id": "D",
+        "text": "Correlational Survey; mandatory hospital patient agreement as a condition of receiving burn care."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "A study with an intervention (manipulation), a control group, and RANDOM ASSIGNMENT represents a TRUE EXPERIMENTAL DESIGN (Randomized Controlled Trial / RCT), the gold standard in quantitative nursing research. Ethical guidelines (Belmont Report, Helsinki Declaration, Philippine Health Research Ethics Board / PHREB) strictly mandate VOLUNTARY WRITTEN INFORMED CONSENT with full disclosure of risks/benefits and freedom to withdraw at any time without penalty or change in medical care.",
+      "distractorBreakdown": {
+        "B": "Quasi-experimental designs lack either random assignment or a control group. Individual informed consent is always legally required.",
+        "C": "Phenomenology is qualitative and explores lived experiences, not wound healing rates.",
+        "D": "Conditioning medical care on research participation constitutes illegal coercion violating the ethical principle of Autonomy."
+      },
+      "clinicalPearl": "3 Essential Criteria for a TRUE EXPERIMENT: (1) Manipulation (intervention), (2) Control (comparison group), (3) Randomization (random assignment). If missing randomization or control = QUASI-experimental. Ethical core: Voluntary Informed Consent!",
+      "tosCompetency": "Research and Evidence-Based Practice: Methodological Rigor and Ethical Governance",
+      "reference": "Polit & Beck: Nursing Research: Generating and Assessing Evidence for Nursing Practice (11th Ed.)"
+    }
+  },
+  {
+    "id": "np5-023",
+    "area": "NP V",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part C)",
+    "topic": "Magna Carta of Public Health Workers (RA 7305)",
+    "subtopic": "Compensation, Hazard Allowance, and Rights",
+    "vignette": "A public health nurse assigned to a contagious disease isolation ward in a government hospital questions the hospital accountant regarding entitlements under Republic Act No. 7305.",
+    "question": "Which provision under Republic Act 7305 (Magna Carta of Public Health Workers) is an explicit statutory entitlement for public health nurses exposed to hazardous environmental conditions?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Hazard allowance of at least twenty-five percent (25%) of the monthly basic salary for public health workers exposed to dangerous environments or radiation."
+      },
+      {
+        "id": "B",
+        "text": "Automatic lifetime immunity from any administrative malpractice litigation."
+      },
+      {
+        "id": "C",
+        "text": "Free housing and personal automobiles provided by the municipal government."
+      },
+      {
+        "id": "D",
+        "text": "Exemption from mandatory licensure renewal and continuing professional development."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Under RA 7305 Section 21 (Hazard Allowance), public health workers assigned in hospitals or clinics where they are exposed to radiation, contagious diseases, radiation, or difficult terrain are entitled to a HAZARD ALLOWANCE equivalent to at least 25% of their basic salary (for salary grades 19 and below). Other benefits include subsistence allowance, longevity pay, and night shift differential (10%).",
+      "distractorBreakdown": {
+        "B": "Public health workers remain fully accountable under civil, criminal, and professional tort law; no medical worker has malpractice immunity.",
+        "C": "Housing and vehicles are not blanket statutory entitlements under RA 7305.",
+        "D": "All registered nurses must comply with PRC regulatory mandates including CPD requirements under RA 10912."
+      },
+      "clinicalPearl": "RA 7305 (Magna Carta) Key Benefits to Remember: (1) Hazard Allowance (at least 25% for SG 19 and below), (2) Subsistence Allowance (meals during on-duty days), (3) Longevity Pay (5% for every 5 years continuous service), (4) Overtime & Night Shift Differential (10%).",
+      "tosCompetency": "Socio-Economic Welfare: Republic Act No. 7305 Statutory Provisions",
+      "reference": "Republic Act No. 7305 (Magna Carta of Public Health Workers); Department of Health"
+    }
+  },
+  {
+    "id": "np5-024",
+    "area": "NP V",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part C)",
+    "topic": "Anti-Violence Against Women and Their Children (RA 9262)",
+    "subtopic": "Protection Orders & Mandatory Reporting Protocols",
+    "vignette": "A 29-year-old married woman is brought to the emergency department with multiple contusions, facial lacerations, and fractured ribs. While the nurse dresses her wounds in private, the patient confides through tears that her husband beat her violently and threatened to shoot her if she left home.",
+    "question": "Under Republic Act No. 9262 (Anti-VAWC Act), what is the nurse's immediate legal, ethical, and clinical duty?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Provide immediate medical care, document all injuries objectively with diagrams/photographs with consent, inform the client of her legal right to a Barangay Protection Order (BPO), and report the incident in accordance with hospital VAWC protocols."
+      },
+      {
+        "id": "B",
+        "text": "Confront the husband immediately in the hospital waiting lobby and demand an explanation."
+      },
+      {
+        "id": "C",
+        "text": "Advise the client to forgive her husband to preserve the sanctity of marriage under the Family Code."
+      },
+      {
+        "id": "D",
+        "text": "Refuse to treat the patient unless she files a formal sworn criminal complaint with the police."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Under RA 9262 (Anti-VAWC Act of 2004), healthcare providers attending to victims of intimate partner violence must: (1) Provide immediate emergency medical treatment, (2) Document injuries meticulously and objectively in the medical record (invaluable legal evidence), (3) Maintain confidentiality and patient safety, and (4) Inform the victim of available remedies, including Barangay Protection Orders (BPOs) and Temporary Protection Orders (TPOs) through the hospital Women and Children Protection Desk (WCPD).",
+      "distractorBreakdown": {
+        "B": "Confronting the abuser escalates domestic rage and puts the victim and staff in acute physical danger.",
+        "C": "Advising a victim to endure domestic battery is unethical, dangerous, and violates professional advocacy standards.",
+        "D": "Medical treatment cannot be conditioned on police reports; patient safety and clinical care are unconditional."
+      },
+      "clinicalPearl": "RA 9262 Nursing Protocols: Document exact words in quotes ('My husband hit me with a chair'), draw injury maps, document healing stages. Protection orders: BPO (Barangay - 15 days), TPO (Court - 30 days), PPO (Permanent Protection Order after trial).",
+      "tosCompetency": "Legal Responsibilities: Domestic Violence and Victim Protection Advocacy",
+      "reference": "Republic Act No. 9262; DOH Women and Children Protection Unit Guidelines"
+    }
+  },
+  {
+    "id": "np5-025",
+    "area": "NP V",
+    "areaName": "Care of Clients with Physiological and Psychosocial Alterations (Part C)",
+    "topic": "Code of Ethics for Registered Nurses",
+    "subtopic": "Social Media, Confidentiality & Data Privacy Act (RA 10173)",
+    "vignette": "A staff nurse in a provincial pediatric intensive care unit takes a smartphone selfie showing a recovering comatose child in the background. The nurse posts the photo on Facebook with the caption: 'Miracles happen! Thank God our little 4-year-old warrior in Bed 3 woke up today! #NurseLife #Blessed'. The child's hospital name tag and face are partially visible.",
+    "question": "How should this action be evaluated under the Code of Ethics for Nurses and the Data Privacy Act (RA 10173)?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It is a severe violation of client confidentiality, patient privacy, and professional ethics that can lead to administrative license suspension and criminal liability."
+      },
+      {
+        "id": "B",
+        "text": "It is acceptable because the post was well-intentioned and celebrated positive clinical recovery."
+      },
+      {
+        "id": "C",
+        "text": "It is permitted provided the nurse deleted the photo within 24 hours of posting."
+      },
+      {
+        "id": "D",
+        "text": "It is legal as long as the hospital name was not explicitly stated in the caption."
+      }
+    ],
+    "correctAnswer": "A",
+    "rationale": {
+      "whyCorrect": "Under the Code of Ethics for Registered Nurses (PRC BON Res. 220 s. 2004) and Republic Act No. 10173 (Data Privacy Act of 2012), taking or posting photos of patients, hospital identifiers, or clinical scenarios on personal social media without explicit institutional and patient legal consent is a GROSS BREACH OF CONFIDENTIALITY. Good intentions do NOT excuse privacy violations. The nurse is subject to administrative revocation of PRC license and criminal prosecution under RA 10173.",
+      "distractorBreakdown": {
+        "B": "Inspirational intent does not override constitutional and statutory rights to medical privacy.",
+        "C": "Deleting an illicit post does not erase the unlawful transmission and dissemination of protected personal health information.",
+        "D": "Visible patient identifiers (face, bed number, room context) make the patient identifiable, violating data privacy even without hospital naming."
+      },
+      "clinicalPearl": "Social Media Golden Rule for Nurses: NEVER photograph patients, monitors, charts, or clinical rooms on your personal phone! Never post patient stories online, even with names changed. Patient privacy is absolute under RA 10173 and PRC Code of Ethics!",
+      "tosCompetency": "Ethico-Legal Accountability: Data Privacy Act (RA 10173) and Digital Professionalism",
+      "reference": "Code of Ethics for Registered Nurses; Republic Act No. 10173 (Data Privacy Act)"
+    }
+  }
 ];
 
 // Helper to get questions by area

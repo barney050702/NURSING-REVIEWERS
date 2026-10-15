@@ -50,6 +50,12 @@
           </div>
         </a>
 
+        <!-- Universal Live Search Bar -->
+        <div class="header-search-wrap">
+          <input type="search" id="universalSearchInput" class="header-search-input" placeholder="🔍 Search questions, drugs, laws, pearls..." autocomplete="off">
+          <div id="universalSearchResults" class="search-dropdown hidden"></div>
+        </div>
+
         <!-- Navigation Tabs -->
         <nav class="nav-tabs" aria-label="Main Navigation">
           <button class="nav-tab active" data-view="roadmap">
@@ -84,6 +90,13 @@
 
         <!-- Right Header Stats & Actions -->
         <div class="header-actions">
+          <button id="headerCramSheetsBtn" class="btn btn-sm btn-outline header-cram-btn" title="Open High-Yield Board Cram Sheets">
+            📑 Cram Sheets
+          </button>
+          <button id="headerPrintErrorLogBtn" class="btn btn-sm btn-secondary header-print-btn" title="Export or Print Missed Questions Error Log">
+            🖨️ Error Log
+          </button>
+
           <div class="streak-pill" title="Current Daily Study Streak">
             <span>🔥</span>
             <span id="streakCount">0d</span>
@@ -209,6 +222,8 @@
             </div>
 
             <div class="practice-top-actions">
+              <button id="qReadAloudBtn" class="btn btn-sm btn-outline btn-audio-read" title="Read clinical question aloud (Text-to-Speech)">🔊 Listen</button>
+              <button id="qFlagBtn" class="btn btn-sm btn-outline" title="Flag for review">🚩 Flag</button>
               <button id="qTimedModeBtn" class="btn btn-sm btn-outline" title="Toggle 72-second PNLE pacing countdown">⏱️ Timed: OFF</button>
               <span id="qTimerBadge" class="timer-badge hidden">⏳ 01:12</span>
               <button id="qAutoAdvanceBtn" class="btn btn-sm btn-outline" title="Toggle automatic jump to next unanswered question">⚡ Auto: OFF</button>
@@ -505,16 +520,41 @@
       <section id="view-exam" class="view-section">
         <div id="examStartScreen" class="exam-start-screen">
           <span class="exam-start-icon">⏱️</span>
-          <h2>PNLE Board Exam Simulation</h2>
+          <h2>Official PNLE Mock Board Simulation</h2>
           <p class="exam-start-desc">
-            Simulate official PRC testing conditions. This practice set tests mixed competencies across Nursing Practice I to V and Jurisprudence. 
-            Timed at <strong>20 minutes</strong> to build exam pacing and mental stamina.
+            Experience authentic Philippine Nurse Licensure Examination testing conditions. Evaluated strictly against Republic Act No. 9173 passing criteria: <strong>General Weighted Average (GWA) ≥ 75%</strong> with <strong>no subject rating below 60%</strong>.
           </p>
-          <div class="exam-start-badges">
-            <span class="badge badge-teal">No Pauses Allowed</span>
-            <span class="badge badge-cyan">Passing Score: 75%</span>
-            <span class="badge badge-purple">Instant Diagnostic Report</span>
+
+          <div class="exam-config-grid">
+            <div class="exam-config-card">
+              <label class="exam-config-label" for="examLengthSelect">📋 Simulation Length & Pacing:</label>
+              <select id="examLengthSelect" class="calc-input">
+                <option value="100">Full Mock Board: 100 Items (120 Minutes)</option>
+                <option value="50" selected>Half-Board Simulation: 50 Items (60 Minutes)</option>
+                <option value="25">Speed Drill: 25 Items (30 Minutes)</option>
+              </select>
+            </div>
+
+            <div class="exam-config-card">
+              <label class="exam-config-label" for="examScopeSelect">🎯 Competency Scope:</label>
+              <select id="examScopeSelect" class="calc-input">
+                <option value="all" selected>Comprehensive Mixed (NP I to NP V)</option>
+                <option value="NP I">NP I: Community Health Nursing</option>
+                <option value="NP II">NP II: Maternal & Child Health Nursing</option>
+                <option value="NP III">NP III: Medical-Surgical Nursing (Part A)</option>
+                <option value="NP IV">NP IV: Medical-Surgical Nursing (Part B)</option>
+                <option value="NP V">NP V: Psychiatric & Mental Health Nursing</option>
+              </select>
+            </div>
           </div>
+
+          <div class="exam-start-badges">
+            <span class="badge badge-teal">Official RA 9173 Standard</span>
+            <span class="badge badge-gold">Flag & Revisit Later</span>
+            <span class="badge badge-cyan">Circular Bubble Palette</span>
+            <span class="badge badge-purple">Instant Remediation Report</span>
+          </div>
+
           <button id="startMockExamBtn" class="btn btn-primary exam-start-btn">
             Begin Examination Now →
           </button>
@@ -525,17 +565,29 @@
 
         <div id="examRunningScreen" class="exam-running-screen">
           <div class="exam-header-bar">
-            <div>
-              <span id="examQuestionNum" class="exam-q-num">Question 1 of 18</span>
+            <div class="exam-header-left">
+              <span id="examQuestionNum" class="exam-q-num">Question 1 of 50</span>
+              <span id="examSubjectBadge" class="badge badge-cyan">NP I</span>
             </div>
-            <div id="examTimerDisplay" class="exam-timer">⏱️ 20:00</div>
-            <button id="submitExamBtn" class="btn btn-sm btn-outline exam-submit-btn">
-              Finish & Submit Exam
-            </button>
+            <div id="examTimerDisplay" class="exam-timer">⏱️ 60:00</div>
+            <div class="exam-header-actions">
+              <button id="examReadAloudBtn" class="btn btn-sm btn-outline btn-audio-read" title="Listen to question (Text-to-Speech)">🔊 Listen</button>
+              <button id="examFlagBtn" class="btn btn-sm btn-outline" title="Flag question for later review">🚩 Flag</button>
+              <button id="examClearBtn" class="btn btn-sm btn-outline" title="Clear chosen answer">✕ Clear</button>
+              <button id="submitExamBtn" class="btn btn-sm btn-primary exam-submit-btn">
+                Finish & Submit Exam
+              </button>
+            </div>
+          </div>
+
+          <!-- Exam Progress Bar -->
+          <div class="exam-progress-bar-wrap">
+            <div id="examProgressBar" class="exam-progress-bar-fill"></div>
           </div>
 
           <div class="question-card">
             <div class="question-vignette">
+              <div class="clinical-scenario-label">Clinical Scenario</div>
               <p id="examVignette"></p>
             </div>
             <h3 id="examStem" class="question-stem"></h3>
@@ -547,7 +599,18 @@
             </div>
           </div>
 
-          <div class="exam-nav-grid" id="examNavGrid"></div>
+          <!-- Question Bubble Navigation Grid -->
+          <div class="exam-palette-card">
+            <div class="exam-palette-header">
+              <h4>PRC Question Palette Navigation</h4>
+              <div class="exam-palette-legend">
+                <span class="legend-item"><span class="legend-dot dot-answered"></span> Answered</span>
+                <span class="legend-item"><span class="legend-dot dot-unanswered"></span> Unanswered</span>
+                <span class="legend-item"><span class="legend-dot dot-flagged"></span> Flagged</span>
+              </div>
+            </div>
+            <div class="exam-nav-grid" id="examNavGrid"></div>
+          </div>
         </div>
       </section>
 
@@ -696,6 +759,124 @@
             </div>
           </div>
 
+          <!-- 4. Pediatric Dosage by Body Weight Calculator -->
+          <div class="calc-card" data-resource="calc">
+            <h3 class="calc-heading">
+              <span>👶</span>
+              <span>Pediatric Dosage by Body Weight</span>
+            </h3>
+            <p class="calc-subtext">
+              Formula: Weight (kg) × Dose/kg = Single Dose (mg). (Single Dose ÷ Stock mg) × Stock mL = Volume (mL).
+            </p>
+
+            <div class="burn-inputs-grid">
+              <div class="calc-form-group">
+                <label for="pedsWeight" class="calc-label">Child Weight (kg):</label>
+                <input type="number" id="pedsWeight" class="calc-input" value="15" min="1" max="100" step="0.5">
+              </div>
+              <div class="calc-form-group">
+                <label for="pedsDosePerKg" class="calc-label">Prescribed Dose (mg/kg/dose):</label>
+                <input type="number" id="pedsDosePerKg" class="calc-input" value="10" min="0.1" max="500" step="0.5">
+              </div>
+              <div class="calc-form-group">
+                <label for="pedsStockMg" class="calc-label">Stock Drug (mg):</label>
+                <input type="number" id="pedsStockMg" class="calc-input" value="125" min="1" max="2000">
+              </div>
+              <div class="calc-form-group">
+                <label for="pedsStockMl" class="calc-label">In Volume (mL):</label>
+                <input type="number" id="pedsStockMl" class="calc-input" value="5" min="1" max="1000">
+              </div>
+            </div>
+
+            <button id="pedsCalcBtn" class="btn btn-sm btn-primary btn-calc-full">Calculate Pediatric Dose</button>
+
+            <div class="calc-result-box">
+              <div class="calc-result-label-sm">Calculated Single Administration Dose</div>
+              <div id="pedsResultDose" class="calc-result-val">150 mg (6.0 mL)</div>
+              <div class="calc-result-subrow">
+                <div>Concentration: <strong id="pedsConcentration" class="calc-result-teal">25 mg/mL</strong></div>
+                <div>Administer: <strong id="pedsAdminRate" class="calc-result-gold">6.0 mL per dose</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Continuous IV Infusion & Heparin/Insulin Pump Calculator -->
+          <div class="calc-card" data-resource="calc">
+            <h3 class="calc-heading">
+              <span>💉</span>
+              <span>Continuous IV Infusion Pump Rate</span>
+            </h3>
+            <p class="calc-subtext">
+              Calculates mL/hr for continuous Heparin, Insulin, or critical care inotrope infusions.
+            </p>
+
+            <div class="burn-inputs-grid">
+              <div class="calc-form-group">
+                <label for="infusionTotalUnits" class="calc-label">Total Units/Drug in Bag:</label>
+                <input type="number" id="infusionTotalUnits" class="calc-input" value="25000" min="1">
+              </div>
+              <div class="calc-form-group">
+                <label for="infusionBagMl" class="calc-label">Total Bag Volume (mL):</label>
+                <input type="number" id="infusionBagMl" class="calc-input" value="500" min="1">
+              </div>
+              <div class="calc-form-group calc-form-full">
+                <label for="infusionOrderedRate" class="calc-label">Prescribed Hourly Rate (Units/hr):</label>
+                <input type="number" id="infusionOrderedRate" class="calc-input" value="1000" min="1">
+              </div>
+            </div>
+
+            <button id="infusionCalcBtn" class="btn btn-sm btn-primary btn-calc-full">Calculate Pump Rate (mL/hr)</button>
+
+            <div class="calc-result-box">
+              <div class="calc-result-label-sm">Electronic Infusion Pump Setting</div>
+              <div id="infusionResultRate" class="calc-result-val">20 mL/hr</div>
+              <div class="calc-result-subrow">
+                <div>Bag Concentration: <strong id="infusionBagConc" class="calc-result-teal">50 units/mL</strong></div>
+                <div>Formula: <strong class="calc-result-gold">Ordered ÷ Conc</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Interactive Dosage & Calculation Practice Drill -->
+          <div class="calc-card calc-card-drill" data-resource="calc">
+            <div class="calc-card-drill-header">
+              <h3 class="calc-heading">
+                <span>⚡</span>
+                <span>PNLE Dosage & Solution Practice Drill</span>
+              </h3>
+              <span id="drillCounterBadge" class="badge badge-purple">Problem 1 of 10</span>
+            </div>
+            <p class="calc-subtext">
+              Test your clinical mathematics proficiency with authentic PNLE calculation questions.
+            </p>
+
+            <div id="calcDrillContainer" class="calc-drill-box">
+              <h4 id="calcDrillTitle" class="drill-problem-title"></h4>
+              <p id="calcDrillPrompt" class="drill-problem-prompt"></p>
+              
+              <div class="drill-input-row">
+                <input type="text" id="calcDrillUserAnswer" class="calc-input drill-input" placeholder="Enter calculated value (e.g., 25 or 25 gtt/min)">
+                <button id="calcDrillCheckBtn" class="btn btn-sm btn-primary">Check Answer</button>
+                <button id="calcDrillRevealBtn" class="btn btn-sm btn-outline">Reveal Solution</button>
+              </div>
+
+              <div id="calcDrillFeedback" class="drill-feedback hidden"></div>
+
+              <div id="calcDrillSolution" class="drill-solution-card hidden">
+                <div class="drill-solution-header">
+                  <strong>💡 Official PNLE Step-by-Step Solution</strong>
+                </div>
+                <div id="calcDrillFormulaText" class="drill-formula-step"></div>
+                <div id="calcDrillTipText" class="drill-pearl-tip"></div>
+              </div>
+
+              <div class="drill-nav-row">
+                <button id="calcDrillPrevBtn" class="btn btn-sm btn-secondary">← Previous Drill</button>
+                <button id="calcDrillNextBtn" class="btn btn-sm btn-secondary">Next Drill →</button>
+              </div>
+            </div>
+          </div>
+
           <!-- 4. Prioritization Hierarchy Quick Reference -->
           <div class="calc-card" data-resource="matrix">
             <h3 class="calc-heading">
@@ -782,16 +963,157 @@
   </main>
 
   <!-- Mock Exam Results Modal -->
-  <dialog id="examResultModal" aria-labelledby="examResultTitle">
+  <dialog id="examResultModal" class="app-modal exam-result-dialog" aria-labelledby="examResultTitle">
     <div class="modal-header-row">
-      <h3 id="examResultTitle">Official PNLE Simulation Result</h3>
+      <div class="cram-modal-title-wrap">
+        <span>🏆</span>
+        <h3 id="examResultTitle">Official PRC Board Simulation Report</h3>
+      </div>
       <button id="closeResultModalBtn" class="btn-icon modal-close-btn">✕</button>
     </div>
     <div id="examResultDetails"></div>
     <div class="modal-footer-row">
-      <button class="btn btn-primary" onclick="document.getElementById('examResultModal').close();">
+      <button id="examResultPrintBtn" class="btn btn-secondary">
+        🖨️ Export Error Sheet
+      </button>
+      <button id="examResultCloseBtn" class="btn btn-primary">
         Review Remediation Plan →
       </button>
+    </div>
+  </dialog>
+
+  <!-- High-Yield Board Cram Sheets Modal -->
+  <dialog id="cramSheetsModal" class="app-modal cram-modal" aria-labelledby="cramModalTitle">
+    <div class="modal-header-row">
+      <div class="cram-modal-title-wrap">
+        <span class="cram-badge-icon">📑</span>
+        <h3 id="cramModalTitle">High-Yield Board Cram Sheets</h3>
+      </div>
+      <button id="closeCramModalBtn" class="btn-icon modal-close-btn" aria-label="Close Cram Sheets">✕</button>
+    </div>
+
+    <!-- Cram Sheet Tabs -->
+    <div class="cram-tab-nav" role="tablist">
+      <button class="cram-tab-btn active" data-cram-tab="labs">🧪 Normal Labs</button>
+      <button class="cram-tab-btn" data-cram-tab="abg">💨 Live ABG (ROME)</button>
+      <button class="cram-tab-btn" data-cram-tab="maternal">👶 Maternal & Peds</button>
+      <button class="cram-tab-btn" data-cram-tab="triage">🚨 START Triage</button>
+      <button class="cram-tab-btn" data-cram-tab="laws">📜 Philippine Laws</button>
+    </div>
+
+    <div class="cram-modal-body">
+      <!-- Tab 1: Normal Labs -->
+      <div id="cramTab-labs" class="cram-tab-content active">
+        <div class="cram-search-bar">
+          <input type="text" id="cramLabSearch" class="calc-input" placeholder="🔍 Filter labs, electrolytes, therapeutic drug levels...">
+        </div>
+        <div class="lab-table-scroll">
+          <table class="lab-table">
+            <thead>
+              <tr class="lab-table-head">
+                <th>Parameter</th>
+                <th>Normal Range</th>
+                <th>PNLE Clinical Significance / Board Pearl</th>
+              </tr>
+            </thead>
+            <tbody id="cramLabsTbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab 2: Live ROME ABG Interpreter -->
+      <div id="cramTab-abg" class="cram-tab-content">
+        <div class="abg-interactive-card">
+          <h4>Interactive Arterial Blood Gas (ABG) Interpreter</h4>
+          <p class="text-sm text-secondary">
+            Enter arterial blood gas parameters to instantly evaluate primary acid-base disturbance and compensation status using the <strong>ROME</strong> rule (<strong>R</strong>espiratory <strong>O</strong>pposite, <strong>M</strong>etabolic <strong>E</strong>qual).
+          </p>
+
+          <div class="abg-inputs-grid">
+            <div class="calc-form-group">
+              <label for="abgPhInput" class="calc-label">pH (Normal: 7.35 – 7.45):</label>
+              <input type="number" id="abgPhInput" class="calc-input" value="7.28" step="0.01" min="6.80" max="7.80">
+            </div>
+            <div class="calc-form-group">
+              <label for="abgPaco2Input" class="calc-label">PaCO2 (Normal: 35 – 45 mmHg):</label>
+              <input type="number" id="abgPaco2Input" class="calc-input" value="55" step="1" min="15" max="90">
+            </div>
+            <div class="calc-form-group">
+              <label for="abgHco3Input" class="calc-label">HCO3 (Normal: 22 – 26 mEq/L):</label>
+              <input type="number" id="abgHco3Input" class="calc-input" value="25" step="0.5" min="10" max="50">
+            </div>
+          </div>
+
+          <div class="abg-verdict-box">
+            <div class="abg-verdict-tag">Board Interpretation:</div>
+            <div id="abgVerdictTitle" class="abg-verdict-title">Uncompensated Respiratory Acidosis</div>
+            <p id="abgVerdictExplanation" class="abg-verdict-desc"></p>
+          </div>
+
+          <div class="abg-reference-matrix">
+            <div class="abg-ref-card">
+              <div class="abg-ref-header">pH &lt; 7.35</div>
+              <div class="text-xs">Acidemia. PaCO2 &gt; 45 = Respiratory. HCO3 &lt; 22 = Metabolic.</div>
+            </div>
+            <div class="abg-ref-card">
+              <div class="abg-ref-header">pH &gt; 7.45</div>
+              <div class="text-xs">Alkalemia. PaCO2 &lt; 35 = Respiratory. HCO3 &gt; 26 = Metabolic.</div>
+            </div>
+            <div class="abg-ref-card">
+              <div class="abg-ref-header">Compensation Rules</div>
+              <div class="text-xs">Uncompensated (1 abnormal), Partially (all 3 abnormal), Fully (pH normal).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Maternal & Pediatric Milestones -->
+      <div id="cramTab-maternal" class="cram-tab-content">
+        <div id="cramMaternalContent" class="cram-content-blocks"></div>
+      </div>
+
+      <!-- Tab 4: START Triage Protocol -->
+      <div id="cramTab-triage" class="cram-tab-content">
+        <div id="cramTriageContent" class="cram-content-blocks"></div>
+      </div>
+
+      <!-- Tab 5: Philippine Laws Matrix -->
+      <div id="cramTab-laws" class="cram-tab-content">
+        <div id="cramLawsContent" class="cram-content-blocks"></div>
+      </div>
+    </div>
+
+    <div class="modal-footer-row">
+      <button class="btn btn-secondary" onclick="document.getElementById('cramSheetsModal').close();">Close</button>
+      <button id="printCramModalBtn" class="btn btn-primary">🖨️ Print Cram Sheet</button>
+    </div>
+  </dialog>
+
+  <!-- Printable Error Log / Review Sheet Modal -->
+  <dialog id="printableReviewModal" class="app-modal review-modal" aria-labelledby="reviewModalTitle">
+    <div class="modal-header-row">
+      <div>
+        <h3 id="reviewModalTitle">📑 High-Yield Clinical Error Log & Missed Question Sheet</h3>
+        <p class="text-xs text-secondary">Export or print your personal error sheet for focused pre-board remediation.</p>
+      </div>
+      <button id="closeReviewModalBtn" class="btn-icon modal-close-btn" aria-label="Close Error Log">✕</button>
+    </div>
+
+    <div class="review-modal-toolbar">
+      <div class="review-filter-group">
+        <button class="filter-pill active" data-review-filter="wrong">❌ Missed Questions (<span id="reviewWrongCount">0</span>)</button>
+        <button class="filter-pill" data-review-filter="flagged">🚩 Flagged Items (<span id="reviewFlagCount">0</span>)</button>
+        <button class="filter-pill" data-review-filter="bookmarked">⭐ Bookmarks (<span id="reviewBookmarkCount">0</span>)</button>
+      </div>
+      <button id="triggerPrintBtn" class="btn btn-sm btn-primary">🖨️ Print / Save PDF</button>
+    </div>
+
+    <div class="review-table-wrap">
+      <div id="reviewSheetContent"></div>
+    </div>
+
+    <div class="modal-footer-row">
+      <button class="btn btn-secondary" onclick="document.getElementById('printableReviewModal').close();">Close</button>
     </div>
   </dialog>
 

@@ -3,7 +3,7 @@
  * Caches application assets for offline studying in provincial/hospital settings.
  */
 
-const CACHE_VERSION = 'v4';
+const CACHE_VERSION = 'v5';
 const CACHE_NAME = `nursphere-pnle-${CACHE_VERSION}`;
 const ASSETS_TO_CACHE = [
   './',

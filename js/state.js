@@ -7,6 +7,7 @@
 const STORAGE_KEYS = {
   ANSWERS: 'nursphere_answers_v1',
   BOOKMARKS: 'nursphere_bookmarks_v1',
+  FLAGGED: 'nursphere_flagged_v1',
   STATS: 'nursphere_stats_v1',
   THEME: 'nursphere_theme_v1',
   EXAM_HISTORY: 'nursphere_exam_history_v1',
@@ -19,6 +20,7 @@ class NursphereState {
   constructor() {
     this.answers = this.load(STORAGE_KEYS.ANSWERS, {});
     this.bookmarks = new Set(this.load(STORAGE_KEYS.BOOKMARKS, []));
+    this.flagged = new Set(this.load(STORAGE_KEYS.FLAGGED, []));
     this.examHistory = this.load(STORAGE_KEYS.EXAM_HISTORY, []);
     this.flashcardsState = this.load(STORAGE_KEYS.FLASHCARDS, {});
     this.caseStudiesState = this.load(STORAGE_KEYS.CASE_STUDIES, {});
@@ -389,6 +391,49 @@ class NursphereState {
   clearExamHistory() {
     this.examHistory = [];
     this.save(STORAGE_KEYS.EXAM_HISTORY, this.examHistory);
+  }
+
+  toggleBookmark(id) {
+    if (this.bookmarks.has(id)) {
+      this.bookmarks.delete(id);
+    } else {
+      this.bookmarks.add(id);
+    }
+    this.save(STORAGE_KEYS.BOOKMARKS, Array.from(this.bookmarks));
+    return this.bookmarks.has(id);
+  }
+
+  isBookmarked(id) {
+    return this.bookmarks.has(id);
+  }
+
+  toggleFlag(id) {
+    if (this.flagged.has(id)) {
+      this.flagged.delete(id);
+    } else {
+      this.flagged.add(id);
+    }
+    this.save(STORAGE_KEYS.FLAGGED, Array.from(this.flagged));
+    return this.flagged.has(id);
+  }
+
+  isFlagged(id) {
+    return this.flagged.has(id);
+  }
+
+  clearFlags() {
+    this.flagged.clear();
+    this.save(STORAGE_KEYS.FLAGGED, []);
+  }
+
+  getIncorrectQuestionIds() {
+    const incorrect = [];
+    Object.keys(this.answers).forEach(qid => {
+      if (this.answers[qid] && !this.answers[qid].isCorrect) {
+        incorrect.push(qid);
+      }
+    });
+    return incorrect;
   }
 }
 

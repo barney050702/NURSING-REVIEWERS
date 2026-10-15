@@ -22,8 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let examQuestions = [];
   let examCurrentIndex = 0;
   let examAnswers = {};
+  let examFlags = new Set();
   let examTimerInterval = null;
-  let examSecondsRemaining = 1200; // 20 minutes default drill
+  let examSecondsRemaining = 3600;
+  let examTotalSeconds = 3600;
+
+  // Calculation drill state
+  let currentCalcDrillIndex = 0;
 
   // Case study state
   let activeCaseStudyIndex = 0;
@@ -82,10 +87,14 @@ document.addEventListener('DOMContentLoaded', () => {
       renderPracticeView();
       renderWeakAreasView();
       initCalculators();
+      initCalculationDrill();
       renderLabValuesTable();
       initCaseStudies();
       initFlashcards();
       renderExamHistory();
+      initUniversalSearch();
+      initCramSheets();
+      initPrintableReviewSheet();
       updatePillBadges();
     } catch (err) {
       console.error("App initialization failed:", err);
@@ -119,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   function switchView(viewName) {
     soundManager.playClick();
+    if (soundManager.stopSpeech) soundManager.stopSpeech();
     
     // Update tabs
     navTabs.forEach(tab => {
@@ -480,6 +490,44 @@ document.addEventListener('DOMContentLoaded', () => {
         bookmarkBtn.innerHTML = updated ? '★ Bookmarked' : '☆ Bookmark';
         bookmarkBtn.classList.toggle('btn-primary', updated);
         updatePillBadges();
+      };
+    }
+
+    // Flag Question Button
+    const flagBtn = document.getElementById('qFlagBtn');
+    if (flagBtn) {
+      const isFl = appState.isFlagged ? appState.isFlagged(q.id) : false;
+      flagBtn.innerHTML = isFl ? '🚩 Flagged' : '🚩 Flag';
+      flagBtn.classList.toggle('btn-flagged', isFl);
+      flagBtn.onclick = () => {
+        soundManager.playClick();
+        const updated = appState.toggleFlag(q.id);
+        flagBtn.innerHTML = updated ? '🚩 Flagged' : '🚩 Flag';
+        flagBtn.classList.toggle('btn-flagged', updated);
+      };
+    }
+
+    // Audio Read-Aloud Button
+    const readAloudBtn = document.getElementById('qReadAloudBtn');
+    if (readAloudBtn) {
+      if (soundManager.stopSpeech) soundManager.stopSpeech();
+      readAloudBtn.classList.remove('speaking');
+      readAloudBtn.innerHTML = '🔊 Listen';
+      readAloudBtn.onclick = () => {
+        if (soundManager.isSpeaking && soundManager.isSpeaking()) {
+          soundManager.stopSpeech();
+          readAloudBtn.classList.remove('speaking');
+          readAloudBtn.innerHTML = '🔊 Listen';
+        } else {
+          readAloudBtn.classList.add('speaking');
+          readAloudBtn.innerHTML = '⏹️ Stop';
+          const optsText = q.options.map(o => `Option ${o.id}: ${o.text}`).join('. ');
+          const speakContent = `${q.vignette ? q.vignette + '. ' : ''}${q.question}. ${optsText}`;
+          soundManager.speak(speakContent, () => {
+            readAloudBtn.classList.remove('speaking');
+            readAloudBtn.innerHTML = '🔊 Listen';
+          });
+        }
       };
     }
 
@@ -1262,17 +1310,45 @@ document.addEventListener('DOMContentLoaded', () => {
     return copy;
   }
 
+  let lastExamMissedQuestions = [];
+
   function startMockExam() {
-    examQuestions = shuffleArray(PNLE_QUESTIONS);
+    const lengthSelect = document.getElementById('examLengthSelect');
+    const scopeSelect = document.getElementById('examScopeSelect');
+
+    const requestedLength = lengthSelect ? parseInt(lengthSelect.value, 10) : 50;
+    const requestedScope = scopeSelect ? scopeSelect.value : 'all';
+
+    let pool = [...PNLE_QUESTIONS];
+    if (requestedScope !== 'all') {
+      pool = pool.filter(q => q.area === requestedScope);
+      if (pool.length === 0) pool = [...PNLE_QUESTIONS];
+    }
+
+    examQuestions = shuffleArray(pool).slice(0, Math.min(requestedLength, pool.length));
     examCurrentIndex = 0;
     examAnswers = {};
-    examSecondsRemaining = 1200; // 20 mins
+    examFlags = new Set();
+    lastExamMissedQuestions = [];
+
+    // Timing: 100 items = 120 mins (7200s), 50 items = 60 mins (3600s), 25 items = 30 mins (1800s)
+    if (requestedLength >= 100) {
+      examSecondsRemaining = 7200;
+      examTotalSeconds = 7200;
+    } else if (requestedLength >= 50) {
+      examSecondsRemaining = 3600;
+      examTotalSeconds = 3600;
+    } else {
+      examSecondsRemaining = 1800;
+      examTotalSeconds = 1800;
+    }
 
     const startView = document.getElementById('examStartScreen');
     const runningView = document.getElementById('examRunningScreen');
     if (startView) startView.classList.add('hidden');
     if (runningView) runningView.classList.add('active');
 
+    setupExamActionButtons();
     renderExamNavGrid();
     loadExamQuestion(0);
     startExamTimer();
@@ -1294,8 +1370,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const seconds = examSecondsRemaining % 60;
       if (timerDisplay) {
         timerDisplay.textContent = `⏱️ ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        if (examSecondsRemaining <= 300) {
+          timerDisplay.style.color = 'var(--brand-crimson)';
+        } else {
+          timerDisplay.style.color = '';
+        }
       }
     }, 1000);
+  }
+
+  function updateExamProgressBar() {
+    const bar = document.getElementById('examProgressBar');
+    if (!bar || examQuestions.length === 0) return;
+    const answeredCount = Object.keys(examAnswers).length;
+    const pct = Math.round((answeredCount / examQuestions.length) * 100);
+    bar.style.width = `${pct}%`;
   }
 
   function renderExamNavGrid() {
@@ -1305,27 +1394,115 @@ document.addEventListener('DOMContentLoaded', () => {
     grid.innerHTML = '';
     examQuestions.forEach((q, idx) => {
       const btn = document.createElement('button');
-      btn.className = `exam-nav-btn ${examAnswers[q.id] ? 'answered' : ''} ${idx === examCurrentIndex ? 'current' : ''}`;
+      const isAnswered = !!examAnswers[q.id];
+      const isFlagged = examFlags.has(q.id);
+      const isCurrent = idx === examCurrentIndex;
+
+      let cls = 'exam-nav-btn';
+      if (isAnswered) cls += ' answered';
+      if (isFlagged) cls += ' flagged';
+      if (isCurrent) cls += ' current';
+
+      btn.className = cls;
       btn.textContent = idx + 1;
+      btn.title = `Question ${idx + 1} (${q.area}): ${isAnswered ? 'Answered' : 'Unanswered'}${isFlagged ? ', Flagged' : ''}`;
+      
       btn.addEventListener('click', () => {
+        soundManager.playClick();
         loadExamQuestion(idx);
       });
       grid.appendChild(btn);
     });
+
+    updateExamProgressBar();
+  }
+
+  function setupExamActionButtons() {
+    const flagBtn = document.getElementById('examFlagBtn');
+    const clearBtn = document.getElementById('examClearBtn');
+    const readAloudBtn = document.getElementById('examReadAloudBtn');
+
+    if (flagBtn) {
+      flagBtn.onclick = () => {
+        const q = examQuestions[examCurrentIndex];
+        if (!q) return;
+        soundManager.playClick();
+        if (examFlags.has(q.id)) {
+          examFlags.delete(q.id);
+          flagBtn.classList.remove('btn-flagged');
+          flagBtn.textContent = '🚩 Flag';
+        } else {
+          examFlags.add(q.id);
+          flagBtn.classList.add('btn-flagged');
+          flagBtn.textContent = '🚩 Flagged';
+        }
+        renderExamNavGrid();
+      };
+    }
+
+    if (clearBtn) {
+      clearBtn.onclick = () => {
+        const q = examQuestions[examCurrentIndex];
+        if (!q) return;
+        soundManager.playClick();
+        delete examAnswers[q.id];
+        loadExamQuestion(examCurrentIndex);
+        renderExamNavGrid();
+      };
+    }
+
+    if (readAloudBtn) {
+      readAloudBtn.onclick = () => {
+        const q = examQuestions[examCurrentIndex];
+        if (!q) return;
+
+        if (soundManager.isSpeaking && soundManager.isSpeaking()) {
+          soundManager.stopSpeech();
+          readAloudBtn.classList.remove('speaking');
+          readAloudBtn.textContent = '🔊 Listen';
+        } else {
+          readAloudBtn.classList.add('speaking');
+          readAloudBtn.textContent = '⏹️ Stop';
+          const optsText = q.options.map(o => `Option ${o.id}: ${o.text}`).join('. ');
+          const speakContent = `${q.vignette ? q.vignette + '. ' : ''}${q.question}. ${optsText}`;
+          soundManager.speak(speakContent, () => {
+            readAloudBtn.classList.remove('speaking');
+            readAloudBtn.textContent = '🔊 Listen';
+          });
+        }
+      };
+    }
   }
 
   function loadExamQuestion(index) {
+    if (soundManager.stopSpeech) soundManager.stopSpeech();
+    const readAloudBtn = document.getElementById('examReadAloudBtn');
+    if (readAloudBtn) {
+      readAloudBtn.classList.remove('speaking');
+      readAloudBtn.textContent = '🔊 Listen';
+    }
+
     examCurrentIndex = index;
     const q = examQuestions[index];
+    if (!q) return;
 
     const stem = document.getElementById('examStem');
     const vignette = document.getElementById('examVignette');
     const optionsContainer = document.getElementById('examOptions');
     const questionNum = document.getElementById('examQuestionNum');
+    const subjectBadge = document.getElementById('examSubjectBadge');
+    const flagBtn = document.getElementById('examFlagBtn');
 
-    if (questionNum) questionNum.textContent = `Question ${index + 1} of ${examQuestions.length} (${q.area})`;
+    if (questionNum) questionNum.textContent = `Question ${index + 1} of ${examQuestions.length}`;
+    if (subjectBadge) subjectBadge.textContent = q.area;
     if (vignette) vignette.textContent = q.vignette;
     if (stem) stem.textContent = q.question;
+
+    if (flagBtn) {
+      const isFl = examFlags.has(q.id);
+      flagBtn.classList.toggle('btn-flagged', isFl);
+      flagBtn.textContent = isFl ? '🚩 Flagged' : '🚩 Flag';
+    }
 
     if (optionsContainer) {
       optionsContainer.innerHTML = '';
@@ -1374,23 +1551,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function submitExam() {
     clearInterval(examTimerInterval);
+    if (soundManager.stopSpeech) soundManager.stopSpeech();
     soundManager.playComplete();
 
     let total = examQuestions.length;
     let correct = 0;
     const breakdown = {
-      "NP I": { total: 0, correct: 0 },
-      "NP II": { total: 0, correct: 0 },
-      "NP III": { total: 0, correct: 0 },
-      "NP IV": { total: 0, correct: 0 },
-      "NP V": { total: 0, correct: 0 },
-      "Jurisprudence": { total: 0, correct: 0 }
+      "NP I": { total: 0, correct: 0, name: "Community Health Nursing" },
+      "NP II": { total: 0, correct: 0, name: "Maternal & Child Health" },
+      "NP III": { total: 0, correct: 0, name: "Medical-Surgical Part A" },
+      "NP IV": { total: 0, correct: 0, name: "Medical-Surgical Part B" },
+      "NP V": { total: 0, correct: 0, name: "Psychiatric & Mental Health" }
     };
+
+    lastExamMissedQuestions = [];
 
     examQuestions.forEach(q => {
       const selected = examAnswers[q.id];
       const isRight = selected === q.correctAnswer;
-      if (isRight) correct++;
+      if (isRight) {
+        correct++;
+      } else {
+        lastExamMissedQuestions.push({
+          question: q,
+          selectedAnswer: selected || 'Unanswered'
+        });
+      }
 
       if (breakdown[q.area]) {
         breakdown[q.area].total++;
@@ -1399,16 +1585,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const overallPct = Math.round((correct / total) * 100);
-    const anyBelow60 = Object.values(breakdown).some(b => b.total > 0 && (b.correct / b.total) < 0.6);
+    const below60Subjects = Object.entries(breakdown).filter(([_, b]) => b.total > 0 && (b.correct / b.total) < 0.6);
 
     let resultStatus = "PASSED";
-    let statusClass = "badge-teal";
-    if (overallPct >= 75 && anyBelow60) {
-      resultStatus = "CONDITIONAL (Retake subjects <60%)";
-      statusClass = "badge-gold";
+    let statusClass = "pass";
+    let verdictNote = "Congratulations! You met the statutory requirements of Republic Act No. 9173 (GWA ≥ 75% with no subject rating below 60%).";
+
+    if (overallPct >= 75 && below60Subjects.length > 0) {
+      resultStatus = "CONDITIONAL (REMOVAL REQUIRED)";
+      statusClass = "conditional";
+      const failedNames = below60Subjects.map(([subj]) => subj).join(', ');
+      verdictNote = `Under Sec. 15 of R.A. 9173, an examinee who obtains a GWA of 75% or higher but receives a rating below 60% in any subject (${failedNames}) is considered CONDITIONAL and must take a removal examination in the failed subject(s) within two (2) years.`;
     } else if (overallPct < 75) {
-      resultStatus = "FAILED";
-      statusClass = "badge-crimson";
+      resultStatus = "FAILED (RETAKE REQUIRED)";
+      statusClass = "fail";
+      verdictNote = "Your General Weighted Average did not reach the mandatory 75% board benchmark. Review your missed concepts in the Error Sheet below.";
     }
 
     const modal = document.getElementById('examResultModal');
@@ -1421,7 +1612,7 @@ document.addEventListener('DOMContentLoaded', () => {
       correct: correct,
       total: total,
       status: resultStatus,
-      statusClass: statusClass,
+      statusClass: statusClass === 'pass' ? 'badge-teal' : (statusClass === 'conditional' ? 'badge-gold' : 'badge-crimson'),
       breakdown: breakdown
     };
     appState.recordExamResult(examRecord);
@@ -1429,24 +1620,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (modalContent) {
       modalContent.innerHTML = `
-        <div class="exam-result-summary">
-          <span class="badge ${statusClass} exam-result-badge">
-            ${resultStatus}
-          </span>
+        <div class="prc-verdict-banner ${statusClass}">
+          <div class="prc-verdict-badge">${resultStatus}</div>
           <h1 class="exam-result-score">${overallPct}%</h1>
-          <p>Score: <strong>${correct} / ${total}</strong> questions correct</p>
+          <p class="prc-verdict-note">${verdictNote}</p>
+          <div class="text-sm mt-1"><strong>${correct} / ${total}</strong> questions answered correctly</div>
         </div>
 
         <div class="exam-breakdown-card">
-          <h4 class="exam-breakdown-title">Subject Performance (PRC Standard):</h4>
+          <h4 class="exam-breakdown-title">PRC Subject Competency Breakdown:</h4>
           ${Object.entries(breakdown).filter(([_, b]) => b.total > 0).map(([subj, b]) => {
             const subPct = Math.round((b.correct / b.total) * 100);
             const isSubPass = subPct >= 75;
             const isSubCrit = subPct < 60;
+            const badgeClass = isSubCrit ? 'badge-crimson' : (isSubPass ? 'badge-teal' : 'badge-gold');
             return `
               <div class="exam-breakdown-row">
-                <span>${subj}</span>
-                <span class="badge ${isSubCrit ? 'badge-crimson' : (isSubPass ? 'badge-teal' : 'badge-gold')}">
+                <div>
+                  <strong>${subj}</strong> <span class="text-xs text-secondary">• ${b.name}</span>
+                </div>
+                <span class="badge ${badgeClass}">
                   ${subPct}% (${b.correct}/${b.total})
                 </span>
               </div>
@@ -1454,6 +1647,30 @@ document.addEventListener('DOMContentLoaded', () => {
           }).join('')}
         </div>
       `;
+    }
+
+    // Hook up exam result dialog buttons
+    const printBtn = document.getElementById('examResultPrintBtn');
+    const closeBtn = document.getElementById('examResultCloseBtn');
+
+    if (printBtn) {
+      printBtn.onclick = () => {
+        soundManager.playClick();
+        if (modal) modal.close();
+        openPrintableReviewSheetWithMissed(lastExamMissedQuestions);
+      };
+    }
+
+    if (closeBtn) {
+      closeBtn.onclick = () => {
+        soundManager.playClick();
+        if (modal) modal.close();
+        const startView = document.getElementById('examStartScreen');
+        const runningView = document.getElementById('examRunningScreen');
+        if (startView) startView.classList.remove('hidden');
+        if (runningView) runningView.classList.remove('active');
+        switchView('weak-areas');
+      };
     }
 
     if (modal) modal.showModal();
@@ -1657,6 +1874,61 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    // 4. Pediatric Dosage by Body Weight Calculator
+    const pedsWeight = document.getElementById('pedsWeight');
+    const pedsDosePerKg = document.getElementById('pedsDosePerKg');
+    const pedsStockMg = document.getElementById('pedsStockMg');
+    const pedsStockMl = document.getElementById('pedsStockMl');
+    const pedsCalcBtn = document.getElementById('pedsCalcBtn');
+    const pedsResultDose = document.getElementById('pedsResultDose');
+    const pedsConcentration = document.getElementById('pedsConcentration');
+    const pedsAdminRate = document.getElementById('pedsAdminRate');
+
+    if (pedsCalcBtn && pedsWeight && pedsDosePerKg && pedsStockMg && pedsStockMl) {
+      pedsCalcBtn.addEventListener('click', () => {
+        soundManager.playClick();
+        const wt = parseFloat(pedsWeight.value) || 0;
+        const dose = parseFloat(pedsDosePerKg.value) || 0;
+        const stockMg = parseFloat(pedsStockMg.value) || 0;
+        const stockMl = parseFloat(pedsStockMl.value) || 0;
+
+        if (wt > 0 && dose > 0 && stockMg > 0 && stockMl > 0) {
+          const singleDoseMg = wt * dose;
+          const conc = stockMg / stockMl;
+          const adminMl = Math.round((singleDoseMg / conc) * 10) / 10;
+
+          if (pedsResultDose) pedsResultDose.textContent = `${singleDoseMg} mg (${adminMl} mL)`;
+          if (pedsConcentration) pedsConcentration.textContent = `${conc} mg/mL`;
+          if (pedsAdminRate) pedsAdminRate.textContent = `${adminMl} mL per dose`;
+        }
+      });
+    }
+
+    // 5. Continuous IV Infusion & Pump Calculator
+    const infusionTotalUnits = document.getElementById('infusionTotalUnits');
+    const infusionBagMl = document.getElementById('infusionBagMl');
+    const infusionOrderedRate = document.getElementById('infusionOrderedRate');
+    const infusionCalcBtn = document.getElementById('infusionCalcBtn');
+    const infusionResultRate = document.getElementById('infusionResultRate');
+    const infusionBagConc = document.getElementById('infusionBagConc');
+
+    if (infusionCalcBtn && infusionTotalUnits && infusionBagMl && infusionOrderedRate) {
+      infusionCalcBtn.addEventListener('click', () => {
+        soundManager.playClick();
+        const total = parseFloat(infusionTotalUnits.value) || 0;
+        const vol = parseFloat(infusionBagMl.value) || 0;
+        const ordered = parseFloat(infusionOrderedRate.value) || 0;
+
+        if (total > 0 && vol > 0 && ordered > 0) {
+          const conc = total / vol;
+          const rateMlHr = Math.round((ordered / conc) * 10) / 10;
+
+          if (infusionResultRate) infusionResultRate.textContent = `${rateMlHr} mL/hr`;
+          if (infusionBagConc) infusionBagConc.textContent = `${conc} units/mL`;
+        }
+      });
+    }
+
     // Print summary notes button
     const printNotesBtn = document.getElementById('printNotesBtn');
     if (printNotesBtn) {
@@ -1664,6 +1936,648 @@ document.addEventListener('DOMContentLoaded', () => {
         window.print();
       });
     }
+  }
+
+  // ==========================================
+  // PHARMACOLOGY & DOSAGE PRACTICE DRILL
+  // ==========================================
+  function initCalculationDrill() {
+    const drillTitle = document.getElementById('calcDrillTitle');
+    const drillPrompt = document.getElementById('calcDrillPrompt');
+    const drillCounter = document.getElementById('drillCounterBadge');
+    const userInput = document.getElementById('calcDrillUserAnswer');
+    const checkBtn = document.getElementById('calcDrillCheckBtn');
+    const revealBtn = document.getElementById('calcDrillRevealBtn');
+    const feedbackBox = document.getElementById('calcDrillFeedback');
+    const solutionCard = document.getElementById('calcDrillSolution');
+    const formulaText = document.getElementById('calcDrillFormulaText');
+    const tipText = document.getElementById('calcDrillTipText');
+    const prevBtn = document.getElementById('calcDrillPrevBtn');
+    const nextBtn = document.getElementById('calcDrillNextBtn');
+
+    if (!drillTitle || !CLINICAL_PEARLS.calculation_practice) return;
+
+    function renderDrill() {
+      const drill = CLINICAL_PEARLS.calculation_practice[currentCalcDrillIndex];
+      if (!drill) return;
+
+      if (drillCounter) drillCounter.textContent = `Problem ${currentCalcDrillIndex + 1} of ${CLINICAL_PEARLS.calculation_practice.length}`;
+      if (drillTitle) drillTitle.textContent = drill.title;
+      if (drillPrompt) drillPrompt.textContent = drill.problem;
+      if (userInput) userInput.value = '';
+      if (feedbackBox) {
+        feedbackBox.classList.add('hidden');
+        feedbackBox.textContent = '';
+      }
+      if (solutionCard) solutionCard.classList.add('hidden');
+      if (formulaText) formulaText.innerHTML = `<strong>Formula:</strong> ${drill.formula}<br><strong>Result:</strong> <span class="calc-result-teal">${drill.stepByStep}</span>`;
+      if (tipText) tipText.textContent = `💡 PNLE Board Pearl: ${drill.pearl}`;
+
+      if (prevBtn) prevBtn.disabled = currentCalcDrillIndex === 0;
+      if (nextBtn) nextBtn.disabled = currentCalcDrillIndex === CLINICAL_PEARLS.calculation_practice.length - 1;
+    }
+
+    if (checkBtn) {
+      checkBtn.onclick = () => {
+        const drill = CLINICAL_PEARLS.calculation_practice[currentCalcDrillIndex];
+        if (!drill || !userInput) return;
+        const val = userInput.value.trim().toLowerCase();
+        if (!val) return;
+
+        const expectedNum = parseFloat(drill.answer.replace(/[^0-9.]/g, ''));
+        const userNum = parseFloat(val.replace(/[^0-9.]/g, ''));
+
+        const isMatch = (!isNaN(expectedNum) && !isNaN(userNum) && Math.abs(expectedNum - userNum) < 0.6) ||
+                        val.includes(drill.answer.toLowerCase());
+
+        if (feedbackBox) {
+          feedbackBox.classList.remove('hidden');
+          if (isMatch) {
+            soundManager.playCorrect();
+            feedbackBox.className = 'drill-feedback correct';
+            feedbackBox.innerHTML = `✅ <strong>Correct!</strong> Official Answer: <strong>${drill.answer}</strong>`;
+            if (solutionCard) solutionCard.classList.remove('hidden');
+          } else {
+            soundManager.playIncorrect();
+            feedbackBox.className = 'drill-feedback incorrect';
+            feedbackBox.innerHTML = `❌ <strong>Not quite.</strong> You entered: ${val}. Target: <strong>${drill.answer}</strong>. Click "Reveal Solution" below to inspect the step-by-step formula.`;
+          }
+        }
+      };
+    }
+
+    if (revealBtn) {
+      revealBtn.onclick = () => {
+        soundManager.playClick();
+        if (solutionCard) solutionCard.classList.toggle('hidden');
+      };
+    }
+
+    if (prevBtn) {
+      prevBtn.onclick = () => {
+        if (currentCalcDrillIndex > 0) {
+          soundManager.playClick();
+          currentCalcDrillIndex--;
+          renderDrill();
+        }
+      };
+    }
+
+    if (nextBtn) {
+      nextBtn.onclick = () => {
+        if (currentCalcDrillIndex < CLINICAL_PEARLS.calculation_practice.length - 1) {
+          soundManager.playClick();
+          currentCalcDrillIndex++;
+          renderDrill();
+        }
+      };
+    }
+
+    renderDrill();
+  }
+
+  // ==========================================
+  // UNIVERSAL LIVE SEARCH
+  // ==========================================
+  function initUniversalSearch() {
+    const searchInput = document.getElementById('universalSearchInput');
+    const dropdown = document.getElementById('universalSearchResults');
+    if (!searchInput || !dropdown) return;
+
+    let debounceTimer = null;
+
+    searchInput.addEventListener('input', (e) => {
+      clearTimeout(debounceTimer);
+      const query = e.target.value.trim().toLowerCase();
+
+      if (query.length < 2) {
+        dropdown.classList.add('hidden');
+        dropdown.innerHTML = '';
+        return;
+      }
+
+      debounceTimer = setTimeout(() => {
+        const matchedQuestions = PNLE_QUESTIONS.filter(q => 
+          q.question.toLowerCase().includes(query) ||
+          (q.vignette && q.vignette.toLowerCase().includes(query)) ||
+          q.topic.toLowerCase().includes(query) ||
+          q.area.toLowerCase().includes(query)
+        ).slice(0, 5);
+
+        const matchedFlashcards = FLASHCARD_DECKS.filter(f =>
+          f.front.toLowerCase().includes(query) ||
+          f.back.toLowerCase().includes(query) ||
+          (f.mnemonic && f.mnemonic.toLowerCase().includes(query)) ||
+          f.category.toLowerCase().includes(query)
+        ).slice(0, 4);
+
+        const matchedLabs = CLINICAL_PEARLS.labValues.filter(l =>
+          l.name.toLowerCase().includes(query) ||
+          l.normal.toLowerCase().includes(query) ||
+          l.highYieldTip.toLowerCase().includes(query)
+        ).slice(0, 3);
+
+        const totalMatches = matchedQuestions.length + matchedFlashcards.length + matchedLabs.length;
+
+        if (totalMatches === 0) {
+          dropdown.innerHTML = `<div class="search-no-results">No matching board review topics found for "${query}"</div>`;
+          dropdown.classList.remove('hidden');
+          return;
+        }
+
+        let html = '';
+
+        if (matchedQuestions.length > 0) {
+          html += `<div class="search-dropdown-group-title">📝 Practice Questions (${matchedQuestions.length})</div>`;
+          matchedQuestions.forEach(q => {
+            html += `
+              <div class="search-item" data-type="question" data-id="${q.id}">
+                <div class="search-item-header">
+                  <span class="search-item-title">${q.topic}</span>
+                  <span class="badge badge-cyan">${q.area}</span>
+                </div>
+                <div class="search-item-desc">${q.question}</div>
+              </div>
+            `;
+          });
+        }
+
+        if (matchedFlashcards.length > 0) {
+          html += `<div class="search-dropdown-group-title">🗂️ High-Yield Flashcards (${matchedFlashcards.length})</div>`;
+          matchedFlashcards.forEach(f => {
+            html += `
+              <div class="search-item" data-type="flashcard" data-id="${f.id}">
+                <div class="search-item-header">
+                  <span class="search-item-title">${f.front}</span>
+                  <span class="badge badge-teal">${f.category}</span>
+                </div>
+                <div class="search-item-desc">${f.back}</div>
+              </div>
+            `;
+          });
+        }
+
+        if (matchedLabs.length > 0) {
+          html += `<div class="search-dropdown-group-title">🧪 Normal Labs & Pearls (${matchedLabs.length})</div>`;
+          matchedLabs.forEach(l => {
+            html += `
+              <div class="search-item" data-type="lab" data-name="${encodeURIComponent(l.name)}">
+                <div class="search-item-header">
+                  <span class="search-item-title">${l.name}</span>
+                  <span class="badge badge-gold">${l.normal}</span>
+                </div>
+                <div class="search-item-desc">${l.highYieldTip}</div>
+              </div>
+            `;
+          });
+        }
+
+        dropdown.innerHTML = html;
+        dropdown.classList.remove('hidden');
+
+        dropdown.querySelectorAll('.search-item').forEach(item => {
+          item.addEventListener('click', () => {
+            soundManager.playClick();
+            const type = item.dataset.type;
+            dropdown.classList.add('hidden');
+            searchInput.value = '';
+
+            if (type === 'question') {
+              const qId = item.dataset.id;
+              const targetIndex = PNLE_QUESTIONS.findIndex(q => q.id === qId);
+              if (targetIndex !== -1) {
+                switchView('practice');
+                currentQuestions = [...PNLE_QUESTIONS];
+                activeFilter = 'all';
+                document.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.area === 'all'));
+                loadQuestion(targetIndex);
+              }
+            } else if (type === 'flashcard') {
+              const fId = item.dataset.id;
+              const targetIndex = FLASHCARD_DECKS.findIndex(f => f.id === fId);
+              if (targetIndex !== -1) {
+                switchView('flashcards');
+                activeFlashcardDeck = [...FLASHCARD_DECKS];
+                currentFlashcardIndex = targetIndex;
+                isFlashcardFlipped = false;
+                renderFlashcard();
+              }
+            } else if (type === 'lab') {
+              switchView('pearls');
+              const labInput = document.getElementById('labSearchInput');
+              if (labInput) {
+                labInput.value = decodeURIComponent(item.dataset.name);
+                labInput.dispatchEvent(new Event('input'));
+                labInput.scrollIntoView({ behavior: 'smooth' });
+              }
+            }
+          });
+        });
+      }, 200);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.classList.add('hidden');
+      }
+    });
+  }
+
+  // ==========================================
+  // HIGH-YIELD BOARD CRAM SHEETS MODAL
+  // ==========================================
+  function initCramSheets() {
+    const modal = document.getElementById('cramSheetsModal');
+    const headerBtn = document.getElementById('headerCramSheetsBtn');
+    const closeBtn = document.getElementById('closeCramModalBtn');
+    const printBtn = document.getElementById('printCramModalBtn');
+    if (!modal) return;
+
+    if (headerBtn) {
+      headerBtn.addEventListener('click', () => {
+        soundManager.playClick();
+        modal.showModal();
+        renderCramContent();
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        soundManager.playClick();
+        modal.close();
+      });
+    }
+
+    if (printBtn) {
+      printBtn.addEventListener('click', () => {
+        window.print();
+      });
+    }
+
+    const tabBtns = modal.querySelectorAll('.cram-tab-btn');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        soundManager.playClick();
+        tabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const target = btn.dataset.cramTab;
+
+        modal.querySelectorAll('.cram-tab-content').forEach(content => {
+          content.classList.toggle('active', content.id === `cramTab-${target}`);
+        });
+      });
+    });
+
+    // ABG Evaluator
+    const phInput = document.getElementById('abgPhInput');
+    const paco2Input = document.getElementById('abgPaco2Input');
+    const hco3Input = document.getElementById('abgHco3Input');
+    const verdictTitle = document.getElementById('abgVerdictTitle');
+    const verdictDesc = document.getElementById('abgVerdictExplanation');
+
+    function updateABGEvaluation() {
+      if (!phInput || !paco2Input || !hco3Input || !verdictTitle || !verdictDesc) return;
+      const ph = parseFloat(phInput.value) || 7.40;
+      const paco2 = parseFloat(paco2Input.value) || 40;
+      const hco3 = parseFloat(hco3Input.value) || 24;
+
+      let diagnosis = '';
+      let explanation = '';
+
+      const isAcidPh = ph < 7.35;
+      const isAlkPh = ph > 7.45;
+
+      const isAcidPaco2 = paco2 > 45;
+      const isAlkPaco2 = paco2 < 35;
+      const isNormalPaco2 = !isAcidPaco2 && !isAlkPaco2;
+
+      const isAcidHco3 = hco3 < 22;
+      const isAlkHco3 = hco3 > 26;
+      const isNormalHco3 = !isAcidHco3 && !isAlkHco3;
+
+      if (isAcidPh) {
+        if (isAcidPaco2 && isNormalHco3) {
+          diagnosis = 'Uncompensated Respiratory Acidosis';
+          explanation = 'pH is acid (<7.35), PaCO2 is acid (>45 mmHg - Respiratory Opposite), and HCO3 is normal (no renal compensation yet). Common in COPD, hypoventilation, airway obstruction, CNS depression.';
+        } else if (isAcidPaco2 && isAlkHco3) {
+          diagnosis = 'Partially Compensated Respiratory Acidosis';
+          explanation = 'pH remains acid (<7.35) due to respiratory cause (PaCO2 > 45), but kidneys are retaining bicarbonate (HCO3 > 26) to attempt neutralization.';
+        } else if (isAcidHco3 && isNormalPaco2) {
+          diagnosis = 'Uncompensated Metabolic Acidosis';
+          explanation = 'pH is acid (<7.35), HCO3 is low (<22 mEq/L - Metabolic Equal), and PaCO2 is normal. Common in DKA, severe diarrhea, renal failure, lactic acidosis.';
+        } else if (isAcidHco3 && isAlkPaco2) {
+          diagnosis = 'Partially Compensated Metabolic Acidosis';
+          explanation = 'pH is acid (<7.35) from metabolic base loss (HCO3 < 22), but lungs are hyperventilating (PaCO2 < 35 mmHg - Kussmaul respirations) to blow off acid.';
+        } else if (isAcidPaco2 && isAcidHco3) {
+          diagnosis = 'Combined (Mixed) Respiratory & Metabolic Acidosis';
+          explanation = 'Severe cardiopulmonary arrest state where both lungs and metabolic buffering fail simultaneously.';
+        } else {
+          diagnosis = 'Acidemia (Borderline Compensation)';
+          explanation = 'pH is below normal threshold. Evaluate underlying clinical history.';
+        }
+      } else if (isAlkPh) {
+        if (isAlkPaco2 && isNormalHco3) {
+          diagnosis = 'Uncompensated Respiratory Alkalosis';
+          explanation = 'pH is alkalotic (>7.45), PaCO2 is low (<35 mmHg - hyperventilation/anxiety/pain), HCO3 is normal.';
+        } else if (isAlkPaco2 && isAcidHco3) {
+          diagnosis = 'Partially Compensated Respiratory Alkalosis';
+          explanation = 'pH remains alkalotic (>7.45), PaCO2 is low (<35), but kidneys are excreting bicarbonate (HCO3 < 22).';
+        } else if (isAlkHco3 && isNormalPaco2) {
+          diagnosis = 'Uncompensated Metabolic Alkalosis';
+          explanation = 'pH is alkalotic (>7.45), HCO3 is elevated (>26 mEq/L), PaCO2 is normal. Common with NG suctioning, prolonged vomiting, excessive antacids.';
+        } else if (isAlkHco3 && isAcidPaco2) {
+          diagnosis = 'Partially Compensated Metabolic Alkalosis';
+          explanation = 'pH is alkalotic (>7.45) from high base (HCO3 > 26), and lungs are hypoventilating (PaCO2 > 45) to retain acid.';
+        } else {
+          diagnosis = 'Alkalemia (Borderline Compensation)';
+          explanation = 'pH is elevated above 7.45.';
+        }
+      } else {
+        // Normal pH (7.35 - 7.45)
+        if (isNormalPaco2 && isNormalHco3) {
+          diagnosis = 'Normal Arterial Blood Gas';
+          explanation = 'All parameters (pH 7.35-7.45, PaCO2 35-45, HCO3 22-26) are within safe physiologic homeostasis.';
+        } else if (ph <= 7.40 && (isAcidPaco2 || isAcidHco3)) {
+          if (isAcidPaco2 && isAlkHco3) {
+            diagnosis = 'Fully Compensated Respiratory Acidosis';
+            explanation = 'pH has been restored to normal range (7.35-7.40), with chronic retention of CO2 (>45) compensated by elevated renal HCO3 (>26). Typical of stable chronic COPD.';
+          } else {
+            diagnosis = 'Fully Compensated Metabolic Acidosis';
+            explanation = 'pH is normalized on the acidic side (7.35-7.40), with low HCO3 compensated by respiratory blowing off of PaCO2.';
+          }
+        } else if (ph > 7.40 && (isAlkPaco2 || isAlkHco3)) {
+          if (isAlkPaco2 && isAcidHco3) {
+            diagnosis = 'Fully Compensated Respiratory Alkalosis';
+            explanation = 'pH is normalized on the alkaline side (7.40-7.45) with low PaCO2 compensated by low HCO3.';
+          } else {
+            diagnosis = 'Fully Compensated Metabolic Alkalosis';
+            explanation = 'pH is normalized on the alkaline side (7.40-7.45) with elevated HCO3 compensated by hypoventilation (PaCO2 > 45).';
+          }
+        } else {
+          diagnosis = 'Compensated Acid-Base State';
+          explanation = 'pH is maintained within 7.35 - 7.45 normal range.';
+        }
+      }
+
+      verdictTitle.textContent = diagnosis;
+      verdictDesc.textContent = explanation;
+    }
+
+    [phInput, paco2Input, hco3Input].forEach(inp => {
+      if (inp) inp.addEventListener('input', updateABGEvaluation);
+    });
+
+    updateABGEvaluation();
+
+    function renderCramContent() {
+      const cramLabsTbody = document.getElementById('cramLabsTbody');
+      const cramLabSearch = document.getElementById('cramLabSearch');
+      if (cramLabsTbody && CLINICAL_PEARLS.labValues) {
+        function renderLabRows(labs) {
+          cramLabsTbody.innerHTML = labs.map(l => `
+            <tr>
+              <td><strong>${l.name}</strong></td>
+              <td><span class="badge badge-cyan">${l.normal}</span></td>
+              <td class="text-sm">${l.highYieldTip}</td>
+            </tr>
+          `).join('');
+        }
+        renderLabRows(CLINICAL_PEARLS.labValues);
+
+        if (cramLabSearch) {
+          cramLabSearch.oninput = (e) => {
+            const q = e.target.value.toLowerCase();
+            const filtered = CLINICAL_PEARLS.labValues.filter(l =>
+              l.name.toLowerCase().includes(q) ||
+              l.normal.toLowerCase().includes(q) ||
+              l.highYieldTip.toLowerCase().includes(q)
+            );
+            renderLabRows(filtered);
+          };
+        }
+      }
+
+      const maternalContent = document.getElementById('cramMaternalContent');
+      if (maternalContent && CLINICAL_PEARLS.maternal_milestones) {
+        const mm = CLINICAL_PEARLS.maternal_milestones;
+        maternalContent.innerHTML = `
+          <div class="cram-block-card">
+            <div class="cram-block-title">🤰 Fundic Height Milestones (McDonald's Rule)</div>
+            <table class="cram-block-table">
+              <thead><tr><th>Gestational Age</th><th>Anatomical Landmark</th><th>Clinical Significance</th></tr></thead>
+              <tbody>
+                ${mm.fundic_height.map(f => `<tr><td><strong>${f.weeks}</strong></td><td>${f.landmark}</td><td class="text-secondary">${f.pearl}</td></tr>`).join('')}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cram-block-card">
+            <div class="cram-block-title">👶 Developmental Milestones (Gross & Fine Motor)</div>
+            <table class="cram-block-table">
+              <thead><tr><th>Age</th><th>Motor Skill</th><th>Red Flag / Safety Pearl</th></tr></thead>
+              <tbody>
+                ${mm.developmental_milestones.map(d => `<tr><td><strong>${d.age}</strong></td><td>${d.skill}</td><td class="text-secondary">${d.red_flag}</td></tr>`).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      }
+
+      const triageContent = document.getElementById('cramTriageContent');
+      if (triageContent && CLINICAL_PEARLS.start_triage) {
+        const st = CLINICAL_PEARLS.start_triage;
+        triageContent.innerHTML = `
+          <div class="cram-block-card">
+            <div class="cram-block-title">🚨 START Algorithm Hierarchy (RPM: Respiration, Perfusion, Mental Status)</div>
+            <p class="text-sm text-secondary">Simple Triage and Rapid Treatment: Evaluated within 30 seconds per casualty.</p>
+            <table class="cram-block-table">
+              <thead><tr><th>Tag</th><th>Category</th><th>Clinical Criteria</th><th>PNLE Action</th></tr></thead>
+              <tbody>
+                ${st.map(t => {
+                  let badgeCls = t.tag === 'RED' ? 'triage-badge-red' : (t.tag === 'YELLOW' ? 'triage-badge-yellow' : (t.tag === 'GREEN' ? 'triage-badge-green' : 'triage-badge-black'));
+                  return `<tr>
+                    <td><span class="${badgeCls}">${t.tag}</span></td>
+                    <td><strong>${t.category}</strong></td>
+                    <td>${t.criteria}</td>
+                    <td class="text-secondary">${t.action}</td>
+                  </tr>`;
+                }).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      }
+
+      const lawsContent = document.getElementById('cramLawsContent');
+      if (lawsContent && CLINICAL_PEARLS.philippine_laws) {
+        lawsContent.innerHTML = `
+          <div class="cram-block-card">
+            <div class="cram-block-title">📜 High-Yield Philippine Nursing & Health Jurisprudence</div>
+            <table class="cram-block-table">
+              <thead><tr><th>Law</th><th>Title</th><th>High-Yield PNLE Statutory Mandate</th></tr></thead>
+              <tbody>
+                ${CLINICAL_PEARLS.philippine_laws.map(l => `
+                  <tr>
+                    <td><span class="badge badge-purple">${l.law}</span></td>
+                    <td><strong>${l.title}</strong></td>
+                    <td class="text-secondary">${l.pearl}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      }
+    }
+  }
+
+  // ==========================================
+  // PRINTABLE REVIEW SHEET & ERROR LOG
+  // ==========================================
+  let activeReviewFilter = 'wrong';
+  let customReviewQuestions = null;
+
+  function openPrintableReviewSheetWithMissed(missedList) {
+    customReviewQuestions = missedList;
+    const modal = document.getElementById('printableReviewModal');
+    if (modal) {
+      modal.showModal();
+      renderReviewSheetTable();
+    }
+  }
+
+  function initPrintableReviewSheet() {
+    const modal = document.getElementById('printableReviewModal');
+    const headerBtn = document.getElementById('headerPrintErrorLogBtn');
+    const closeBtn = document.getElementById('closeReviewModalBtn');
+    const printBtn = document.getElementById('triggerPrintBtn');
+    if (!modal) return;
+
+    if (headerBtn) {
+      headerBtn.addEventListener('click', () => {
+        soundManager.playClick();
+        customReviewQuestions = null;
+        modal.showModal();
+        renderReviewSheetTable();
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        soundManager.playClick();
+        modal.close();
+      });
+    }
+
+    if (printBtn) {
+      printBtn.addEventListener('click', () => {
+        window.print();
+      });
+    }
+
+    const filterPills = modal.querySelectorAll('[data-review-filter]');
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        soundManager.playClick();
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        activeReviewFilter = pill.dataset.reviewFilter;
+        customReviewQuestions = null;
+        renderReviewSheetTable();
+      });
+    });
+  }
+
+  function renderReviewSheetTable() {
+    const container = document.getElementById('reviewSheetContent');
+    const wrongCountEl = document.getElementById('reviewWrongCount');
+    const flagCountEl = document.getElementById('reviewFlagCount');
+    const bookmarkCountEl = document.getElementById('reviewBookmarkCount');
+    if (!container) return;
+
+    const incorrectIds = appState.getIncorrectQuestionIds ? appState.getIncorrectQuestionIds() : [];
+    const flaggedIds = appState.flags ? [...appState.flags] : [];
+    const bookmarkedIds = appState.bookmarks ? [...appState.bookmarks] : [];
+
+    if (wrongCountEl) wrongCountEl.textContent = incorrectIds.length;
+    if (flagCountEl) flagCountEl.textContent = flaggedIds.length;
+    if (bookmarkCountEl) bookmarkCountEl.textContent = bookmarkedIds.length;
+
+    let itemsToRender = [];
+
+    if (customReviewQuestions && customReviewQuestions.length > 0) {
+      itemsToRender = customReviewQuestions.map(item => ({
+        question: item.question,
+        selectedAnswer: item.selectedAnswer,
+        correctAnswer: item.question.correctAnswer
+      }));
+    } else if (activeReviewFilter === 'wrong') {
+      itemsToRender = incorrectIds.map(id => {
+        const q = PNLE_QUESTIONS.find(item => item.id === id);
+        const ans = appState.getAnswer(id);
+        return q ? { question: q, selectedAnswer: ans ? ans.selectedId : 'Unanswered', correctAnswer: q.correctAnswer } : null;
+      }).filter(Boolean);
+    } else if (activeReviewFilter === 'flagged') {
+      itemsToRender = flaggedIds.map(id => {
+        const q = PNLE_QUESTIONS.find(item => item.id === id);
+        const ans = appState.getAnswer(id);
+        return q ? { question: q, selectedAnswer: ans ? ans.selectedId : 'Unanswered', correctAnswer: q.correctAnswer } : null;
+      }).filter(Boolean);
+    } else {
+      itemsToRender = bookmarkedIds.map(id => {
+        const q = PNLE_QUESTIONS.find(item => item.id === id);
+        const ans = appState.getAnswer(id);
+        return q ? { question: q, selectedAnswer: ans ? ans.selectedId : 'Unanswered', correctAnswer: q.correctAnswer } : null;
+      }).filter(Boolean);
+    }
+
+    if (itemsToRender.length === 0) {
+      container.innerHTML = `
+        <div class="empty-practice-card">
+          <p class="empty-card-text">No items recorded in this review category yet! Complete a practice set or mock exam to populate your error remediation sheet.</p>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = `
+      <table class="review-sheet-table">
+        <thead>
+          <tr>
+            <th style="width: 14%;">Subject & Topic</th>
+            <th style="width: 48%;">Clinical Scenario & Question</th>
+            <th style="width: 18%;">Your Answer vs Correct</th>
+            <th style="width: 20%;">Clinical Pearl & Rationale</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${itemsToRender.map((row, idx) => {
+            const q = row.question;
+            const correctOpt = q.options.find(o => o.id === q.correctAnswer);
+            const userOpt = q.options.find(o => o.id === row.selectedAnswer);
+            return `
+              <tr>
+                <td>
+                  <span class="badge badge-cyan">${q.area}</span><br>
+                  <strong class="text-xs">${q.topic}</strong>
+                </td>
+                <td>
+                  ${q.vignette ? `<div class="review-row-vignette">${q.vignette}</div>` : ''}
+                  <div class="review-row-stem">${idx + 1}. ${q.question}</div>
+                </td>
+                <td>
+                  <div>Your: <span class="review-pill-wrong">${row.selectedAnswer}: ${userOpt ? userOpt.text : 'None'}</span></div>
+                  <div class="mt-1">Correct: <span class="review-pill-right">${q.correctAnswer}: ${correctOpt ? correctOpt.text : ''}</span></div>
+                </td>
+                <td>
+                  <div class="review-pearl-text">${q.rationale.whyCorrect}</div>
+                </td>
+              </tr>
+            `;
+          }).join('')}
+        </tbody>
+      </table>
+    `;
   }
 
   function renderLabValuesTable() {

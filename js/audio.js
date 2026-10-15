@@ -130,8 +130,72 @@ class SoundEffects {
   playClick() {
     this.playTone(400, 'sine', 0.04, 0.02);
   }
+
+  // ==========================================
+  // Web Speech API - Text-to-Speech (TTS)
+  // ==========================================
+  speak(text, onStartCallback, onEndCallback) {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+      console.warn("Speech synthesis not supported in this browser.");
+      if (onEndCallback) onEndCallback();
+      return;
+    }
+
+    try {
+      window.speechSynthesis.cancel(); // Stop any active speech
+
+      if (!text || text.trim() === '') {
+        if (onEndCallback) onEndCallback();
+        return;
+      }
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 0.95; // Slightly slower, clear cadence for medical terminology
+      utterance.pitch = 1.0;
+      utterance.lang = 'en-US';
+
+      // Attempt to pick a natural English voice if available
+      const voices = window.speechSynthesis.getVoices();
+      if (voices && voices.length > 0) {
+        const preferredVoice = voices.find(v => (v.lang === 'en-PH' || v.lang === 'en-US' || v.lang.startsWith('en')) && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha')));
+        if (preferredVoice) utterance.voice = preferredVoice;
+      }
+
+      utterance.onstart = () => {
+        if (onStartCallback) onStartCallback();
+      };
+
+      utterance.onend = () => {
+        if (onEndCallback) onEndCallback();
+      };
+
+      utterance.onerror = (e) => {
+        console.warn("Speech synthesis error:", e);
+        if (onEndCallback) onEndCallback();
+      };
+
+      window.speechSynthesis.speak(utterance);
+    } catch (err) {
+      console.warn("Speech synthesis exception:", err);
+      if (onEndCallback) onEndCallback();
+    }
+  }
+
+  stopSpeech() {
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+  }
+
+  isSpeaking() {
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      return window.speechSynthesis.speaking;
+    }
+    return false;
+  }
 }
 const soundManager = new SoundEffects();
 
 if (typeof window !== 'undefined') window.soundManager = soundManager;
 if (typeof globalThis !== 'undefined') globalThis.soundManager = soundManager;
+
